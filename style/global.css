@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300&family=Montserrat:wght@200&display=swap');
+html,
+body {
+  padding: 0;
+  margin: 0;
+  
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Black Han Sans', sans-serif;
+  /* font-family: 'Black Han Sans', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Black Han Sans', sans-serif;
+  font-family: 'Dongle', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+.slick-prev::before {
+  color: #039be5 !important;
+}
+.slick-next::before {
+  color: #039be5 !important;
+}
+.Typist .Cursor {
+  display: inline-block;
+}
+.Typist .Cursor--blinking {
+  opacity: 1;
+  animation: blink 0.7s linear infinite;
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blinkBtn {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes motion {
+  0% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 40px;
+  }
+}
+
+.custom-slick:focus{
+  outline: 0;
+}
