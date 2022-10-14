@@ -3,15 +3,18 @@
 import React, { useRef, useCallback, useEffect, useState, useMemo, useLayoutEffect } from "react";
 import { useRouter } from "next/router";
 import _, { debounce, throttle } from "lodash";
-import dynamic from "next/dynamic";
 import { ThemeProvider } from "@material-ui/styles";
 import { createTheme } from "@material-ui/core";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 import Header from "./header";
+
 import MainImage from "./mainImage";
 import AboutMe from "./aboutme";
 import Project from "./project";
 import Skills from "./skills";
 import { Outer } from "../style/layout";
+import { Nextbutton } from "../style/button";
 // import RalewayWoff2 from "./fonts/Raleway-Regular.woff2";
 
 function AppLayout({ children }) {
@@ -81,10 +84,22 @@ function AppLayout({ children }) {
     <ThemeProvider theme={theme}>
       <Outer ref={outerDivRef}>
         <Header Pages={Pages} activeStep={activeStep} setActiveStep={setActiveStep} />
-        <MainImage activeStep={activeStep} />
-        <AboutMe />
-        <Project />
-        <Skills />
+        <MainImage activeStep={activeStep} setActiveStep={setActiveStep} />
+        <AboutMe activeStep={activeStep} setActiveStep={setActiveStep} />
+        <Project activeStep={activeStep} setActiveStep={setActiveStep} />
+        <Skills activeStep={activeStep} setActiveStep={setActiveStep} />
+        {activeStep !== 3 ? (
+          <Nextbutton onClick={() => setActiveStep((prev) => prev + 1)}>
+            <a style={{ fontSize: 18 }}>{Pages[activeStep + 1].match(/\w/g)}</a>
+            <KeyboardArrowDownIcon sx={{ opacity: 0.5 }} fontSize="large" />
+          </Nextbutton>
+        ) : (
+          <Nextbutton onClick={() => setActiveStep(0)}>
+            <a style={{ fontSize: 18 }}>{Pages[0].match(/\w/g)}</a>
+            <KeyboardDoubleArrowUpIcon sx={{ opacity: 0.5 }} fontSize="large" />
+          </Nextbutton>
+        )}
+
         <div id="about" />
         {children}
       </Outer>

@@ -44,11 +44,12 @@ const useStyles = makeStyles((theme, ownerstate) => ({
     },
   },
   steppler: {
-    padding: "2rem 10rem",
+    // padding: "2rem 20rem",
+    padding: "2% 30%",
     background: "rgba(0,0,0,0)",
     top: 10,
-    left: "calc(-50% + 16px)",
-    right: "calc(50% + 16px)",
+    // left: "calc(-50% + 16px)",
+    // right: "calc(50% + 16px)",
   },
   button: {
     color: "#fff",
@@ -183,12 +184,17 @@ export default function Header(props) {
         {steps.map((label, index) => (
           <Step className={classes.step} key={label} completed={completed[index]}>
             <StepLabel className={classes.labelname} StepIconComponent={QontoStepIcon}>
-              <Link href={`${label}`} onClick={() => StateHandle(index)}>
+              <Link
+                style={{ textDecorationLine: "none" }}
+                href={`${label}`}
+                onClick={() => StateHandle(index)}
+              >
                 <a
                   style={{
                     opacity: activeStep === index ? 1 : 0.4,
                     color: activeStep === 0 ? "#94B9F3" : "#3f51b5",
                     fontWeight: 700,
+                    textDecorationLine: "none",
                   }}
                 >
                   {label.match(/\w/g)}

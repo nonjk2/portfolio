@@ -1,20 +1,14 @@
 import React, { useCallback, forwardRef } from "react";
-import PropTypes from "prop-types";
-import Typist from "react-text-typist";
-import Link from "next/link";
-
 import { Typography } from "@material-ui/core";
-import Header from "./header";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { InnerImageDiv, MainImageLayout, MainImgdiv } from "../style/layout";
-import { Mainimg1 } from "../style/image";
 import { StyledTypist } from "../style/text";
-
-import { MainMorebutton } from "../style/button";
+import { MainMorebutton, Nextbutton } from "../style/button";
 import MainBackground from "./mainback";
 
 const MainImage = forwardRef((props, ref) => {
   const sentences2 = [`삐용삐용삐용 삐용`, `예이예이예이예이`, `신입 프론트엔드 개발자`];
-
+  const { activeStep, setActiveStep } = props;
   return (
     <MainImageLayout id="Main" ref={ref}>
       <MainBackground />

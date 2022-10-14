@@ -1,9 +1,9 @@
 import React, { useRef, forwardRef } from "react";
-import AppLayout from "./appLayout";
+
 import { SkillsLayout } from "../style/layout";
 
 const Skills = forwardRef((props, ref) => {
-  // const {handleOnWheel} = props;
+  const { setActiveStep } = props;
   return (
     <SkillsLayout id="Skills" ref={ref}>
       Skills

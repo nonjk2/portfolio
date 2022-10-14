@@ -12,27 +12,31 @@ const setSmoothScroll = (isSmooth) => {
 function Portpolio({ Component, pageProps }) {
   const router = useRouter();
 
-  React.useEffect(() => {
-    setSmoothScroll(true);
-    const handleStart = () => setSmoothScroll(false);
-    const handleStop = () => setSmoothScroll(true);
+  // React.useEffect(() => {
+  //   setSmoothScroll(true);
+  //   const handleStart = () => setSmoothScroll(false);
+  //   const handleStop = () => setSmoothScroll(true);
 
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleStop);
-    router.events.on("routeChangeError", handleStop);
+  //   router.events.on("routeChangeStart", handleStart);
+  //   router.events.on("routeChangeComplete", handleStop);
+  //   router.events.on("routeChangeError", handleStop);
 
-    return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleStop);
-      router.events.off("routeChangeError", handleStop);
-    };
-  }, [router]);
+  //   return () => {
+  //     router.events.off("routeChangeStart", handleStart);
+  //     router.events.off("routeChangeComplete", handleStop);
+  //     router.events.off("routeChangeError", handleStop);
+  //   };
+  // }, [router]);
 
   return (
     <>
       <Head>
         <meta charSet="utf-8" key="title" />
         <title>최은석's 포트폴리오</title>
+        <script
+          type="text/javascript"
+          src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=idk2vbhrq4"
+        />
       </Head>
       <Component {...pageProps} />
     </>

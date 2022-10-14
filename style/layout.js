@@ -1,3 +1,4 @@
+import { Paper } from "@mui/material";
 import styled, { keyframes } from "styled-components";
 
 /// / 전체영역 ////
@@ -65,7 +66,7 @@ export const ProjectLayout = styled.div`
   height: 100vh;
   text-align: center;
   /* line-height: 100vh; */
-  background: linear-gradient(white, 80%, rgb(226, 242, 253));
+  background: linear-gradient(rgb(226, 242, 253), 40%, white);
 `;
 
 export const SkillsLayout = styled.div`
@@ -77,7 +78,7 @@ export const SkillsLayout = styled.div`
 const move = keyframes`
 	//단계 별로 변화를 주는 코드
 	from{
-    transform: translateY(200px);
+    transform: translateY(100vh);
   }
   to{
     transform: translateY(0px);
@@ -98,4 +99,14 @@ export const TitleBox = styled.div`
   background: green;
   opacity: 1;
   animation: ${move} 2s 1s;
+`;
+
+export const MyAboutSmallPaperTwo = styled(Paper)`
+  flex: 1;
+  /* margin: 5px; */
+  animation: ${move} ${(props) => props.timing}s 0s;
+`;
+
+export const PaperContainer = styled.div`
+  animation: ${move} ${(props) => props.timing}s 0s;
 `;

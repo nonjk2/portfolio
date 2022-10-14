@@ -7,6 +7,7 @@ import { ProjectLayout } from "../style/layout";
 
 const fadeIn = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } });
 const Project = forwardRef((props, ref) => {
+  const { setActiveStep } = props;
   // const {handleOnWheel} = props;
   return (
     <ProjectLayout id="Project" ref={ref}>
