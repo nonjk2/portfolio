@@ -13,7 +13,7 @@ export default function MainBackground() {
         },
         particles: {
           number: {
-            value: 200,
+            value: 50,
             density: {
               enable: true,
               value_area: 800,
@@ -40,7 +40,7 @@ export default function MainBackground() {
             random: true,
             anim: {
               enable: false,
-              speed: 40,
+              speed: 10,
               size_min: 0.1,
               sync: false,
             },

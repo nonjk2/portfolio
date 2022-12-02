@@ -2,13 +2,13 @@
 /* eslint-disable no-use-before-define */
 import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { makeStyles, mergeClasses, styled } from "@material-ui/styles";
+import { makeStyles, styled } from "@material-ui/styles";
 import { useRouter } from "next/router";
 import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
 import { Step, StepButton, StepLabel, Stepper } from "@mui/material";
 import { Check, CircleOutlined } from "@mui/icons-material";
 
-import { Link, Typography } from "@material-ui/core";
+import { Button, Link, Typography } from "@material-ui/core";
 import { HeaderLayout, HeaderLayoutTitle, LogoLayout, TitleBox } from "../style/layout";
 
 const useStyles = makeStyles((theme, ownerstate) => ({
@@ -90,7 +90,7 @@ const useStyles = makeStyles((theme, ownerstate) => ({
   },
 }));
 
-const QontoStepIconRoot = styled("div")(({ theme, ownerstate }) => ({
+const QontoStepIconRoot = styled("div")(({ ownerstate }) => ({
   display: "flex",
   height: 22,
   alignItems: "center",
@@ -100,11 +100,7 @@ const QontoStepIconRoot = styled("div")(({ theme, ownerstate }) => ({
   }),
 
   "& .QontoStepIcon-completedIcon": {
-    // color: "#03e9f4",
     zIndex: 1,
-    // fontSize: 18,
-    // opacity: 0.7,
-    // borderColor: "#03e9f4",
     width: 12,
     height: 12,
     borderRadius: "50%",
@@ -150,28 +146,17 @@ QontoStepIcon.propTypes = {
 };
 
 export default function Header(props) {
-  const { activeStep, setActiveStep } = props;
+  const { activeStep, setActiveStep, themeLight, setThemeDark } = props;
   const router = useRouter();
-  const handleChange = useCallback((event, newValue) => {
-    setActiveStep(newValue);
-    // console.log("adsff");
-    // event.preventDefault();
-  });
   const StateHandle = useCallback(
     (index) => {
       setActiveStep(index);
     },
     [router],
   );
-
   const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const [completed, setCompleted] = React.useState({});
   const classes = useStyles();
-  // useEffect(() => {
-  const handleStep = (step) => () => {
-    setActiveStep(step);
-    // router.push(`${steps[step]}`);
-  };
 
   return (
     <HeaderLayout>
@@ -185,24 +170,27 @@ export default function Header(props) {
           <Step className={classes.step} key={label} completed={completed[index]}>
             <StepLabel className={classes.labelname} StepIconComponent={QontoStepIcon}>
               <Link
-                style={{ textDecorationLine: "none" }}
+                style={{ textDecorationLine: "none", display: "flex", justifyContent: "center" }}
                 href={`${label}`}
                 onClick={() => StateHandle(index)}
               >
-                <a
+                <Typography
                   style={{
-                    opacity: activeStep === index ? 1 : 0.4,
-                    color: activeStep === 0 ? "#94B9F3" : "#3f51b5",
-                    fontWeight: 700,
+                    opacity: activeStep === index ? 1 : 0.5,
+                    color: themeLight ? "#000" : "#94B9F3",
+                    fontWeight: "bold",
                     textDecorationLine: "none",
                   }}
                 >
                   {label.match(/\w/g)}
-                </a>
+                </Typography>
               </Link>
             </StepLabel>
           </Step>
         ))}
+        <Button style={{ position: "absolute", right: 0 }} onClick={() => setThemeDark((prev) => !prev)}>
+          {themeLight ? "어둡게" : "밝게"}
+        </Button>
       </Stepper>
     </HeaderLayout>
   );

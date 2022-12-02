@@ -3,8 +3,9 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import "../style/global.css";
+import "../style/slickslide.css";
+import "../style/slick-theme.css";
 import { useRouter } from "next/router";
-import { useSmoothScroll } from "../hooks/useSmoothScroll";
 
 const setSmoothScroll = (isSmooth) => {
   document.documentElement.style.scrollBehavior = isSmooth ? "smooth" : "auto";

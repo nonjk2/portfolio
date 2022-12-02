@@ -21,7 +21,7 @@ function AppLayout({ children }) {
   const outerDivRef = useRef(0);
   const router = useRouter();
   const [activeStep, setActiveStep] = useState(0);
-
+  const [themeLight, setThemeDark] = useState(false);
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const delay = useCallback(
     _.throttle(
@@ -39,12 +39,6 @@ function AppLayout({ children }) {
   useEffect(() => {
     const wheelHandler = (e) => {
       e.preventDefault();
-      const { deltaY } = e;
-      if (deltaY > 0) {
-        delay("down");
-      } else if (deltaY < 0) {
-        delay("up");
-      }
     };
 
     const outerDivRefCurrent = outerDivRef.current;
@@ -65,6 +59,9 @@ function AppLayout({ children }) {
       h2: { color: "#fff", fontfamily: "'Black Han Sans', sans-serif" },
       h6: { fontfamily: "'Montserrat', sans-serif" },
     },
+    palette: {
+      type: themeLight ? "light" : "dark",
+    },
     components: {
       MuiCssBaseline: {
         styleOverrides: `
@@ -83,18 +80,24 @@ function AppLayout({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <Outer ref={outerDivRef}>
-        <Header Pages={Pages} activeStep={activeStep} setActiveStep={setActiveStep} />
-        <MainImage activeStep={activeStep} setActiveStep={setActiveStep} />
-        <AboutMe activeStep={activeStep} setActiveStep={setActiveStep} />
-        <Project activeStep={activeStep} setActiveStep={setActiveStep} />
-        <Skills activeStep={activeStep} setActiveStep={setActiveStep} />
+        <Header
+          Pages={Pages}
+          activeStep={activeStep}
+          setActiveStep={setActiveStep}
+          themeLight={themeLight}
+          setThemeDark={setThemeDark}
+        />
+        <MainImage activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
+        <AboutMe activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
+        <Project activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
+        <Skills activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
         {activeStep !== 3 ? (
-          <Nextbutton onClick={() => setActiveStep((prev) => prev + 1)}>
+          <Nextbutton onClick={() => setActiveStep((prev) => prev + 1)} themeLight={themeLight}>
             <a style={{ fontSize: 18 }}>{Pages[activeStep + 1].match(/\w/g)}</a>
             <KeyboardArrowDownIcon sx={{ opacity: 0.5 }} fontSize="large" />
           </Nextbutton>
         ) : (
-          <Nextbutton onClick={() => setActiveStep(0)}>
+          <Nextbutton onClick={() => setActiveStep(0)} themeLight={themeLight}>
             <a style={{ fontSize: 18 }}>{Pages[0].match(/\w/g)}</a>
             <KeyboardDoubleArrowUpIcon sx={{ opacity: 0.5 }} fontSize="large" />
           </Nextbutton>

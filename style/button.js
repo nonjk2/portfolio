@@ -20,10 +20,57 @@ const updown = keyframes`
     transform: translateY(-10px);
   }
 `;
+
+const rightLeft = keyframes`
+  from {
+    transform: translateX(5px);
+  }
+  to {
+    transform: translateX(-5px);
+  }
+`;
+export const PreArrowbutton = styled.button`
+  position: absolute;
+  /* display: flex; */
+  background-color: transparent;
+  color: ${(props) => (props.themeLight ? "#000" : "#fff")};
+  /* flex-direction: column; */
+  /* align-items: center;
+  justify-content: center; */
+  border-width: 0px;
+  cursor: pointer;
+  right: 0;
+  min-height: auto;
+  bottom: 2vh;
+  animation: ${rightLeft} 1000ms infinite alternate ease-in-out;
+  &:hover {
+    color: blue;
+  }
+`;
+
+export const NextArrowbutton = styled.button`
+  position: fixed;
+  /* display: flex; */
+  background-color: transparent;
+  color: ${(props) => (props.themeLight ? "#000" : "#fff")};
+  /* flex-direction: column; */
+  /* align-items: center;
+  justify-content: center; */
+  border-width: 0px;
+  cursor: pointer;
+  left: 0;
+  min-height: auto;
+  bottom: 2vh;
+  animation: ${rightLeft} 1000ms infinite alternate ease-in-out;
+  &:hover {
+    color: blue;
+  }
+`;
 export const Nextbutton = styled.button`
   position: fixed;
   display: flex;
   background-color: Transparent;
+  color: ${(props) => (props.themeLight ? "#000" : "#fff")};
   flex-direction: column;
   align-items: center;
   justify-content: center;

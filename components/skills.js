@@ -3,9 +3,9 @@ import React, { useRef, forwardRef } from "react";
 import { SkillsLayout } from "../style/layout";
 
 const Skills = forwardRef((props, ref) => {
-  const { setActiveStep } = props;
+  const { setActiveStep, themeLight } = props;
   return (
-    <SkillsLayout id="Skills" ref={ref}>
+    <SkillsLayout id="Skills" ref={ref} themeLight={themeLight}>
       Skills
     </SkillsLayout>
   );

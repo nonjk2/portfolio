@@ -1,21 +1,16 @@
-import React, { useRef, forwardRef } from "react";
-
-import { jsx, css, keyframes } from "@emotion/react";
-import { Box } from "@mui/material";
-import AppLayout from "./appLayout";
+import React, { useRef, forwardRef, useEffect } from "react";
 import { ProjectLayout } from "../style/layout";
+import ProjectCarousel from "./project/projectItem";
 
-const fadeIn = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } });
-const Project = forwardRef((props, ref) => {
-  const { setActiveStep } = props;
-  // const {handleOnWheel} = props;
+function Project(props) {
+  const { setActiveStep, themeLight } = props;
+  const proJectDivRef = useRef(0);
+
   return (
-    <ProjectLayout id="Project" ref={ref}>
-      <Box {...props} sx={{ animation: `${fadeIn} 1s forwards` }}>
-        <div>asdfasdfasdf</div>
-      </Box>
+    <ProjectLayout ref={proJectDivRef} id="Project" themeLight={themeLight}>
+      <ProjectCarousel themeLight={themeLight} />
     </ProjectLayout>
   );
-});
+}
 
 export default Project;

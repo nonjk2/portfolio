@@ -4,7 +4,7 @@ import { Avatar, Box, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
 import styled, { keyframes } from "styled-components";
-import { LocationOn, Face, Mail, GitHub, PermContactCalendar, Phone } from "@mui/icons-material/";
+import { LocationOn, Face, Mail, GitHub, PermContactCalendar, Phone, Favorite } from "@mui/icons-material/";
 import { Link } from "@mui/material";
 import { AboutmeLayout, MyAboutSmallPaperTwo, PaperContainer } from "../style/layout";
 import { Nextbutton } from "../style/button";
@@ -13,7 +13,7 @@ function AboutMe(props) {
   const [toggle, setToggle] = useState(false);
   const [OnMouse, setOnMouse] = useState(0);
   const [aboutpage, setaboutpage] = useState([false, false, false]);
-  const { activeStep, setActiveStep } = props;
+  const { activeStep, setActiveStep, themeLight } = props;
   const mapElement = useRef(null);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function AboutMe(props) {
       border: "2px solid rgba(255,255,255,0.1)",
       boxShadow: "0 0 40px rgba(8,7,16,0.1)",
       borderRadius: 15,
-      transition: "transform 0.3s ease-in-out",
+      transition: "transform 0.2s",
       transformStyle: "preserve-3d",
       transform: "rotateY(0deg)",
 
@@ -177,9 +177,9 @@ function AboutMe(props) {
 
   return (
     <div id="Aboutme">
-      <AboutmeLayout>
+      <AboutmeLayout themeLight={themeLight}>
         <div className={classes.Container} key={activeStep}>
-          <PaperContainer className={classes.paperContainer} timing={2.1}>
+          <PaperContainer className={classes.paperContainer} timing={0.9}>
             <div elevation={3} className={classes.paper}>
               <div className={classes.frontAboutMeOne}>
                 <img
@@ -201,7 +201,7 @@ function AboutMe(props) {
           <div className={classes.myAboutPaperContainer}>
             <div className={classes.myAboutSmallPaperContainer}>
               <div className={classes.SmallpaperContainer}>
-                <MyAboutSmallPaperTwo className={classes.paper} timing={1.3}>
+                <MyAboutSmallPaperTwo className={classes.paper} timing={0.8}>
                   <div className={classes.frontAboutMeOne}>
                     <div className={classes.myAboutSmallPaper}>
                       <div
@@ -239,7 +239,7 @@ function AboutMe(props) {
                   </div>
                 </MyAboutSmallPaperTwo>
               </div>
-              <MyAboutSmallPaperTwo className={classes.bottompaper} timing={1.3}>
+              <MyAboutSmallPaperTwo className={classes.bottompaper} timing={0.7}>
                 <Link
                   href="https://github.com/nonjk2"
                   style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}
@@ -247,7 +247,7 @@ function AboutMe(props) {
                   <GitHub style={{ fontSize: "30" }} />
                 </Link>
                 <Link
-                  href="https://github.com/nonjk2"
+                  href="https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1665731167456_C38992CC-0D97-4ED8-BA2F-C84866C4E337.jpg"
                   style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}
                 >
                   <svg width="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 191.94">
@@ -270,11 +270,31 @@ function AboutMe(props) {
           <div className={classes.myAboutAddContainer}>
             <div className={classes.myAboutSmallPaperContainer}>
               <div className={classes.SmallpaperContainer}>
-                <MyAboutSmallPaperTwo className={classes.paper} timing={1.1}>
+                <MyAboutSmallPaperTwo className={classes.paper} timing={0.5}>
                   <div className={classes.frontAboutMeOne}>
                     <div className={classes.myAboutSmallPaper}>
-                      <LocationOn />
-                      <h2>주소</h2>
+                      <div
+                        style={{
+                          lineHeight: "200%",
+                        }}
+                      >
+                        <h1 style={{ fontWeight: "bold" }}>TMI</h1>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          // width: "100%",
+                          margin: "0 auto",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        {myinfoCompo(LocationOn, "주소", "서울시 영등포구 문래동")}
+                        {myinfoCompo(Favorite, "취미", "카페에서 커피마시면서 소설읽기")}
+                        {myinfoCompo(PermContactCalendar, "생년월일", "1994 . 05. 30")}
+                        {myinfoCompo(Phone, "전화", "010 - 9637 - 8406")}
+                      </div>
                     </div>
                   </div>
                   <div className={classes.frontAboutMeTwo}>

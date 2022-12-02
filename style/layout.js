@@ -16,6 +16,8 @@ export const LogoLayout = styled.div`
 `;
 
 export const HeaderLayout = styled.header`
+  /* display: inline-block; */
+  /* background-color: red; */
   position: fixed;
   top: 0;
   right: 0;
@@ -30,7 +32,8 @@ export const MainImageLayout = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253));
+  background: ${(props) =>
+    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 
 export const InnerImageDiv = styled.div`
@@ -59,21 +62,32 @@ export const AboutmeLayout = styled.div`
   height: 100vh;
   align-items: center;
   /* line-height: 100vh; */
-  background: linear-gradient(rgb(226, 242, 253), 40%, white);
+  /* background: linear-gradient(rgb(226, 242, 253), 40%, white); */
+  /* background: rgb(36, 39, 63); */
+  background: ${(props) =>
+    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 
 export const ProjectLayout = styled.div`
+  width: 100vw;
   height: 100vh;
   text-align: center;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
   /* line-height: 100vh; */
-  background: linear-gradient(rgb(226, 242, 253), 40%, white);
+  background: ${(props) =>
+    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 
 export const SkillsLayout = styled.div`
   height: 100vh;
   text-align: center;
   /* line-height: 100vh; */
-  background: rgb(226, 242, 253);
+  /* background: rgb(226, 242, 253); */
+  background: ${(props) =>
+    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 const move = keyframes`
 	//단계 별로 변화를 주는 코드
