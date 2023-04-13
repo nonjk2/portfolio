@@ -89,7 +89,7 @@ export const SkillsLayout = styled.div`
   background: ${(props) =>
     props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
-const move = keyframes`
+export const move = keyframes`
 	//단계 별로 변화를 주는 코드
 	from{
     transform: translateY(100vh);
@@ -122,5 +122,11 @@ export const MyAboutSmallPaperTwo = styled(Paper)`
 `;
 
 export const PaperContainer = styled.div`
+  animation: ${move} ${(props) => props.timing}s 0s;
+`;
+
+export const ProjectContainer = styled.div`
+  /* width: 90%; */
+  /* padding: 0; */
   animation: ${move} ${(props) => props.timing}s 0s;
 `;

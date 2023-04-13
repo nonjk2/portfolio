@@ -7,6 +7,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { createTheme } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import { Button } from "@mui/material";
 import Header from "./header";
 
 import MainImage from "./mainImage";
@@ -16,25 +17,33 @@ import Skills from "./skills";
 import { Outer } from "../style/layout";
 import { Nextbutton } from "../style/button";
 // import RalewayWoff2 from "./fonts/Raleway-Regular.woff2";
+import { AppProvider, useAppContext } from "./appprovider";
 
 function AppLayout({ children }) {
   const outerDivRef = useRef(0);
   const router = useRouter();
-  const [activeStep, setActiveStep] = useState(0);
-  const [themeLight, setThemeDark] = useState(false);
+  const { activeStep, setActiveStep, themeLight, setThemeDark } = useAppContext();
+
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
-  const delay = useCallback(
-    _.throttle(
-      (page) => {
-        page === "down"
-          ? setActiveStep((prev) => (prev === 3 ? 3 : prev + 1))
-          : setActiveStep((prev) => (prev === 0 ? 0 : prev - 1));
-      },
-      1000,
-      { trailing: false },
-    ),
-    [],
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      event.preventDefault();
+      if (event.key === "ArrowDown") {
+        setActiveStep((prev) => (prev < Pages.length - 1 ? prev + 1 : 0));
+      } else if (event.key === "ArrowUp") {
+        setActiveStep((prev) => (prev > 0 ? prev - 1 : Pages.length - 1));
+      }
+    },
+    [setActiveStep],
   );
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   useEffect(() => {
     const wheelHandler = (e) => {
@@ -55,7 +64,6 @@ function AppLayout({ children }) {
 
   const theme = createTheme({
     typography: {
-      // fontFamily: "Raleway, Arial",
       h2: { color: "#fff", fontfamily: "'Black Han Sans', sans-serif" },
       h6: { fontfamily: "'Montserrat', sans-serif" },
     },
@@ -79,33 +87,30 @@ function AppLayout({ children }) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Outer ref={outerDivRef}>
-        <Header
-          Pages={Pages}
-          activeStep={activeStep}
-          setActiveStep={setActiveStep}
-          themeLight={themeLight}
-          setThemeDark={setThemeDark}
-        />
-        <MainImage activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
-        <AboutMe activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
-        <Project activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
-        <Skills activeStep={activeStep} setActiveStep={setActiveStep} themeLight={themeLight} />
-        {activeStep !== 3 ? (
-          <Nextbutton onClick={() => setActiveStep((prev) => prev + 1)} themeLight={themeLight}>
-            <a style={{ fontSize: 18 }}>{Pages[activeStep + 1].match(/\w/g)}</a>
-            <KeyboardArrowDownIcon sx={{ opacity: 0.5 }} fontSize="large" />
-          </Nextbutton>
-        ) : (
-          <Nextbutton onClick={() => setActiveStep(0)} themeLight={themeLight}>
-            <a style={{ fontSize: 18 }}>{Pages[0].match(/\w/g)}</a>
-            <KeyboardDoubleArrowUpIcon sx={{ opacity: 0.5 }} fontSize="large" />
-          </Nextbutton>
-        )}
-
-        <div id="about" />
-        {children}
-      </Outer>
+      <AppProvider>
+        <Outer ref={outerDivRef}>
+          <MainImage />
+          <AboutMe />
+          <Project />
+          <Skills />
+          {activeStep !== 3 ? (
+            <Nextbutton onClick={() => setActiveStep((prev) => prev + 1)}>
+              <a style={{ fontSize: 18 }}>{Pages[activeStep + 1].match(/\w/g)}</a>
+              <KeyboardArrowDownIcon sx={{ opacity: 0.5 }} fontSize="large" />
+            </Nextbutton>
+          ) : (
+            <Nextbutton onClick={() => setActiveStep(0)}>
+              <a style={{ fontSize: 18 }}>{Pages[0].match(/\w/g)}</a>
+              <KeyboardDoubleArrowUpIcon sx={{ opacity: 0.5 }} fontSize="large" />
+            </Nextbutton>
+          )}
+          {/* <Button style={{ position: "absolute", right: 0 }} onClick={() => setThemeDark((prev) => !prev)}>
+            {!themeLight ? "어둡게" : "밝게"}
+          </Button> */}
+          <div id="about" />
+          {children}
+        </Outer>
+      </AppProvider>
     </ThemeProvider>
   );
 }

@@ -5,11 +5,12 @@ import PropTypes from "prop-types";
 import { makeStyles, styled } from "@material-ui/styles";
 import { useRouter } from "next/router";
 import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
-import { Step, StepButton, StepLabel, Stepper } from "@mui/material";
+import { Step, StepButton, StepLabel, stepLabelClasses, Stepper } from "@mui/material";
 import { Check, CircleOutlined } from "@mui/icons-material";
 
 import { Button, Link, Typography } from "@material-ui/core";
 import { HeaderLayout, HeaderLayoutTitle, LogoLayout, TitleBox } from "../style/layout";
+import { useAppContext } from "./appprovider";
 
 const useStyles = makeStyles((theme, ownerstate) => ({
   "@global": {
@@ -41,6 +42,9 @@ const useStyles = makeStyles((theme, ownerstate) => ({
       to: {
         width: "100%",
       },
+    },
+    [`MuiStepLabel-labelContainer`]: {
+      marginTop: 0,
     },
   },
   steppler: {
@@ -117,57 +121,47 @@ const QontoStepIconRoot = styled("div")(({ ownerstate }) => ({
     animation: "scale .5s reverse",
   },
 }));
+
 function QontoStepIcon(props) {
-  const { active, completed, className } = props;
+  const { className, completed, active } = props;
 
   return (
-    <QontoStepIconRoot ownerstate={{ active }} className={className}>
-      {completed ? (
-        <CircleOutlined className="QontoStepIcon-completedIcon" />
-      ) : (
-        <div className="QontoStepIcon-circle" />
-      )}
-    </QontoStepIconRoot>
+    <div>
+      <QontoStepIconRoot ownerstate={{ active }} className={className}>
+        {completed ? (
+          <CircleOutlined className="QontoStepIcon-completedIcon" />
+        ) : (
+          <div className="QontoStepIcon-circle" />
+        )}
+      </QontoStepIconRoot>
+    </div>
   );
 }
-
-QontoStepIcon.propTypes = {
-  /**
-   * Whether this step is active.
-   * @default false
-   */
-  active: PropTypes.bool,
-  className: PropTypes.string,
-  /**
-   * Mark the step as completed. Is passed to child components.
-   * @default false
-   */
-  completed: PropTypes.bool,
-};
-
-export default function Header(props) {
-  const { activeStep, setActiveStep, themeLight, setThemeDark } = props;
+function Header() {
+  const { activeStep, setActiveStep, themeLight, setThemeDark } = useAppContext();
   const router = useRouter();
+  const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
+  const [completed, setCompleted] = useState({});
+  const classes = useStyles();
+
   const StateHandle = useCallback(
     (index) => {
       setActiveStep(index);
     },
     [router],
   );
-  const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
-  const [completed, setCompleted] = React.useState({});
-  const classes = useStyles();
-
+  useEffect(() => {
+    console.log("activeStep : ", activeStep);
+  }, [activeStep]);
   return (
     <HeaderLayout>
       <Stepper
         className={classes.steppler}
-        alternativeLabel
         activeStep={activeStep}
         connector={<StepConnector className={classes.StepConnector} />}
       >
         {steps.map((label, index) => (
-          <Step className={classes.step} key={label} completed={completed[index]}>
+          <Step className={classes.step} key={label}>
             <StepLabel className={classes.labelname} StepIconComponent={QontoStepIcon}>
               <Link
                 style={{ textDecorationLine: "none", display: "flex", justifyContent: "center" }}
@@ -188,10 +182,11 @@ export default function Header(props) {
             </StepLabel>
           </Step>
         ))}
-        <Button style={{ position: "absolute", right: 0 }} onClick={() => setThemeDark((prev) => !prev)}>
+        {/* <Button style={{ position: "absolute", right: 0 }} onClick={() => setThemeDark((prev) => !prev)}>
           {themeLight ? "어둡게" : "밝게"}
-        </Button>
+        </Button> */}
       </Stepper>
     </HeaderLayout>
   );
 }
+export default Header;

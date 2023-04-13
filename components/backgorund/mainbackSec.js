@@ -1,6 +1,6 @@
 import Particles from "react-tsparticles";
 
-export default function MainBackgroundTwo() {
+function MainBackgroundTwo() {
   return (
     <Particles
       style={{ position: "fixed", top: 0, left: 0 }}
@@ -59,3 +59,5 @@ export default function MainBackgroundTwo() {
     />
   );
 }
+
+export default MainBackgroundTwo;

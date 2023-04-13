@@ -1,22 +1,16 @@
 import Particles from "react-tsparticles";
 
-export default function MainBackground() {
+function MainBackground() {
   return (
     <Particles
-      style={{ position: "fixed", top: 0, left: 0 }}
-      width="100vw"
-      height="100vh"
+      style={{ position: "absolute", top: 0, left: 0 }}
       options={{
-        fullScreen: {
-          enable: false,
-          zIndex: -111,
-        },
         particles: {
           number: {
-            value: 50,
+            value: 10,
             density: {
               enable: true,
-              value_area: 800,
+              value_area: 200,
             },
           },
           color: {
@@ -109,3 +103,5 @@ export default function MainBackground() {
     />
   );
 }
+
+export default MainBackground;

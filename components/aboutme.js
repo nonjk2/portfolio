@@ -1,19 +1,15 @@
 /* eslint-disable react/button-has-type */
-import React, { useRef, forwardRef, useCallback, useState, useEffect, useLayoutEffect } from "react";
-import { Avatar, Box, Paper } from "@material-ui/core";
+import React, { useRef, useEffect } from "react";
+import { Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-import styled, { keyframes } from "styled-components";
 import { LocationOn, Face, Mail, GitHub, PermContactCalendar, Phone, Favorite } from "@mui/icons-material/";
 import { Link } from "@mui/material";
 import { AboutmeLayout, MyAboutSmallPaperTwo, PaperContainer } from "../style/layout";
-import { Nextbutton } from "../style/button";
+import { useAppContext } from "./appprovider";
 
-function AboutMe(props) {
-  const [toggle, setToggle] = useState(false);
-  const [OnMouse, setOnMouse] = useState(0);
-  const [aboutpage, setaboutpage] = useState([false, false, false]);
-  const { activeStep, setActiveStep, themeLight } = props;
+export default function AboutMe() {
+  const { activeStep, setActiveStep, themeLight } = useAppContext();
   const mapElement = useRef(null);
 
   useEffect(() => {
@@ -36,6 +32,7 @@ function AboutMe(props) {
       map,
     });
   }, [activeStep]);
+
   const useStyles = makeStyles((theme) => ({
     Container: {
       height: "100vh",
@@ -43,15 +40,6 @@ function AboutMe(props) {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-    },
-    paperContainer: {
-      perspective: "1000px",
-      width: "40vw",
-      height: "60vh",
-      "&:hover , &:focus": {
-        "& $paper": { transform: "rotateY(180deg)" },
-      },
-      // margin: "5px",
     },
     SmallpaperContainer: {
       perspective: "1000px",
@@ -75,6 +63,15 @@ function AboutMe(props) {
       transform: "rotateY(0deg)",
 
       // zIndex: "3",
+    },
+    paperContainer: {
+      perspective: "1000px",
+      width: "40vw",
+      height: "60vh",
+      "&:hover , &:focus": {
+        "& $paper": { transform: "rotateY(180deg)" },
+      },
+      // margin: "5px",
     },
     /** 카드 플립효과 */
     frontAboutMeOne: {
@@ -266,6 +263,7 @@ function AboutMe(props) {
               </MyAboutSmallPaperTwo>
             </div>
           </div>
+
           {/* 주소 paper */}
           <div className={classes.myAboutAddContainer}>
             <div className={classes.myAboutSmallPaperContainer}>
@@ -309,5 +307,3 @@ function AboutMe(props) {
     </div>
   );
 }
-
-export default AboutMe;

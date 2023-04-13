@@ -18,6 +18,7 @@ a {
 
 * {
   box-sizing: border-box;
+  white-space: pre-line;
   font-family: 'Black Han Sans', sans-serif;
   /* font-family: 'Black Han Sans', sans-serif; */
   font-family: 'Montserrat', sans-serif;
@@ -25,12 +26,12 @@ a {
   font-family: 'Dongle', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
-.slick-prev::before {
+/* .slick-prev::before {
   color: #039be5 !important;
 }
 .slick-next::before {
   color: #039be5 !important;
-}
+} */
 .Typist .Cursor {
   display: inline-block;
 }
