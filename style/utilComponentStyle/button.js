@@ -50,12 +50,8 @@ export const PreArrowbutton = styled.button`
 
 export const NextArrowbutton = styled.button`
   position: fixed;
-  /* display: flex; */
   background-color: transparent;
   color: ${(props) => (props.themeLight ? "#000" : "#fff")};
-  /* flex-direction: column; */
-  /* align-items: center;
-  justify-content: center; */
   border-width: 0px;
   cursor: pointer;
   left: 0;
@@ -70,7 +66,7 @@ export const Nextbutton = styled.button`
   position: fixed;
   display: flex;
   background-color: Transparent;
-  color: ${(props) => (props.themeLight ? "#000" : "#fff")};
+  color: ${({ theme }) => theme.palette.primary.main};
   flex-direction: column;
   align-items: center;
   justify-content: center;

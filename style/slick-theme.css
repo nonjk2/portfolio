@@ -5,11 +5,10 @@
 /* Arrows */
 .slick-prev,
 .slick-next
-{
+{   
     font-size: 0;
     line-height: 0;
     position: absolute;
-    top: 50%;
     display: block;
     width: 40px;
     height: 40px;
@@ -68,7 +67,7 @@
 
 .slick-prev
 {
-    left: -10%;
+    left: 0%;
 }
 [dir='rtl'] .slick-prev
 {
@@ -86,7 +85,7 @@
 
 .slick-next
 {
-    right: -10%;
+    right: 0%;
 }
 [dir='rtl'] .slick-next
 {

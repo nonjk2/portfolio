@@ -128,5 +128,5 @@ export const PaperContainer = styled.div`
 export const ProjectContainer = styled.div`
   /* width: 90%; */
   /* padding: 0; */
-  animation: ${move} ${(props) => props.timing}s 0s;
+  /* animation: ${move} ${(props) => props.timing}s 0s; */
 `;

@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 export const useAppContext = () => useContext(AppContext);
 
-export function AppProvider({ children }) {
+export const AppProvider = ({ children }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [themeLight, setThemeDark] = useState(true);
 
@@ -18,4 +18,4 @@ export function AppProvider({ children }) {
   }, [activeStep, setActiveStep, themeLight, setThemeDark]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-}
+};

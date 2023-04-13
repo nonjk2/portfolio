@@ -8,7 +8,7 @@ import "../style/slick-theme.css";
 import { useRouter } from "next/router";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 
-function Portpolio({ Component, pageProps }) {
+const Portpolio = ({ Component, pageProps }) => {
   useSmoothScroll();
 
   return (
@@ -24,9 +24,6 @@ function Portpolio({ Component, pageProps }) {
       <Component {...pageProps} />
     </>
   );
-}
-
-Portpolio.propTypes = {
-  Component: PropTypes.elementType.isRequired,
 };
+
 export default Portpolio;

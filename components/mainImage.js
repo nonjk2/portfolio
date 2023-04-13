@@ -1,9 +1,7 @@
-import React, { useCallback, forwardRef } from "react";
-import { Typography } from "@material-ui/core";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { InnerImageDiv, MainImageLayout, MainImgdiv } from "../style/layout";
-import { StyledTypist } from "../style/text";
-import { MainMorebutton, Nextbutton } from "../style/button";
+import React, { forwardRef } from "react";
+import { useTheme } from "@material-ui/core";
+import { InnerImageDiv, MainImageLayout } from "../style/layout";
+import { StyledTypist, TypographyMain } from "../style/utilComponentStyle/text";
 import MainBackground from "./backgorund/mainback";
 import MainBackgroundTwo from "./backgorund/mainbackSec";
 import { useAppContext } from "./appprovider";
@@ -11,22 +9,25 @@ import { useAppContext } from "./appprovider";
 const MainImage = forwardRef((props, ref) => {
   const sentences2 = [`삐용삐용삐용 삐용`, `예이예이예이예이`, `신입 프론트엔드 개발자`];
   const { activeStep, setActiveStep, themeLight } = useAppContext();
+  const muiTheme = useTheme();
   return (
-    <MainImageLayout id="Main" ref={ref} themeLight={themeLight}>
+    <MainImageLayout id="Main" ref={ref} themeLight={themeLight} muiTheme={muiTheme}>
       {themeLight ? <MainBackground /> : <MainBackgroundTwo />}
-      <InnerImageDiv>
+      <InnerImageDiv muiTheme={muiTheme}>
         <div>
-          <Typography variant="h2">안녕하세요</Typography>
+          <TypographyMain muiTheme={muiTheme} variant="h2">
+            안녕하세요
+          </TypographyMain>
           <br />
-          <StyledTypist sentences={sentences2} loop={false} />
+          <StyledTypist muiTheme={muiTheme} sentences={sentences2} loop={false} />
           <br />
-          <Typography variant="h2">최은석입니다</Typography>
+          <TypographyMain muiTheme={muiTheme} variant="h2">
+            최은석입니다
+          </TypographyMain>
         </div>
       </InnerImageDiv>
     </MainImageLayout>
   );
 });
-
-MainImage.propTypes = {};
 
 export default MainImage;

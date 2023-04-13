@@ -1,19 +1,19 @@
 import React, { useRef, forwardRef, useEffect } from "react";
-import { ProjectLayout } from "../style/layout";
-import ProjectCarousel from "./project/projectItem";
-import { useAppContext } from "./appprovider";
+import { ProjectLayout } from "../../style/layout";
+import ProjectCarousel from "./projectItem";
+import { useAppContext } from "../appprovider";
 
-function Project(props) {
+const Project = (props) => {
   const { setActiveStep, themeLight, activeStep } = useAppContext();
   const proJectDivRef = useRef(0);
 
   return (
     <ProjectLayout ref={proJectDivRef} id="Project" themeLight={themeLight}>
-      <div key={activeStep} style={{ width: "70%" }}>
+      <div key={activeStep} style={{ width: "100%" }}>
         <ProjectCarousel themeLight={themeLight} />
       </div>
     </ProjectLayout>
   );
-}
+};
 
 export default Project;
