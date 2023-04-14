@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import _ from "lodash";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
-import MainImage from "./mainImage";
+import MainImage from "./main/mainImage";
 import AboutMe from "./about/aboutme";
 import Project from "./project/project";
 import Skills from "./skills";
@@ -13,6 +13,7 @@ import { useAppContext } from "./appprovider";
 import useHandleKeyDown from "../hooks/useHandlekeyDown";
 import useWheelHandler from "../hooks/useHandleScroll";
 import createMyTheme from "../style/theme";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 const AppLayout = ({ children }) => {
   const outerDivRef = useRef(0);
@@ -22,11 +23,11 @@ const AppLayout = ({ children }) => {
   const theme = createMyTheme(themeLight);
   useHandleKeyDown(setActiveStep, Pages);
   useWheelHandler(outerDivRef, Pages);
+  useSmoothScroll();
 
   useEffect(() => {
-    router.push(`${Pages[activeStep]}`);
+    router.push(`${Pages[activeStep]}`, undefined, { scroll: false, shallow: true });
   }, [activeStep]);
-
   return (
     <Outer ref={outerDivRef}>
       <MainImage />
