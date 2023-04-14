@@ -5,6 +5,7 @@ import AppLayout from "../components/appLayout";
 import { AppProvider, useAppContext } from "../components/appprovider";
 import Header from "../components/header";
 import createMyTheme from "../style/theme";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 const AppContent = () => {
   const { themeLight, setThemeDark } = useAppContext();

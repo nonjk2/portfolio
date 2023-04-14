@@ -11,15 +11,14 @@ export const Logo = styled.div`
 
 export const StyledTypist = styled(Typist)`
   font-size: 4rem;
-  color: ${({ muiTheme }) => muiTheme.palette.primary.main};
 `;
 
-export const TitleAnimation = styled.h2`
-  font-size: 4rem;
-  color: ${({ muiTheme }) => muiTheme.palette.primary.main};
-`;
+// export const TitleAnimation = styled.h2`
+//   font-size: 4rem;
+//   color: ${({ muiTheme }) => muiTheme.palette.primary.main};
+// `;
 
-export const TypographyMain = styled(Typography)`
-  font-size: 4rem;
-  color: ${({ muiTheme }) => muiTheme.palette.primary.main};
-`;
+// export const TypographyMain = styled(Typography)`
+//   font-size: 4rem;
+//   color: ${({ muiTheme }) => muiTheme.palette.primary.main};
+// `;

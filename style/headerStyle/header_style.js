@@ -44,6 +44,10 @@ export const useStyles = makeStyles((theme, ownerstate) => ({
     // left: "calc(-50% + 16px)",
     // right: "calc(50% + 16px)",
   },
+  DarkModeButtonLayOut: {
+    position: "abosolute",
+    right: 0,
+  },
   button: {
     color: "#fff",
     "&:hover": {},

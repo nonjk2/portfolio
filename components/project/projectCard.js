@@ -22,7 +22,7 @@ const ProjectCard = (prop) => {
   return (
     <div className="projectBox">
       <div className="projectimgBox">
-        <image src="/myhealth.png" width="100%" height="100%" alt="Eunseokimg" />
+        {/* <image src="/myhealth.png" width="100%" height="100%" alt="Eunseokimg" /> */}
       </div>
       <div className="projectinfoBox">
         <div style={{ flex: 1, width: "100%", paddingBottom: "5px" }}>

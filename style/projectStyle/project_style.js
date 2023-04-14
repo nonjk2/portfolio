@@ -18,7 +18,7 @@ export const StyledSlider = styled(Slider)`
     width: 100%;
   }
   .project {
-    opacity: 0;
+    opacity: 0.5;
   }
   .projectBox {
     display: flex;

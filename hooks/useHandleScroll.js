@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { debounce } from "lodash";
-import { useAppContext } from "../components/appprovider"; // Adjust the import path as needed
+import { useAppContext } from "../components/appprovider";
 
 const useWheelHandler = (outerDivRef, Pages) => {
   const { activeStep, setActiveStep } = useAppContext();
@@ -11,7 +11,7 @@ const useWheelHandler = (outerDivRef, Pages) => {
     } else {
       setActiveStep((prev) => (prev < Pages.length - 1 ? prev + 1 : 0));
     }
-  }, 350); // Adjust the delay as needed, 1000ms = 1 second
+  }, 350);
 
   useEffect(() => {
     const wheelHandler = (e) => {

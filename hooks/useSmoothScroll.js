@@ -1,11 +1,18 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import Head from "next/head";
 
 const useSmoothScroll = () => {
   const router = useRouter();
 
   const setSmoothScroll = (isSmooth) => {
-    document.documentElement.style.scrollBehavior = isSmooth ? "smooth" : "auto";
+    const scrollBehavior = isSmooth ? "smooth" : "auto";
+    const style = `html, body { scroll-behavior: ${scrollBehavior}; }`;
+    const head = document.querySelector("head");
+    const styleTag = document.createElement("style");
+    styleTag.setAttribute("type", "text/css");
+    styleTag.appendChild(document.createTextNode(style));
+    head.appendChild(styleTag);
   };
 
   useEffect(() => {
