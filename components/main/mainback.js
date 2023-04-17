@@ -1,6 +1,6 @@
 import Particles from "react-tsparticles";
 
-function MainBackground() {
+const MainBackground = () => {
   return (
     <Particles
       style={{ position: "absolute", top: 0, left: 0 }}
@@ -102,6 +102,6 @@ function MainBackground() {
       }}
     />
   );
-}
+};
 
 export default MainBackground;
