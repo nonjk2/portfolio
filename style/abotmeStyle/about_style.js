@@ -1,4 +1,5 @@
 import { styled } from "@mui/material";
+import Image from "next/image";
 
 export const Container = styled("div")({
   height: "100vh",
@@ -50,6 +51,7 @@ export const FrontAboutMeOne = styled("div")({
   width: "100%",
   height: "100%",
   zIndex: "2",
+  overflow: "hidden",
 });
 
 export const FrontAboutMeTwo = styled("div")({
@@ -63,7 +65,7 @@ export const FrontAboutMeTwo = styled("div")({
   transform: "rotateY(180deg)",
 });
 
-export const EunImg = styled("img")({
+export const EunImg = styled(Image)({
   objectFit: "cover",
   borderRadius: 15,
 });

@@ -22,6 +22,7 @@ const AboutmeMyInfo = () => {
   const myinfoCompo = (Imo, up, down) => {
     return (
       <Box
+        key={up}
         style={{
           display: "flex",
           flexFlow: "row nowrap",
@@ -71,10 +72,9 @@ const AboutmeMyInfo = () => {
             </FrontAboutMeOne>
             <FrontAboutMeTwo>
               <EunImg
-                width="auto"
-                height="100%"
                 src="https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1665731167456_C38992CC-0D97-4ED8-BA2F-C84866C4E337.jpg"
                 alt="카카오톡"
+                fill
               />
             </FrontAboutMeTwo>
           </Paper>

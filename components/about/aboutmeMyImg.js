@@ -1,4 +1,6 @@
 import { Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   EunImg,
   FrontAboutMeOne,
@@ -7,18 +9,21 @@ import {
   Paper,
   PaperContainer,
 } from "../../style/abotmeStyle/about_style";
+import phone from "../../public/images/phone.png";
 
 const AboutmeMyImg = () => {
+  const imageURL = "https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1663595285111_IMG_6645.JPG";
+  const [image, setImage] = useState(phone);
+  useEffect(() => {
+    if (imageURL) {
+      setImage(imageURL);
+    }
+  }, [image, imageURL]);
   return (
     <PaperContainer>
       <Paper elevation={3} className="paper">
         <FrontAboutMeOne>
-          <EunImg
-            src="https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1663595285111_IMG_6645.JPG"
-            width="100%"
-            height="100%"
-            alt="Eunseokimg"
-          />
+          <Image src={image} alt="Eunseokimg" fill style={{ borderRadius: 15 }} />
         </FrontAboutMeOne>
         <FrontAboutMeTwo>
           <MyAboutPaper elevation={2}>

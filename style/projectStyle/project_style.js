@@ -22,19 +22,25 @@ export const StyledSlider = styled(Slider)`
   }
   .projectBox {
     display: flex;
-    /* justify-content: center; */
     padding: 20px;
   }
   .projectimgBox {
     flex: 1;
     margin: 50px;
     height: 70vh;
+    width: auto;
     padding: 5px;
     margin-right: 20px;
     background-color: rgba(255, 255, 255, 0.13);
     border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 40px;
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
+    img {
+      width: 100%;
+      height: 100%;
+      position: relative !important;
+      object-fit: contain;
+    }
   }
   .projectinfoBox {
     flex: 2;
