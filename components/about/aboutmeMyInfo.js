@@ -1,5 +1,5 @@
-import { Link, Paper } from "@material-ui/core";
 import { LocationOn, Face, Mail, GitHub, PermContactCalendar, Phone, Favorite } from "@mui/icons-material/";
+import { Link } from "@mui/material";
 import { MyAboutSmallPaperTwo, PaperContainer } from "../../style/layout";
 
 const AboutmeMyInfo = ({ classes }) => {

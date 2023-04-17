@@ -1,5 +1,5 @@
-import { makeStyles, styled } from "@material-ui/styles";
 import { Button, stepConnectorClasses } from "@mui/material";
+import { makeStyles, styled } from "@mui/styles";
 
 export const useStyles = makeStyles((theme, ownerstate) => ({
   "@global": {

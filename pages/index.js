@@ -1,11 +1,9 @@
 import { useMemo } from "react";
-import { ThemeProvider } from "@material-ui/styles";
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material";
+import { ThemeProvider } from "@mui/styles";
 import AppLayout from "../components/appLayout";
 import { AppProvider, useAppContext } from "../components/appprovider";
-
 import createMyTheme from "../style/theme";
-
 import Header from "../components/header/header";
 
 const AppContent = () => {

@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { useRouter } from "next/router";
 import StepConnector from "@mui/material/StepConnector";
-import { Step, StepLabel, Stepper } from "@mui/material";
+import { Button, Link, Step, StepLabel, Stepper, Typography } from "@mui/material";
 import { CircleOutlined } from "@mui/icons-material";
-import { Button, Link, Typography } from "@material-ui/core";
+
 import { HeaderLayout } from "../../style/layout";
 import { useAppContext } from "../appprovider";
 import { QontoStepIconRoot, useStyles } from "../../style/headerStyle/header_style";

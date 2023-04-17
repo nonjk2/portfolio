@@ -1,11 +1,6 @@
 import React, { useRef } from "react";
-import Slider from "react-slick";
-import { Image } from "next";
 import { KeyboardArrowRight, KeyboardArrowLeft, GitHub } from "@mui/icons-material";
-import { Chip, Link } from "@mui/material";
-import styled from "styled-components";
-import { height } from "@mui/system";
-import { useTheme } from "@material-ui/styles";
+import { useTheme } from "@mui/styles";
 import { NextArrowbutton, PreArrowbutton } from "../../style/utilComponentStyle/button";
 import { ProjectContainer } from "../../style/layout";
 import { StyledSlider } from "../../style/projectStyle/project_style";
@@ -14,11 +9,6 @@ import useHandleProjectArrow from "../../hooks/useHandleProjectArrow";
 import { useAppContext } from "../appprovider";
 
 export const MyProject = ["마이헬스", "트리플랜", "포트폴리오 웹"];
-const ProjectImg = [
-  // require("./.next/static/images/myhealth_0-8f256d7aa83256e91de70694be15862e.png"),
-  // require("../../util/data/triplan/triplan.png"),
-  // require("../../util/data/myhealth/myhealth_2.png"),
-];
 
 const ProjectCarousel = (props) => {
   const { themeLight, activeStep } = useAppContext();

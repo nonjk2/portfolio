@@ -1,6 +1,7 @@
 import React from "react";
-import { Chip, Link } from "@material-ui/core";
+
 import { GitHub } from "@mui/icons-material";
+import { Chip, Link } from "@mui/material";
 import { MyProject } from "./projectItem";
 
 const ProjectCard = (prop) => {
