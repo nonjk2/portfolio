@@ -1,24 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import Typist from "react-text-typist";
-import { Typography } from "@mui/material";
+// import Typist from "react-text-typist";
+// import styled from "@emotion/styled";
 
-export const Logo = styled.div`
-  color: brown;
-  font-size: 25px;
-  font-weight: 600;
-`;
-
-export const StyledTypist = styled(Typist)`
-  font-size: 4rem;
-`;
-
-// export const TitleAnimation = styled.h2`
+// export const StyledTypist = styled(Typist)`
 //   font-size: 4rem;
-//   color: ${({ muiTheme }) => muiTheme.palette.primary.main};
-// `;
+//   color: ${({ theme }) => (theme.palette.primary ? theme.palette.primary.main : "inherit")};
 
-// export const TypographyMain = styled(Typography)`
-//   font-size: 4rem;
-//   color: ${({ muiTheme }) => muiTheme.palette.primary.main};
+//   /* 테마 적용을 위한 추가 스타일 */
+//   & .Typist {
+//     color: ${({ theme }) => (theme.palette.primary ? theme.palette.primary.main : "inherit")};
+//   }
+
+//   & .Cursor {
+//     color: ${({ theme }) => (theme.palette.primary ? theme.palette.primary.main : "inherit")};
+//   }
 // `;

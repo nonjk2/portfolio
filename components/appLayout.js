@@ -24,9 +24,13 @@ const AppLayout = ({ children }) => {
   useHandleKeyDown(setActiveStep, Pages);
   useWheelHandler(outerDivRef, Pages);
   useSmoothScroll();
-
+  const handleRouting = () => {
+    if (Pages[activeStep]) {
+      router.push(`${Pages[activeStep]}`, undefined, { scroll: false });
+    }
+  };
   useEffect(() => {
-    router.push(`${Pages[activeStep]}`, undefined, { scroll: false, shallow: true });
+    handleRouting();
   }, [activeStep]);
   return (
     <Outer ref={outerDivRef}>

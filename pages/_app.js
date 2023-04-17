@@ -6,7 +6,6 @@ import "../style/global.css";
 import "../style/slickslide.css";
 import "../style/slick-theme.css";
 import { CssBaseline } from "@mui/material";
-import useSmoothScroll from "../hooks/useSmoothScroll";
 
 const Portpolio = ({ Component, pageProps }) => {
   return (
@@ -14,11 +13,11 @@ const Portpolio = ({ Component, pageProps }) => {
       <Head>
         <meta charSet="utf-8" key="title" />
         <title>최은석's 포트폴리오</title>
-        <Script
-          type="text/javascript"
-          src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=idk2vbhrq4"
-        />
       </Head>
+      <Script
+        strategy="beforeInteractive"
+        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}
+      />
       <CssBaseline />
       <Component {...pageProps} />
     </>

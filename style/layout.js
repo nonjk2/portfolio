@@ -16,9 +16,8 @@ export const LogoLayout = styled.div`
 `;
 
 export const HeaderLayout = styled.header`
-  /* display: inline-block; */
-  /* background-color: red; */
   position: fixed;
+  /* display: flex; */
   top: 0;
   right: 0;
   left: 0;
@@ -129,4 +128,9 @@ export const ProjectContainer = styled.div`
   /* width: 90%; */
   /* padding: 0; */
   /* animation: ${move} ${(props) => props.timing}s 0s; */
+`;
+export const Logo = styled.div`
+  color: brown;
+  font-size: 25px;
+  font-weight: 600;
 `;

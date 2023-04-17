@@ -11,8 +11,16 @@ const createMyTheme = (themeLight) => {
         default: themeLight ? "#ffffff" : "#303030", // your background color for light and dark mode
       },
     },
+
     typography: {
-      h2: { color: themeLight ? "#000" : "fff", fontfamily: "'Black Han Sans', sans-serif" },
+      h2: {
+        fontFamily: "'Black Han Sans', sans-serif",
+        color: themeLight ? "#000" : "#fff", // 폰트 색상을 설정합니다.
+      },
+      h3: {
+        fontfamily: "'Montserrat', sans-serif",
+        color: themeLight ? "#000" : "#fff", // 폰트 색상을 설정합니다.
+      },
       h6: { fontfamily: "'Montserrat', sans-serif" },
     },
     components: {

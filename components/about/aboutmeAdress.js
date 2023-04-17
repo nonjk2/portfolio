@@ -25,6 +25,7 @@ const AboutmeAdress = ({ classes }) => {
       map,
     });
   }, [activeStep]);
+
   const myinfoCompo = (Imo, up, down) => {
     return (
       <div
@@ -80,7 +81,7 @@ const AboutmeAdress = ({ classes }) => {
               </div>
             </div>
             <div className={classes.frontAboutMeTwo}>
-              <div ref={mapElement} style={{ minHeight: "100%", borderRadius: 15 }} />
+              <div id="map" ref={mapElement} style={{ index: 999, minHeight: "400px", borderRadius: 15 }} />
             </div>
           </MyAboutSmallPaperTwo>
         </div>

@@ -1,26 +1,31 @@
 import React, { forwardRef } from "react";
-import { useTheme } from "@material-ui/core";
 import { Typography } from "@mui/material";
+import styled from "styled-components";
+import Typed from "react-typed";
 import { InnerImageDiv, MainImageLayout } from "../../style/layout";
-import { StyledTypist } from "../../style/utilComponentStyle/text";
 import MainBackground from "./mainback";
 import MainBackgroundTwo from "./mainbackSec";
 import { useAppContext } from "../appprovider";
 
+const StyledTypist = styled(Typed)`
+  font-size: 4rem;
+  color: ${({ themeLight }) => (themeLight ? "#000" : "#fff")};
+`;
+
 const MainImage = forwardRef((props, ref) => {
-  const sentences2 = [`삐용삐용삐용 삐용`, `예이예이예이예이`, `신입 프론트엔드 개발자`];
+  const sentences2 = [`ㅁㄴㅇㄹㅁㄴㅇㄹ`, `모르는 것을 알고싶은`, `프론트엔드 개발자`];
   const { activeStep, setActiveStep, themeLight } = useAppContext();
-  const muiTheme = useTheme();
+
   return (
     <MainImageLayout id="Main" ref={ref} themeLight={themeLight}>
-      {themeLight ? <MainBackground /> : <MainBackgroundTwo />}
+      {/* {themeLight ? <MainBackground /> : <MainBackgroundTwo />} */}
       <InnerImageDiv>
         <div>
           <Typography variant="h2">안녕하세요</Typography>
           <br />
-          <StyledTypist sentences={sentences2} loop={false} />
+          <StyledTypist strings={sentences2} typeSpeed={40} backSpeed={50} loop themeLight={themeLight} />
           <br />
-          <Typography>최은석입니다</Typography>
+          <Typography variant="h3">최은석입니다</Typography>
         </div>
       </InnerImageDiv>
     </MainImageLayout>

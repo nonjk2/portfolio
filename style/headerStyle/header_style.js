@@ -47,6 +47,7 @@ export const useStyles = makeStyles((theme, ownerstate) => ({
   DarkModeButtonLayOut: {
     position: "abosolute",
     right: 0,
+    background: "red",
   },
   button: {
     color: "#fff",

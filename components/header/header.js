@@ -67,8 +67,17 @@ const Header = () => {
           </Step>
         ))}
       </Stepper>
-      <div className={classes.DarkModeButtonLayOut}>
-        <Button onClick={setOnclick}>asdasdasd</Button>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          display: "flex",
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
+        <Button onClick={setOnclick}>{themeLight ? "어둡게" : "밝게"}</Button>
       </div>
     </HeaderLayout>
   );
