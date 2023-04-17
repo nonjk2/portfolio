@@ -2,6 +2,15 @@ import { LocationOn, PermContactCalendar, Phone, Favorite } from "@mui/icons-mat
 import { useEffect, useRef } from "react";
 import { MyAboutSmallPaperTwo } from "../../style/layout";
 import { useAppContext } from "../appprovider";
+import {
+  FrontAboutMeOne,
+  FrontAboutMeTwo,
+  MyAboutAddContainer,
+  MyAboutSmallPaper,
+  MyAboutSmallPaperContainer,
+  Paper,
+  SmallpaperContainer,
+} from "../../style/abotmeStyle/about_style";
 
 const AboutmeAdress = ({ classes }) => {
   const { activeStep } = useAppContext();
@@ -50,12 +59,12 @@ const AboutmeAdress = ({ classes }) => {
   };
 
   return (
-    <div className={classes.myAboutAddContainer}>
-      <div className={classes.myAboutSmallPaperContainer}>
-        <div className={classes.SmallpaperContainer}>
-          <MyAboutSmallPaperTwo className={classes.paper}>
-            <div className={classes.frontAboutMeOne}>
-              <div className={classes.myAboutSmallPaper}>
+    <MyAboutAddContainer>
+      <MyAboutSmallPaperContainer>
+        <SmallpaperContainer>
+          <Paper className="paper">
+            <FrontAboutMeOne>
+              <MyAboutSmallPaper>
                 <div
                   style={{
                     lineHeight: "200%",
@@ -78,15 +87,15 @@ const AboutmeAdress = ({ classes }) => {
                   {myinfoCompo(PermContactCalendar, "생년월일", "1994 . 05. 30")}
                   {myinfoCompo(Phone, "전화", "010 - 9637 - 8406")}
                 </div>
-              </div>
-            </div>
-            <div className={classes.frontAboutMeTwo}>
-              <div id="map" ref={mapElement} style={{ index: 999, minHeight: "400px", borderRadius: 15 }} />
-            </div>
-          </MyAboutSmallPaperTwo>
-        </div>
-      </div>
-    </div>
+              </MyAboutSmallPaper>
+            </FrontAboutMeOne>
+            <FrontAboutMeTwo>
+              <div id="map" ref={mapElement} style={{ index: 999, minHeight: "100%", borderRadius: 15 }} />
+            </FrontAboutMeTwo>
+          </Paper>
+        </SmallpaperContainer>
+      </MyAboutSmallPaperContainer>
+    </MyAboutAddContainer>
   );
 };
 export default AboutmeAdress;

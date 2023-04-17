@@ -1,24 +1,24 @@
 import React, { useCallback } from "react";
 import { useRouter } from "next/router";
-import StepConnector from "@mui/material/StepConnector";
-import { Button, Link, Step, StepLabel, Stepper, Typography } from "@mui/material";
+
 import { CircleOutlined } from "@mui/icons-material";
 
+import { Button, Link, Step, StepLabel, Typography } from "@mui/material";
 import { HeaderLayout } from "../../style/layout";
 import { useAppContext } from "../appprovider";
-import { QontoStepIconRoot, useStyles } from "../../style/headerStyle/header_style";
+import { QontoStepIconRoots, StepConnectorStyle, Steppler } from "../../style/headerStyle/header_style";
 
 const QontoStepIcon = (props) => {
-  const { className, completed, active } = props;
+  const { completed, active } = props;
 
   return (
-    <QontoStepIconRoot ownerstate={{ active }} className={className}>
+    <QontoStepIconRoots ownerstate={{ active }}>
       {completed ? (
         <CircleOutlined className="QontoStepIcon-completedIcon" />
       ) : (
         <div className="QontoStepIcon-circle" />
       )}
-    </QontoStepIconRoot>
+    </QontoStepIconRoots>
   );
 };
 
@@ -26,7 +26,6 @@ const Header = () => {
   const { activeStep, setActiveStep, themeLight, setThemeDark } = useAppContext();
   const router = useRouter();
   const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
-  const classes = useStyles();
 
   const StateHandle = useCallback(
     (index) => {
@@ -39,14 +38,10 @@ const Header = () => {
   }, []);
   return (
     <HeaderLayout>
-      <Stepper
-        className={classes.steppler}
-        activeStep={activeStep}
-        connector={<StepConnector className={classes.StepConnector} />}
-      >
+      <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
         {steps.map((label, index) => (
-          <Step className={classes.step} key={label}>
-            <StepLabel className={classes.labelname} StepIconComponent={QontoStepIcon}>
+          <Step key={label}>
+            <StepLabel StepIconComponent={QontoStepIcon}>
               <Link
                 style={{ textDecorationLine: "none", display: "flex", justifyContent: "center" }}
                 href={`${label}`}
@@ -66,7 +61,7 @@ const Header = () => {
             </StepLabel>
           </Step>
         ))}
-      </Stepper>
+      </Steppler>
       <div
         style={{
           position: "absolute",

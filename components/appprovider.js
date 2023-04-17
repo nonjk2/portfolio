@@ -6,7 +6,7 @@ export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
   const [activeStep, setActiveStep] = useState(0);
-  const [themeLight, setThemeDark] = useState(true);
+  const [themeLight, setThemeDark] = useState(false);
 
   const value = useMemo(() => {
     return {

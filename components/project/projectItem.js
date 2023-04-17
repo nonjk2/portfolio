@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { KeyboardArrowRight, KeyboardArrowLeft, GitHub } from "@mui/icons-material";
-import { useTheme } from "@mui/styles";
+import { useTheme } from "@mui/material";
 import { NextArrowbutton, PreArrowbutton } from "../../style/utilComponentStyle/button";
 import { ProjectContainer } from "../../style/layout";
 import { StyledSlider } from "../../style/projectStyle/project_style";

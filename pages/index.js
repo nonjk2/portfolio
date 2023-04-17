@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { createTheme } from "@mui/material";
-import { ThemeProvider } from "@mui/styles";
+import { ThemeProvider, createTheme } from "@mui/material";
+
 import AppLayout from "../components/appLayout";
 import { AppProvider, useAppContext } from "../components/appprovider";
 import createMyTheme from "../style/theme";

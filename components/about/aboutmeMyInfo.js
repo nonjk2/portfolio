@@ -1,11 +1,27 @@
 import { LocationOn, Face, Mail, GitHub, PermContactCalendar, Phone, Favorite } from "@mui/icons-material/";
-import { Link } from "@mui/material";
-import { MyAboutSmallPaperTwo, PaperContainer } from "../../style/layout";
+import { Box, Link, Typography } from "@mui/material";
+import {
+  Bottompaper,
+  EunImg,
+  FrontAboutMeOne,
+  FrontAboutMeTwo,
+  MyAboutAddContainer,
+  MyAboutSmallPaper,
+  MyAboutSmallPaperContainer,
+  Paper,
+  SmallpaperContainer,
+} from "../../style/abotmeStyle/about_style";
 
-const AboutmeMyInfo = ({ classes }) => {
+const MyInfo = [
+  { imoge: Face, tpye: "이름", value: "최은석" },
+  { imoge: Mail, tpye: "이메일", value: "trgf456@naver.com" },
+  { imoge: PermContactCalendar, tpye: "생년월일", value: "1994 . 05. 30" },
+  { imoge: Phone, tpye: "전화", value: "010 - 9637 - 8406" },
+];
+const AboutmeMyInfo = () => {
   const myinfoCompo = (Imo, up, down) => {
     return (
-      <div
+      <Box
         style={{
           display: "flex",
           flexFlow: "row nowrap",
@@ -22,53 +38,48 @@ const AboutmeMyInfo = ({ classes }) => {
           <div style={{ fontWeight: "700" }}>{up}</div>
           <div style={{ fontWeight: "200" }}>{down}</div>
         </div>
-      </div>
+      </Box>
     );
   };
 
   return (
-    <div className={classes.myAboutPaperContainer}>
-      <div className={classes.myAboutSmallPaperContainer}>
-        <div className={classes.SmallpaperContainer}>
-          <MyAboutSmallPaperTwo className={classes.paper}>
-            <div className={classes.frontAboutMeOne}>
-              <div className={classes.myAboutSmallPaper}>
+    <MyAboutAddContainer>
+      <MyAboutSmallPaperContainer>
+        <SmallpaperContainer>
+          <Paper className="paper">
+            <FrontAboutMeOne>
+              <MyAboutSmallPaper>
                 <div
                   style={{
                     lineHeight: "200%",
                   }}
                 >
-                  <h1 style={{ fontWeight: "bold" }}>INFO</h1>
+                  <Typography variant="h4">INFO</Typography>
                 </div>
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    // width: "100%",
                     margin: "0 auto",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
-                  {myinfoCompo(Face, "이름", "최은석")}
-                  {myinfoCompo(Mail, "이메일", "trgf456@naver.com")}
-                  {myinfoCompo(PermContactCalendar, "생년월일", "1994 . 05. 30")}
-                  {myinfoCompo(Phone, "전화", "010 - 9637 - 8406")}
+                  {MyInfo.map((e) => myinfoCompo(e.imoge, e.tpye, e.value))}
                 </div>
-              </div>
-            </div>
-            <div className={classes.frontAboutMeTwo}>
-              <img
-                width="100%"
+              </MyAboutSmallPaper>
+            </FrontAboutMeOne>
+            <FrontAboutMeTwo>
+              <EunImg
+                width="auto"
                 height="100%"
                 src="https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1665731167456_C38992CC-0D97-4ED8-BA2F-C84866C4E337.jpg"
                 alt="카카오톡"
-                className={classes.eunImg}
               />
-            </div>
-          </MyAboutSmallPaperTwo>
-        </div>
-        <MyAboutSmallPaperTwo className={classes.bottompaper}>
+            </FrontAboutMeTwo>
+          </Paper>
+        </SmallpaperContainer>
+        <Bottompaper>
           <Link
             href="https://github.com/nonjk2"
             target="_blank"
@@ -96,9 +107,9 @@ const AboutmeMyInfo = ({ classes }) => {
               </g>
             </svg>
           </Link>
-        </MyAboutSmallPaperTwo>
-      </div>
-    </div>
+        </Bottompaper>
+      </MyAboutSmallPaperContainer>
+    </MyAboutAddContainer>
   );
 };
 export default AboutmeMyInfo;

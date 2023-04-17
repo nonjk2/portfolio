@@ -1,105 +1,63 @@
-import { Button, stepConnectorClasses } from "@mui/material";
-import { makeStyles, styled } from "@mui/styles";
+import React from "react";
 
-export const useStyles = makeStyles((theme, ownerstate) => ({
-  "@global": {
-    "@keyframes scaleXRever": {
-      from: {
-        width: "100%",
-        opacity: "1",
-      },
+import Button from "@mui/material/Button";
+import { stepConnectorClasses } from "@mui/material/StepConnector";
+import { createGlobalStyle } from "styled-components";
+import { css, styled, Link, Step, StepLabel, Stepper, Typography, StepConnector } from "@mui/material";
 
-      to: {
-        width: "0",
-        opacity: "0",
-      },
-    },
-
-    "@keyframes scale": {
-      from: {
-        transform: "scale(1.0)",
-      },
-      to: {
-        transform: "scale(1.5)",
-      },
-    },
-
-    "@keyframes scaleX": {
-      from: {
-        width: "0",
-      },
-      to: {
-        width: "100%",
-      },
-    },
-    [`MuiStepLabel-labelContainer`]: {
-      marginTop: 0,
-    },
-  },
-  steppler: {
-    // padding: "2rem 20rem",
-    padding: "2% 30%",
-    background: "rgba(0,0,0,0)",
-    top: 10,
-    // left: "calc(-50% + 16px)",
-    // right: "calc(50% + 16px)",
-  },
-  DarkModeButtonLayOut: {
-    position: "abosolute",
-    right: 0,
-    background: "red",
-  },
-  button: {
-    color: "#fff",
-    "&:hover": {},
-  },
-  labelname: {
-    color: "#fff",
-  },
-  StepConnector: {
-    [`&.${stepConnectorClasses.alternativeLabel}`]: {
-      top: 10,
-      left: "calc(-50% + 16px)",
-      right: "calc(50% + 16px)",
-    },
-
-    [`&.${stepConnectorClasses.disabled}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        opacity: "0",
-        boxShadow: "0 0 5px #03e9f4, 0 0 25px #03e9f4 , 0 0 100px #03e9f4",
-        animation: "scaleXRever .5s",
-      },
-    },
-
-    [`&.${stepConnectorClasses.completed}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        borderColor: "#03e9f4",
-        boxShadow: "0 0 5px #03e9f4, 0 0 25px #03e9f4 , 0 0 100px #03e9f4",
-        animation: "scaleX .5s backwards",
-      },
-    },
-    [`& .${stepConnectorClasses.line}`]: {
-      borderTopWidth: 3,
-      borderRadius: 1,
-      borderColor: "#03e9f4",
-      boxShadow: "0 0 5px #03e9f4, 0 0 25px #03e9f4 , 0 0 100px #03e9f4",
-      animation: "scaleX .5s backwards",
-    },
-  },
-}));
-
-export const ThemeButton = styled(Button)`
-  position: absolute;
-  right: 0;
-  background-color: "#fff";
-  color: "#fff";
+const Steppler = styled(Stepper)`
+  padding: 2% 30%;
+  background: rgba(0, 0, 0, 0);
+  top: 10;
 `;
 
-export const QontoStepIconRoot = styled("div")(({ ownerstate }) => ({
+const StyledButton = styled(Button)`
+  color: #fff;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+const StepConnectorStyle = styled(StepConnector)`
+  ${({ completed, disabled }) => css`
+    &.${stepConnectorClasses.alternativeLabel} {
+      top: 10;
+      left: calc(-50% + 16px);
+      right: calc(50% + 16px);
+    }
+
+    &.${stepConnectorClasses.disabled} {
+      & .${stepConnectorClasses.line} {
+        opacity: 0;
+        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
+        animation: scaleXRever 0.5s;
+      }
+    }
+
+    ${completed &&
+    css`
+      & .${stepConnectorClasses.line} {
+        border-color: #03e9f4;
+        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
+        animation: scaleX 0.5s backwards;
+      }
+    `}
+
+    & .${stepConnectorClasses.line} {
+      border-top-width: 3;
+      border-radius: 1;
+      border-color: ${disabled ? "#03e9f4" : "currentColor"};
+      box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
+      animation: scaleX 0.5s backwards;
+    }
+  `}
+`;
+const QontoStepIconRoots = styled("div")(({ ownerstate }) => ({
   display: "flex",
   height: 22,
   alignItems: "center",
-  ...(ownerstate.active && {
+  ...(ownerstate && {
     color: "#F8FEB5DD",
     animation: "scale .5s forwards",
   }),
@@ -116,9 +74,18 @@ export const QontoStepIconRoot = styled("div")(({ ownerstate }) => ({
   "& .QontoStepIcon-circle": {
     width: 12,
     height: 12,
+    border: "none",
     borderRadius: "50%",
     backgroundColor: "currentColor",
     boxShadow: "0 0 25px #F8FEB5, 0 0 25px #F8FEB5 , 0 0 100px #F8FEB5",
     animation: "scale .5s reverse",
   },
 }));
+const ThemeButton = styled(Button)`
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  color: #fff;
+`;
+
+export { QontoStepIconRoots, Steppler, StyledButton, StepConnector, ThemeButton, StepConnectorStyle };

@@ -59,7 +59,9 @@ export const MainImgdiv = styled.div`
 
 export const AboutmeLayout = styled.div`
   height: 100vh;
+  display: flex;
   align-items: center;
+  justify-content: center;
   /* line-height: 100vh; */
   /* background: linear-gradient(rgb(226, 242, 253), 40%, white); */
   /* background: rgb(36, 39, 63); */

@@ -1,21 +1,27 @@
-import { Paper, Typography } from "@mui/material";
-import { PaperContainer } from "../../style/layout";
+import { Typography } from "@mui/material";
+import {
+  EunImg,
+  FrontAboutMeOne,
+  FrontAboutMeTwo,
+  MyAboutPaper,
+  Paper,
+  PaperContainer,
+} from "../../style/abotmeStyle/about_style";
 
-const AboutmeMyImg = ({ classes }) => {
+const AboutmeMyImg = () => {
   return (
-    <PaperContainer className={classes.paperContainer}>
-      <div elevation={3} className={classes.paper}>
-        <div className={classes.frontAboutMeOne}>
-          <img
+    <PaperContainer>
+      <Paper elevation={3} className="paper">
+        <FrontAboutMeOne>
+          <EunImg
             src="https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1663595285111_IMG_6645.JPG"
             width="100%"
             height="100%"
             alt="Eunseokimg"
-            className={classes.eunImg}
           />
-        </div>
-        <div className={classes.frontAboutMeTwo}>
-          <Paper elevation={2} className={classes.myAboutPaper}>
+        </FrontAboutMeOne>
+        <FrontAboutMeTwo>
+          <MyAboutPaper elevation={2}>
             <div>
               <Typography>
                 안녕하세요.원하는것을 언제나 할 수 있을정도로 발전해가려는 개발자 최은석입니다. <br />
@@ -26,9 +32,9 @@ const AboutmeMyImg = ({ classes }) => {
                 오래된 기술들이 점점 사라지는 생태계에서도 중요한 필요성을 정확히 깨닫기 위해 노력중입니다.
               </Typography>
             </div>
-          </Paper>
-        </div>
-      </div>
+          </MyAboutPaper>
+        </FrontAboutMeTwo>
+      </Paper>
     </PaperContainer>
   );
 };

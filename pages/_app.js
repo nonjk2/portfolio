@@ -6,6 +6,7 @@ import "../style/global.css";
 import "../style/slickslide.css";
 import "../style/slick-theme.css";
 import { CssBaseline } from "@mui/material";
+import { GlobalStyles } from "../style/globalStyled";
 
 const Portpolio = ({ Component, pageProps }) => {
   return (
@@ -18,6 +19,7 @@ const Portpolio = ({ Component, pageProps }) => {
         strategy="beforeInteractive"
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}
       />
+      <GlobalStyles />
       <CssBaseline />
       <Component {...pageProps} />
     </>

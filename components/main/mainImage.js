@@ -1,13 +1,13 @@
 import React, { forwardRef } from "react";
 import { Typography } from "@mui/material";
 import styled from "styled-components";
-import Typed from "react-typed";
+
 import { InnerImageDiv, MainImageLayout } from "../../style/layout";
 import MainBackground from "./mainback";
 import MainBackgroundTwo from "./mainbackSec";
 import { useAppContext } from "../appprovider";
 
-const StyledTypist = styled(Typed)`
+const StyledTypist = styled(Typography)`
   font-size: 4rem;
   color: ${({ themeLight }) => (themeLight ? "#000" : "#fff")};
 `;
@@ -19,11 +19,12 @@ const MainImage = forwardRef((props, ref) => {
   return (
     <MainImageLayout id="Main" ref={ref} themeLight={themeLight}>
       {/* {themeLight ? <MainBackground /> : <MainBackgroundTwo />} */}
+      <MainBackground />
       <InnerImageDiv>
         <div>
           <Typography variant="h2">안녕하세요</Typography>
           <br />
-          <StyledTypist strings={sentences2} typeSpeed={40} backSpeed={50} loop themeLight={themeLight} />
+          {/* <StyledTypist strings={sentences2} typeSpeed={40} backSpeed={50} loop themeLight={themeLight} /> */}
           <br />
           <Typography variant="h3">최은석입니다</Typography>
         </div>
