@@ -6,7 +6,12 @@ import { CircleOutlined } from "@mui/icons-material";
 import { Button, Link, Step, StepLabel, Typography } from "@mui/material";
 import { HeaderLayout } from "../../style/layout";
 import { useAppContext } from "../appprovider";
-import { QontoStepIconRoots, StepConnectorStyle, Steppler } from "../../style/headerStyle/header_style";
+import {
+  LinkTypography,
+  QontoStepIconRoots,
+  StepConnectorStyle,
+  Steppler,
+} from "../../style/headerStyle/header_style";
 
 const QontoStepIcon = (props) => {
   const { completed, active } = props;
@@ -47,16 +52,7 @@ const Header = () => {
                 href={`${label}`}
                 onClick={() => StateHandle(index)}
               >
-                <Typography
-                  style={{
-                    opacity: activeStep === index ? 1 : 0.5,
-                    color: themeLight ? "#000" : "#94B9F3",
-                    fontWeight: "bold",
-                    textDecorationLine: "none",
-                  }}
-                >
-                  {label.match(/\w/g)}
-                </Typography>
+                <LinkTypography active={activeStep === index}>{label.match(/\w/g)}</LinkTypography>
               </Link>
             </StepLabel>
           </Step>

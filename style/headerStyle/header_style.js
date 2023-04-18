@@ -9,6 +9,9 @@ const Steppler = styled(Stepper)`
   padding: 2% 30%;
   background: rgba(0, 0, 0, 0);
   top: 10;
+  @media (max-width: 768px) {
+    padding: 2% 10%;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -18,7 +21,18 @@ const StyledButton = styled(Button)`
     background-color: rgba(255, 255, 255, 0.1);
   }
 `;
-
+const LinkTypography = styled(Typography)(
+  ({ active, themeLight, theme }) => `
+  opacity: ${active ? 1 : 0.5};
+  color: ${theme.palette.primary.main};
+  font-weight: bold;
+  text-decoration-line: none;
+  @media only screen and (max-width: 600px) {
+    /* Apply mobile styles */
+    font-size: 0.2rem;
+  }
+`,
+);
 const StepConnectorStyle = styled(StepConnector)`
   ${({ completed, disabled }) => css`
     &.${stepConnectorClasses.alternativeLabel} {
@@ -88,4 +102,12 @@ const ThemeButton = styled(Button)`
   color: #fff;
 `;
 
-export { QontoStepIconRoots, Steppler, StyledButton, StepConnector, ThemeButton, StepConnectorStyle };
+export {
+  QontoStepIconRoots,
+  Steppler,
+  StyledButton,
+  StepConnector,
+  ThemeButton,
+  StepConnectorStyle,
+  LinkTypography,
+};
