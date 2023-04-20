@@ -10,9 +10,10 @@ import Header from "../components/header/header";
 import { getDataBase } from "./api/notion";
 import MainImage from "./mainImage";
 import AboutMe from "./aboutme";
-import Project from "./Project";
+
 import Skills from "./skills";
 import useHandleKeyDown from "../hooks/useHandlekeyDown";
+import Project from "./project";
 
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
