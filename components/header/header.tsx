@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import { CircleOutlined } from "@mui/icons-material";
 
-import { Button, Link, Step, StepLabel, Typography } from "@mui/material";
+import { Button, Link, Step, StepIconProps, StepLabel } from "@mui/material";
 import { HeaderLayout } from "../../style/layout";
 import { useAppContext } from "../appprovider";
 import {
@@ -13,11 +13,11 @@ import {
   Steppler,
 } from "../../style/headerStyle/header_style";
 
-const QontoStepIcon = (props) => {
+const QontoStepIcon = (props: Partial<StepIconProps>) => {
   const { completed, active } = props;
 
   return (
-    <QontoStepIconRoots ownerstate={{ active }}>
+    <QontoStepIconRoots ownerstate={active}>
       {completed ? (
         <CircleOutlined className="QontoStepIcon-completedIcon" />
       ) : (
@@ -40,11 +40,11 @@ const Header = () => {
   );
 
   const setOnclick = useCallback(() => {
-    setThemeDark((prev) => !prev);
+    setThemeDark(themeLight);
   }, [setThemeDark]);
   return (
     <HeaderLayout>
-      <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
+      <Steppler activeStep={activeStep} connector={<StepConnectorStyle completed={false} disabled={false} />}>
         {steps.map((label, index) => (
           <Step key={label}>
             <StepLabel StepIconComponent={QontoStepIcon}>

@@ -2,6 +2,20 @@ import Button from "@mui/material/Button";
 import { stepConnectorClasses } from "@mui/material/StepConnector";
 import { css, styled, Stepper, Typography, StepConnector } from "@mui/material";
 
+interface LinkTypographyProps {
+  active: number;
+  index: number;
+}
+
+interface StepConnectorStyleProps {
+  completed: boolean;
+  disabled: boolean;
+}
+
+interface QontoStepIconRootsProps {
+  ownerstate: boolean;
+}
+
 const Steppler = styled(Stepper)`
   padding: 2% 30%;
   background: rgba(0, 0, 0, 0);
@@ -18,7 +32,8 @@ const StyledButton = styled(Button)`
     background-color: rgba(255, 255, 255, 0.1);
   }
 `;
-const LinkTypography = styled(Typography)(
+
+const LinkTypography = styled(Typography)<LinkTypographyProps>(
   ({ active, index, theme }) => `
   opacity: ${active === index ? 1 : 0.5};
   color: ${theme.palette.primary.main};
@@ -30,7 +45,8 @@ const LinkTypography = styled(Typography)(
   }
 `,
 );
-const StepConnectorStyle = styled(StepConnector)`
+
+const StepConnectorStyle = styled(StepConnector)<StepConnectorStyleProps>`
   ${({ completed, disabled }) => css`
     &.${stepConnectorClasses.alternativeLabel} {
       top: 10;
@@ -64,7 +80,8 @@ const StepConnectorStyle = styled(StepConnector)`
     }
   `}
 `;
-const QontoStepIconRoots = styled("div")(({ ownerstate }) => ({
+
+const QontoStepIconRoots = styled("div")<QontoStepIconRootsProps>(({ ownerstate }) => ({
   display: "flex",
   height: 22,
   alignItems: "center",
@@ -92,6 +109,7 @@ const QontoStepIconRoots = styled("div")(({ ownerstate }) => ({
     animation: "scale .5s reverse",
   },
 }));
+
 const ThemeButton = styled(Button)`
   position: absolute;
   right: 0;
