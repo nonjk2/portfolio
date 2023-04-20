@@ -84,14 +84,16 @@ const StepConnectorStyle = styled(StepConnector)<StepConnectorStyleProps>`
 const QontoStepIconRoots = styled("div")<QontoStepIconRootsProps>(({ ownerstate }) => ({
   display: "flex",
   height: 22,
+  color: "#F8FEB5DD",
   alignItems: "center",
   ...(ownerstate && {
-    color: "#F8FEB5DD",
+    color: "#000",
     animation: "scale .5s forwards",
   }),
 
   "& .QontoStepIcon-completedIcon": {
     zIndex: 1,
+    color: "#fff",
     width: 12,
     height: 12,
     borderRadius: "50%",
@@ -102,9 +104,9 @@ const QontoStepIconRoots = styled("div")<QontoStepIconRootsProps>(({ ownerstate 
   "& .QontoStepIcon-circle": {
     width: 12,
     height: 12,
-    border: "none",
+    color: "#F8FEB5DD",
     borderRadius: "50%",
-    backgroundColor: "currentColor",
+    backgroundColor: "#fff",
     boxShadow: "0 0 25px #F8FEB5, 0 0 25px #F8FEB5 , 0 0 100px #F8FEB5",
     animation: "scale .5s reverse",
   },

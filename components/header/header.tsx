@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useRouter } from "next/router";
 
-import { CircleOutlined } from "@mui/icons-material";
+import { Circle, CircleOutlined } from "@mui/icons-material";
 
 import { Button, Link, Step, StepIconProps, StepLabel } from "@mui/material";
 import { HeaderLayout } from "../../style/layout";
@@ -19,7 +19,7 @@ const QontoStepIcon = (props: Partial<StepIconProps>) => {
   return (
     <QontoStepIconRoots ownerstate={active}>
       {completed ? (
-        <CircleOutlined className="QontoStepIcon-completedIcon" />
+        <Circle className="QontoStepIcon-completedIcon" />
       ) : (
         <div className="QontoStepIcon-circle" />
       )}
