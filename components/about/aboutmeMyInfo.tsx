@@ -1,5 +1,6 @@
-import { LocationOn, Face, Mail, GitHub, PermContactCalendar, Phone, Favorite } from "@mui/icons-material/";
+import { Face, Mail, GitHub, PermContactCalendar, Phone } from "@mui/icons-material/";
 import { Box, Link, Typography } from "@mui/material";
+import React from "react";
 import {
   Bottompaper,
   EunImg,
@@ -19,7 +20,7 @@ const MyInfo = [
   { imoge: Phone, tpye: "전화", value: "010 - 9637 - 8406" },
 ];
 const AboutmeMyInfo = () => {
-  const myinfoCompo = (Imo, up, down) => {
+  const myinfoCompo = (Imo: React.ElementType, up: string, down: string) => {
     return (
       <Box
         key={up}
@@ -75,6 +76,7 @@ const AboutmeMyInfo = () => {
                 src="https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1665731167456_C38992CC-0D97-4ED8-BA2F-C84866C4E337.jpg"
                 alt="카카오톡"
                 fill
+                sizes="large"
               />
             </FrontAboutMeTwo>
           </Paper>

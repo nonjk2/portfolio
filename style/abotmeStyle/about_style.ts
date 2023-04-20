@@ -7,9 +7,12 @@ export const Container = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  "@media (max-width: 768px)": {
+    display: "none",
+  },
 });
 
-export const SmallpaperContainer = styled("div")(({ theme }) => ({
+export const SmallpaperContainer = styled("div")(() => ({
   perspective: "1000px",
   flex: "1",
   "&:hover , &:focus": {
@@ -32,7 +35,7 @@ export const Paper = styled("div")(({ theme }) => ({
   color: theme.palette.primary.main,
 }));
 
-export const PaperContainer = styled("div")(({ theme }) => ({
+export const PaperContainer = styled("div")(() => ({
   perspective: "1000px",
   width: "40vw",
   height: "60vh",

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 import "../style/global.css";
@@ -7,6 +7,7 @@ import "../style/slickslide.css";
 import "../style/slick-theme.css";
 import { CssBaseline } from "@mui/material";
 import { GlobalStyles } from "../style/globalStyled";
+import { AppProvider } from "../components/appprovider";
 
 const Portpolio = ({ Component, pageProps }) => {
   return (
@@ -28,7 +29,9 @@ const Portpolio = ({ Component, pageProps }) => {
       />
       <GlobalStyles />
       <CssBaseline />
-      <Component {...pageProps} />
+      <AppProvider>
+        <Component {...pageProps} />
+      </AppProvider>
     </>
   );
 };

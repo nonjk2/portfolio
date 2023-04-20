@@ -7,15 +7,16 @@ const useWheelHandler = (outerDivRef, Pages) => {
 
   const handleStepChange = debounce((deltaY) => {
     if (deltaY < 0) {
-      setActiveStep((prev) => (prev > 0 ? prev - 1 : Pages.length - 1));
+      setActiveStep(activeStep > 0 ? activeStep - 1 : Pages.length - 1);
     } else {
-      setActiveStep((prev) => (prev < Pages.length - 1 ? prev + 1 : 0));
+      setActiveStep(activeStep < Pages.length - 1 ? activeStep + 1 : 0);
     }
   }, 350);
 
   useEffect(() => {
     const wheelHandler = (e) => {
       e.preventDefault();
+      // handleStep(e.deltaY);
       handleStepChange(e.deltaY);
     };
 

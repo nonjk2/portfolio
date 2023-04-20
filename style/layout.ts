@@ -4,10 +4,11 @@ import styled, { keyframes } from "styled-components";
 /// / 전체영역 ////
 
 export const Outer = styled.div`
+  ${({ theme }) => `
+    background: ${theme.palette.background.outer};
+    transition: background 1.2s;
+  `}
   margin: 0;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 /// // 헤더영역 /////////// 헤더영역 /////////// 헤더영역 //////
@@ -31,8 +32,6 @@ export const MainImageLayout = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  background: ${(props) =>
-    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 
 export const InnerImageDiv = styled.div`
@@ -62,11 +61,6 @@ export const AboutmeLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* line-height: 100vh; */
-  /* background: linear-gradient(rgb(226, 242, 253), 40%, white); */
-  /* background: rgb(36, 39, 63); */
-  background: ${(props) =>
-    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 
 export const ProjectLayout = styled.div`
@@ -78,8 +72,6 @@ export const ProjectLayout = styled.div`
   align-items: center;
   justify-content: center;
   /* line-height: 100vh; */
-  background: ${(props) =>
-    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 
 export const SkillsLayout = styled.div`
@@ -87,8 +79,6 @@ export const SkillsLayout = styled.div`
   text-align: center;
   /* line-height: 100vh; */
   /* background: rgb(226, 242, 253); */
-  background: ${(props) =>
-    props.themeLight ? "linear-gradient(rgb(226, 242, 253), 50%, rgb(226, 242, 253))" : "rgb(36, 39, 63)"};
 `;
 export const move = keyframes`
 	//단계 별로 변화를 주는 코드
@@ -128,8 +118,6 @@ export const PaperContainer = styled.div`
 
 export const ProjectContainer = styled.div`
   /* width: 90%; */
-  /* padding: 0; */
-  /* animation: ${move} ${(props) => props.timing}s 0s; */
 `;
 export const Logo = styled.div`
   color: brown;

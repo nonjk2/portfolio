@@ -1,6 +1,7 @@
 import { LocationOn, PermContactCalendar, Phone, Favorite } from "@mui/icons-material/";
-import { useEffect, useRef } from "react";
-import { MyAboutSmallPaperTwo } from "../../style/layout";
+import React, { useEffect, useRef } from "react";
+
+// eslint-disable-next-line import/no-unresolved
 import { useAppContext } from "../appprovider";
 import {
   FrontAboutMeOne,
@@ -12,12 +13,13 @@ import {
   SmallpaperContainer,
 } from "../../style/abotmeStyle/about_style";
 
-const AboutmeAdress = ({ classes }) => {
+const AboutmeAdress: React.FC = () => {
   const { activeStep } = useAppContext();
-  const mapElement = useRef(null);
+  const mapElement = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const { naver } = window;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { naver } = window as any;
     if (!mapElement.current || !naver) return;
     const location = new naver.maps.LatLng(37.5162, 126.8968);
     const mapOptions = {
@@ -29,13 +31,14 @@ const AboutmeAdress = ({ classes }) => {
       },
     };
     const map = new naver.maps.Map(mapElement.current, mapOptions);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const marker = new naver.maps.Marker({
       position: location,
       map,
     });
   }, [activeStep]);
 
-  const myinfoCompo = (Imo, up, down) => {
+  const myinfoCompo = (Imo: React.ElementType, up: string, down: string) => {
     return (
       <div
         style={{
@@ -57,7 +60,6 @@ const AboutmeAdress = ({ classes }) => {
       </div>
     );
   };
-
   return (
     <MyAboutAddContainer>
       <MyAboutSmallPaperContainer>
@@ -90,7 +92,7 @@ const AboutmeAdress = ({ classes }) => {
               </MyAboutSmallPaper>
             </FrontAboutMeOne>
             <FrontAboutMeTwo>
-              <div id="map" ref={mapElement} style={{ index: 999, minHeight: "100%", borderRadius: 15 }} />
+              <div id="map" ref={mapElement} style={{ minHeight: "100%", borderRadius: 15 }} />
             </FrontAboutMeTwo>
           </Paper>
         </SmallpaperContainer>

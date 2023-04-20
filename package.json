@@ -6,6 +6,12 @@
     "@babel/core": "^7.18.5",
     "@babel/eslint-parser": "^7.18.2",
     "@next/eslint-plugin-next": "^13.3.0",
+    "@types/node": "^18.15.12",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-styled-components": "^2.1.1",
     "eslint": "^8.18.0",
@@ -20,7 +26,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "install": "^0.13.0",
     "npm": "^8.12.2",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^5.0.4"
   },
   "scripts": {
     "dev": "next",
@@ -40,17 +48,18 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "@mui/styled-engine-sc": "^5.12.0",
+    "@notionhq/client": "^2.2.4",
+    "dotenv": "^16.0.3",
     "fs-cli": "^0.1.1",
     "lodash": "^4.17.21",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-slick": "^0.29.0",
-    "react-tsparticles": "^1.40.2",
     "sharp": "^0.32.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
     "throttle-debounce": "^5.0.0",
-    "webpack": "^4.44.0"
+    "webpack": "^5.80.0"
   }
 }

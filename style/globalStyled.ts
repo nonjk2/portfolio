@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+overflow-x: hidden;
   @keyframes scaleXRever {
     from {
       width: 100%;

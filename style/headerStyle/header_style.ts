@@ -1,14 +1,11 @@
-import React from "react";
-
 import Button from "@mui/material/Button";
 import { stepConnectorClasses } from "@mui/material/StepConnector";
-import { createGlobalStyle } from "styled-components";
-import { css, styled, Link, Step, StepLabel, Stepper, Typography, StepConnector } from "@mui/material";
+import { css, styled, Stepper, Typography, StepConnector } from "@mui/material";
 
 const Steppler = styled(Stepper)`
   padding: 2% 30%;
   background: rgba(0, 0, 0, 0);
-  top: 10;
+  /* top: 10; */
   @media (max-width: 768px) {
     padding: 2% 10%;
   }
@@ -22,14 +19,14 @@ const StyledButton = styled(Button)`
   }
 `;
 const LinkTypography = styled(Typography)(
-  ({ active, themeLight, theme }) => `
-  opacity: ${active ? 1 : 0.5};
+  ({ active, index, theme }) => `
+  opacity: ${active === index ? 1 : 0.5};
   color: ${theme.palette.primary.main};
   font-weight: bold;
   text-decoration-line: none;
   @media only screen and (max-width: 600px) {
     /* Apply mobile styles */
-    font-size: 0.2rem;
+    font-size: 0.5rem;
   }
 `,
 );

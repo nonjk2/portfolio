@@ -4,13 +4,9 @@ import { GitHub } from "@mui/icons-material";
 import { Chip, Link } from "@mui/material";
 import Image from "next/image";
 import { MyProject } from "./projectItem";
-import triplan from "../../public/images/triplan.png";
-import myhealth from "../../public/images/myhealth.png";
-import portpolio from "../../public/images/portpolio.png";
 
 const ProjectCard = (prop) => {
-  const { idx, projectname } = prop;
-  const images = [myhealth, triplan, portpolio];
+  const { idx } = prop;
   const AboutMyProject = [
     {
       projectname: "마이헬스",
@@ -27,7 +23,7 @@ const ProjectCard = (prop) => {
   return (
     <div className="projectBox">
       <div className="projectimgBox">
-        <Image src={images[idx]} alt="Eunseokimg" fill />
+        <Image src="" alt="Eunseokimg" fill sizes="large" />
       </div>
       <div className="projectinfoBox">
         <div style={{ flex: 1, width: "100%", paddingBottom: "5px" }}>

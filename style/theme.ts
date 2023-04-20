@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material";
 
-const createMyTheme = (themeLight) => {
+const createMyTheme = (themeLight: any, activeStep: any) => {
+  const backgrounds = ["rgb(36, 39, 63)", "rgb(100, 100, 100)", "rgb(176, 170, 170)", "rgb(226, 242, 253)"];
   const theme = createTheme({
     palette: {
       type: themeLight ? "light" : "dark",
@@ -8,7 +9,8 @@ const createMyTheme = (themeLight) => {
         main: themeLight ? "#000" : "#fff", // your primary color for light and dark mode
       },
       background: {
-        default: themeLight ? "#ffffff" : "#303030", // your background color for light and dark mode
+        default: themeLight ? "rgb(226, 242, 253)" : "rgb(36, 39, 63)",
+        outer: backgrounds[activeStep],
       },
     },
 

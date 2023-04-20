@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { KeyboardArrowRight, KeyboardArrowLeft, GitHub } from "@mui/icons-material";
+import React, { useEffect, useRef } from "react";
+import { KeyboardArrowRight, KeyboardArrowLeft } from "@mui/icons-material";
 import { useTheme } from "@mui/material";
 import { NextArrowbutton, PreArrowbutton } from "../../style/utilComponentStyle/button";
 import { ProjectContainer } from "../../style/layout";
@@ -10,12 +10,14 @@ import { useAppContext } from "../appprovider";
 
 export const MyProject = ["마이헬스", "트리플랜", "포트폴리오 웹"];
 
-const ProjectCarousel = (props) => {
-  const { themeLight, activeStep } = useAppContext();
+const ProjectCarousel = ({ notionDataBase }) => {
+  const { themeLight } = useAppContext();
   const slideRef = useRef();
   const muiTheme = useTheme();
   useHandleProjectArrow(slideRef);
-
+  useEffect(() => {
+    console.log("ProjectPage : ", notionDataBase);
+  }, [notionDataBase]);
   const NextArrow = (prop) => {
     const { className, style, onClick } = prop;
     return (
@@ -52,13 +54,15 @@ const ProjectCarousel = (props) => {
   /// //박스가 여러개///
 
   return (
-    <ProjectContainer timing={0.5}>
+    <ProjectContainer>
       <StyledSlider {...settings} ref={slideRef} muiTheme={muiTheme}>
-        {MyProject.map((val, idx) => (
-          <div className="project" key={val}>
-            <ProjectCard projectname={val} idx={idx} />
-          </div>
-        ))}
+        {notionDataBase &&
+          notionDataBase.map((val, idx) => (
+            <div className="project" key={val}>
+              <ProjectCard projectname={val} idx={idx} />
+            </div>
+          ))}
+        {/* {MyProject} */}
       </StyledSlider>
     </ProjectContainer>
   );

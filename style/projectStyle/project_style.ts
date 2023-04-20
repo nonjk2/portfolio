@@ -15,7 +15,7 @@ export const StyledSlider = styled(Slider)`
   .slick-center .project {
     opacity: 1;
     height: 80vh;
-    width: 100%;
+    /* width: 100%; */
   }
   .project {
     opacity: 0.5;
@@ -25,6 +25,7 @@ export const StyledSlider = styled(Slider)`
     padding: 20px;
   }
   .projectimgBox {
+    position: relative;
     flex: 1;
     margin: 50px;
     height: 70vh;

@@ -36,11 +36,12 @@ const Header = () => {
     (index) => {
       setActiveStep(index);
     },
-    [router],
+    [router, setActiveStep],
   );
+
   const setOnclick = useCallback(() => {
     setThemeDark((prev) => !prev);
-  }, []);
+  }, [setThemeDark]);
   return (
     <HeaderLayout>
       <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
@@ -52,7 +53,9 @@ const Header = () => {
                 href={`${label}`}
                 onClick={() => StateHandle(index)}
               >
-                <LinkTypography active={activeStep === index}>{label.match(/\w/g)}</LinkTypography>
+                <LinkTypography active={activeStep} index={index}>
+                  {label.match(/\w/g)}
+                </LinkTypography>
               </Link>
             </StepLabel>
           </Step>

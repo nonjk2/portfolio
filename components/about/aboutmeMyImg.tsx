@@ -1,32 +1,25 @@
 import { Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import {
-  EunImg,
   FrontAboutMeOne,
   FrontAboutMeTwo,
   MyAboutPaper,
   Paper,
   PaperContainer,
 } from "../../style/abotmeStyle/about_style";
-import phone from "../../public/images/phone.png";
 
 const AboutmeMyImg = () => {
   const imageURL = "https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1663595285111_IMG_6645.JPG";
-  const [image, setImage] = useState(phone);
-  useEffect(() => {
-    if (imageURL) {
-      setImage(imageURL);
-    }
-  }, [image, imageURL]);
+
   return (
     <PaperContainer>
-      <Paper elevation={3} className="paper">
+      <Paper className="paper">
         <FrontAboutMeOne>
-          <Image src={image} alt="Eunseokimg" fill style={{ borderRadius: 15 }} />
+          <Image src={imageURL} alt="Eunseokimg" sizes="large" fill style={{ borderRadius: 15 }} />
         </FrontAboutMeOne>
         <FrontAboutMeTwo>
-          <MyAboutPaper elevation={2}>
+          <MyAboutPaper>
             <div>
               <Typography>
                 안녕하세요.원하는것을 언제나 할 수 있을정도로 발전해가려는 개발자 최은석입니다. <br />

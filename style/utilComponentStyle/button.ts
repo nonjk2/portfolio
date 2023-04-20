@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
 
 export const Headername = styled.div`
@@ -29,7 +28,10 @@ const rightLeft = keyframes`
     transform: translateX(-5px);
   }
 `;
-export const PreArrowbutton = styled.button`
+interface buttonProp {
+  themeLight: boolean;
+}
+export const PreArrowbutton = styled.button<buttonProp>`
   position: absolute;
   /* display: flex; */
   background-color: transparent;
@@ -48,7 +50,7 @@ export const PreArrowbutton = styled.button`
   }
 `;
 
-export const NextArrowbutton = styled.button`
+export const NextArrowbutton = styled.button<buttonProp>`
   position: fixed;
   background-color: transparent;
   color: ${(props) => (props.themeLight ? "#000" : "#fff")};
@@ -76,7 +78,4 @@ export const Nextbutton = styled.button`
   bottom: 2vh;
   margin-left: 48%;
   animation: ${updown} 1000ms infinite alternate ease-in-out;
-  &:hover {
-    color: blue;
-  }
 `;
