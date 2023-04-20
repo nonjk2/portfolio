@@ -1,15 +1,10 @@
 import Button from "@mui/material/Button";
-import { stepConnectorClasses } from "@mui/material/StepConnector";
-import { css, styled, Stepper, Typography, StepConnector } from "@mui/material";
+import { StepConnectorProps, stepConnectorClasses } from "@mui/material/StepConnector";
+import { styled, Stepper, Typography, StepConnector } from "@mui/material";
 
 interface LinkTypographyProps {
   active: number;
   index: number;
-}
-
-interface StepConnectorStyleProps {
-  completed: boolean;
-  disabled: boolean;
 }
 
 interface QontoStepIconRootsProps {
@@ -46,39 +41,33 @@ const LinkTypography = styled(Typography)<LinkTypographyProps>(
 `,
 );
 
-const StepConnectorStyle = styled(StepConnector)<StepConnectorStyleProps>`
-  ${({ completed, disabled }) => css`
-    &.${stepConnectorClasses.alternativeLabel} {
-      top: 10;
-      left: calc(-50% + 16px);
-      right: calc(50% + 16px);
-    }
+const StepConnectorStyle = styled(StepConnector)<StepConnectorProps>`
+  &.${stepConnectorClasses.alternativeLabel} {
+    top: 10;
+    left: calc(-50% + 16px);
+    right: calc(50% + 16px);
+  }
 
-    &.${stepConnectorClasses.disabled} {
-      & .${stepConnectorClasses.line} {
-        opacity: 0;
-        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
-        animation: scaleXRever 0.5s;
-      }
-    }
-
-    ${completed &&
-    css`
-      & .${stepConnectorClasses.line} {
-        border-color: #03e9f4;
-        box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
-        animation: scaleX 0.5s backwards;
-      }
-    `}
-
+  &.${stepConnectorClasses.disabled} {
     & .${stepConnectorClasses.line} {
-      border-top-width: 3;
-      border-radius: 1;
-      border-color: ${disabled ? "#03e9f4" : "currentColor"};
+      opacity: 0;
       box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
-      animation: scaleX 0.5s backwards;
+      animation: scaleXRever 0.5s;
     }
-  `}
+  }
+
+  & .${stepConnectorClasses.line} {
+    border-color: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
+    animation: scaleX 0.5s backwards;
+  }
+
+  & .${stepConnectorClasses.line} {
+    border-top-width: 3;
+    border-radius: 1;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
+    animation: scaleX 0.5s backwards;
+  }
 `;
 
 const QontoStepIconRoots = styled("div")<QontoStepIconRootsProps>(({ ownerstate }) => ({

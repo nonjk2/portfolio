@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 import styled, { keyframes } from "styled-components";
 
 /// / 전체영역 ////
@@ -104,16 +103,6 @@ export const TitleBox = styled.div`
   background: green;
   opacity: 1;
   animation: ${move} 2s 1s;
-`;
-
-export const MyAboutSmallPaperTwo = styled(Paper)`
-  flex: 1;
-  /* margin: 5px; */
-  animation: ${move} ${(props) => props.timing}s 0s;
-`;
-
-export const PaperContainer = styled.div`
-  animation: ${move} ${(props) => props.timing}s 0s;
 `;
 
 export const ProjectContainer = styled.div`

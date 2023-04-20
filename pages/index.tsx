@@ -10,7 +10,6 @@ import Header from "../components/header/header";
 import { getDataBase } from "./api/notion";
 import MainImage from "./mainImage";
 import AboutMe from "./aboutme";
-
 import Skills from "./skills";
 import useHandleKeyDown from "../hooks/useHandlekeyDown";
 import Project from "./project";

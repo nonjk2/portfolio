@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useRouter } from "next/router";
 
-import { Circle, CircleOutlined } from "@mui/icons-material";
+import { Circle } from "@mui/icons-material";
 
 import { Button, Link, Step, StepIconProps, StepLabel } from "@mui/material";
 import { HeaderLayout } from "../../style/layout";
@@ -44,7 +44,7 @@ const Header = () => {
   }, [setThemeDark]);
   return (
     <HeaderLayout>
-      <Steppler activeStep={activeStep} connector={<StepConnectorStyle completed={false} disabled={false} />}>
+      <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
         {steps.map((label, index) => (
           <Step key={label}>
             <StepLabel StepIconComponent={QontoStepIcon}>
