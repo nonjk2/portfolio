@@ -16,7 +16,7 @@ const AppLayout = ({ children }) => {
   const outerDivRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
-  const theme = createMyTheme(themeLight, activeStep);
+  const theme = createMyTheme({ themeLight, activeStep });
 
   useHandleKeyDown(setActiveStep, Pages);
   useWheelHandler(outerDivRef, Pages);

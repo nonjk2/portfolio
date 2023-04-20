@@ -1,11 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { KeyboardArrowRight, KeyboardArrowLeft } from "@mui/icons-material";
 import { useTheme } from "@mui/material";
-import { PageObjectResponse, PartialPageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NextArrowbutton, PreArrowbutton } from "../../style/utilComponentStyle/button";
 import { ProjectContainer } from "../../style/layout";
 import { StyledSlider } from "../../style/projectStyle/project_style";
-import ProjectCard from "./projectCard";
 import useHandleProjectArrow from "../../hooks/useHandleProjectArrow";
 import { useAppContext } from "../appprovider";
 

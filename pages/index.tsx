@@ -17,7 +17,10 @@ import Project from "./project";
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const { themeLight, activeStep, setActiveStep } = useAppContext();
-  const theme = useMemo(() => createTheme(createMyTheme(themeLight, activeStep)), [themeLight, activeStep]);
+  const theme = useMemo(
+    () => createTheme(createMyTheme({ themeLight, activeStep })),
+    [themeLight, activeStep],
+  );
   useHandleKeyDown(setActiveStep, Pages);
 
   return (

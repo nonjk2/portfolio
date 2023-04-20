@@ -9,9 +9,9 @@ import { getStaticProps } from ".";
 interface ProjectProps {
   notionDataBase?: (PageObjectResponse | PartialPageObjectResponse)[];
 }
-const Project: NextPage<ProjectProps> = ({ notionDataBase }) => {
+const Project: NextPage<ProjectProps> = () => {
   const { activeStep } = useAppContext();
-  console.log(notionDataBase);
+
   return (
     <ProjectLayout id="Project">
       <div key={activeStep} style={{ width: "100vw" }}>

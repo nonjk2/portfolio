@@ -1,29 +1,32 @@
-import { createTheme } from "@mui/material";
+import { createTheme, Theme } from "@mui/material";
 
-const createMyTheme = (themeLight: any, activeStep: any) => {
+interface MyThemeOptions {
+  themeLight: boolean;
+  activeStep: number;
+}
+
+const createMyTheme = ({ themeLight, activeStep }: MyThemeOptions): Theme => {
   const backgrounds = ["rgb(36, 39, 63)", "rgb(100, 100, 100)", "rgb(176, 170, 170)", "rgb(226, 242, 253)"];
   const theme = createTheme({
     palette: {
-      type: themeLight ? "light" : "dark",
       primary: {
-        main: themeLight ? "#000" : "#fff", // your primary color for light and dark mode
+        main: themeLight ? "#000" : "#fff",
       },
       background: {
-        default: themeLight ? "rgb(226, 242, 253)" : "rgb(36, 39, 63)",
-        outer: backgrounds[activeStep],
+        default: backgrounds[activeStep],
       },
     },
 
     typography: {
       h2: {
         fontFamily: "'Black Han Sans', sans-serif",
-        color: themeLight ? "#000" : "#fff", // 폰트 색상을 설정합니다.
+        color: themeLight ? "#000" : "#fff",
       },
       h3: {
-        fontfamily: "'Montserrat', sans-serif",
-        color: themeLight ? "#000" : "#fff", // 폰트 색상을 설정합니다.
+        fontFamily: "'Montserrat', sans-serif",
+        color: themeLight ? "#000" : "#fff",
       },
-      h6: { fontfamily: "'Montserrat', sans-serif" },
+      h6: { fontFamily: "'Montserrat', sans-serif" },
     },
     components: {
       MuiCssBaseline: {
