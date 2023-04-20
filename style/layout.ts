@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 
 export const Outer = styled.div`
   ${({ theme }) => `
-    background: ${theme.palette.background.outer};
+    background: ${theme.palette.background.default};
     transition: background 1.2s;
   `}
   margin: 0;
