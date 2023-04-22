@@ -1,36 +1,37 @@
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, ReactNode } from "react";
 import { useRouter } from "next/router";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+
 import { Outer } from "../style/layout";
 import { Nextbutton } from "../style/utilComponentStyle/button";
 import { useAppContext } from "./appprovider";
-import useHandleKeyDown from "../hooks/useHandlekeyDown";
-import useWheelHandler from "../hooks/useHandleScroll";
-import createMyTheme from "../style/theme";
-import useSmoothScroll from "../hooks/useSmoothScroll";
 
-const AppLayout = ({ children }) => {
+import createMyTheme from "../style/theme";
+
+interface AppLayoutProps {
+  children: ReactNode;
+}
+const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const { activeStep, setActiveStep, themeLight } = useAppContext();
   const outerDivRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const theme = createMyTheme({ themeLight, activeStep });
+  // useHandleKeyDown(setActiveStep, Pages);
 
-  useHandleKeyDown(setActiveStep, Pages);
-  useWheelHandler(outerDivRef, Pages);
-  useSmoothScroll();
+  // useSmoothScroll();
 
-  const handleRouting = useCallback(() => {
-    if (Pages[activeStep]) {
-      router.push(`${Pages[activeStep]}`, undefined, { scroll: false });
-    }
-  }, [activeStep]);
+  // const handleRouting = useCallback(() => {
+  //   if (Pages[activeStep]) {
+  //     router.push(`${Pages[activeStep]}`, undefined, { scroll: false });
+  //   }
+  // }, [activeStep]);
 
-  useEffect(() => {
-    handleRouting();
-  }, [activeStep]);
+  // useEffect(() => {
+  //   handleRouting();
+  // }, [activeStep]);
 
   return (
     <Outer ref={outerDivRef}>
@@ -48,7 +49,6 @@ const AppLayout = ({ children }) => {
       )}
 
       <div id="about" />
-      {/* {children} */}
     </Outer>
   );
 };

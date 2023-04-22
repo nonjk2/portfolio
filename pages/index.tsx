@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { ThemeProvider as MuiThemeProvider, createTheme } from "@mui/material";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
@@ -8,11 +8,14 @@ import { useAppContext } from "../components/appprovider";
 import createMyTheme from "../style/theme";
 import Header from "../components/header/header";
 import { getDataBase } from "./api/notion";
-import MainImage from "./mainImage";
-import AboutMe from "./aboutme";
-import Skills from "./skills";
+
 import useHandleKeyDown from "../hooks/useHandlekeyDown";
-import Project from "./project";
+
+import { useIntersectionSetActiveStep } from "../hooks/useIntersectionObserver";
+import MainImageSection from "../sections/mainSection";
+import AboutMeSections from "../sections/aboutmeSection";
+import ProjectSection from "../sections/projectSection";
+import SkillsSection from "../sections/skillsSection";
 
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
@@ -22,16 +25,17 @@ const Home = () => {
     [themeLight, activeStep],
   );
   useHandleKeyDown(setActiveStep, Pages);
-
+  const sectionRefs = Pages.map(() => useRef<HTMLDivElement | null>(null));
+  useIntersectionSetActiveStep(setActiveStep, sectionRefs);
   return (
     <StyledThemeProvider theme={theme}>
       <MuiThemeProvider theme={theme}>
         <Header />
         <AppLayout>
-          <MainImage />
-          <AboutMe />
-          <Project />
-          <Skills />
+          <MainImageSection ref={sectionRefs[0]} />
+          <AboutMeSections ref={sectionRefs[1]} />
+          <ProjectSection ref={sectionRefs[2]} />
+          <SkillsSection ref={sectionRefs[3]} />
         </AppLayout>
       </MuiThemeProvider>
     </StyledThemeProvider>

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useMemo, useState } from "react";
 
 interface AppContextType {
   activeStep: number;
-  setActiveStep: (step: number) => void;
+  setActiveStep: (step: number | ((prev: number) => number)) => void;
   themeLight: boolean;
   setThemeDark: (dark: boolean) => void;
 }

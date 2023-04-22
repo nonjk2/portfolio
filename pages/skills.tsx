@@ -1,9 +1,13 @@
 import React from "react";
 
-import { SkillsLayout } from "../style/layout";
+import SkillsSection from "../sections/skillsSection";
 
 const Skills = () => {
-  return <SkillsLayout id="Skills">Skills</SkillsLayout>;
+  return (
+    <div>
+      <SkillsSection />
+    </div>
+  );
 };
 
 export default Skills;
