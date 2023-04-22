@@ -56,7 +56,7 @@ export const MainImgdiv = styled.div`
 /// //소개페이지 영역 /////////소개페이지 영역 /////////소개페이지 영역 ////
 
 export const AboutmeLayout = styled.div`
-  height: 100vh;
+  height: 200vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +64,7 @@ export const AboutmeLayout = styled.div`
 
 export const ProjectLayout = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   text-align: center;
   display: flex;
 
@@ -74,7 +74,7 @@ export const ProjectLayout = styled.div`
 `;
 
 export const SkillsLayout = styled.div`
-  height: 100vh;
+  height: 200vh;
   text-align: center;
   /* line-height: 100vh; */
   /* background: rgb(226, 242, 253); */

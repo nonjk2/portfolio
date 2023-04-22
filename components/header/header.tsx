@@ -1,50 +1,35 @@
 import React, { useCallback } from "react";
-import { useRouter } from "next/router";
+import { Button } from "@mui/material";
 
-import { Circle } from "@mui/icons-material";
-
-import { Button, Link, Step, StepIconProps, StepLabel } from "@mui/material";
+import { Link } from "react-scroll";
 import { HeaderLayout } from "../../style/layout";
 import { useAppContext } from "../appprovider";
-import {
-  LinkTypography,
-  QontoStepIconRoots,
-  StepConnectorStyle,
-  Steppler,
-} from "../../style/headerStyle/header_style";
-
-const QontoStepIcon = (props: Partial<StepIconProps>) => {
-  const { completed, active } = props;
-
-  return (
-    <QontoStepIconRoots ownerstate={active}>
-      {completed ? (
-        <Circle className="QontoStepIcon-completedIcon" />
-      ) : (
-        <div className="QontoStepIcon-circle" />
-      )}
-    </QontoStepIconRoots>
-  );
-};
+import { LinkTypography } from "../../style/headerStyle/header_style";
 
 const Header = () => {
   const { activeStep, setActiveStep, themeLight, setThemeDark } = useAppContext();
-  const router = useRouter();
   const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
-
-  const StateHandle = useCallback(
-    (index) => {
-      setActiveStep(index);
-    },
-    [router, setActiveStep],
-  );
 
   const setOnclick = useCallback(() => {
     setThemeDark(themeLight);
   }, [setThemeDark]);
   return (
     <HeaderLayout>
-      <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
+      {steps.map((e, index) => (
+        <Link
+          // style={{ textDecorationLine: "none" }}
+          to={`${e}`}
+          smooth
+          offset={50}
+          duration={500}
+          key={e}
+        >
+          <LinkTypography active={activeStep} index={index}>
+            {e}
+          </LinkTypography>
+        </Link>
+      ))}
+      {/* <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
         {steps.map((label, index) => (
           <Step key={label}>
             <StepLabel StepIconComponent={QontoStepIcon}>
@@ -60,7 +45,7 @@ const Header = () => {
             </StepLabel>
           </Step>
         ))}
-      </Steppler>
+      </Steppler> */}
       <div
         style={{
           position: "absolute",

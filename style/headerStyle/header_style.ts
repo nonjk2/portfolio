@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import { StepConnectorProps, stepConnectorClasses } from "@mui/material/StepConnector";
-import { styled, Stepper, Typography, StepConnector } from "@mui/material";
+import { styled, Stepper, Typography, StepConnector, css } from "@mui/material";
 
 interface LinkTypographyProps {
   active: number;
@@ -29,28 +29,33 @@ const StyledButton = styled(Button)`
 `;
 
 const LinkTypography = styled(Typography)<LinkTypographyProps>(
-  ({ active, index, theme }) => `
-  opacity: ${active === index ? 1 : 0.5};
-  color: ${theme.palette.primary.main};
-  font-weight: bold;
-  text-decoration-line: none;
-  @media only screen and (max-width: 600px) {
-    /* Apply mobile styles */
-    font-size: 0.5rem;
-  }
-`,
+  ({ active, index, theme }) => css`
+    opacity: ${active === index ? 1 : 0.5};
+    color: ${theme.palette.primary.main};
+    font-size: ${active === index ? "2.5rem" : "1rem"};
+    line-height: "10rem";
+    transition: font-size 0.5s;
+    font-weight: bold;
+    text-decoration-line: none;
+    @media only screen and (max-width: 600px) {
+      /* Apply mobile styles */
+      font-size: 0.5rem;
+    }
+  `,
 );
 
 const StepConnectorStyle = styled(StepConnector)<StepConnectorProps>`
   &.${stepConnectorClasses.alternativeLabel} {
     top: 10;
     left: calc(-50% + 16px);
+
     right: calc(50% + 16px);
   }
 
   &.${stepConnectorClasses.disabled} {
     & .${stepConnectorClasses.line} {
       opacity: 0;
+
       box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 100px #03e9f4;
       animation: scaleXRever 0.5s;
     }
