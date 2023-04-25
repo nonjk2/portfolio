@@ -1,16 +1,21 @@
 import { styled } from "@mui/material";
 import Image from "next/image";
 
-export const Container = styled("div")({
+interface ContainerProps {
+  activeStep: number;
+}
+export const Container = styled("div")(({ activeStep }: ContainerProps) => ({
+  position: activeStep === 1 ? "sticky" : "sticky",
+  top: "0",
   height: "100vh",
   width: "80vw",
   display: "flex",
-  alignItems: "center",
   justifyContent: "center",
+  alignItems: "center",
   "@media (max-width: 768px)": {
     display: "none",
   },
-});
+}));
 
 export const SmallpaperContainer = styled("div")(() => ({
   perspective: "1000px",
@@ -36,6 +41,7 @@ export const Paper = styled("div")(({ theme }) => ({
 }));
 
 export const PaperContainer = styled("div")(() => ({
+  position: "sticky",
   perspective: "1000px",
   width: "40vw",
   height: "60vh",

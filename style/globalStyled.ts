@@ -1,7 +1,11 @@
+import { Theme } from "@mui/material";
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 overflow-x: hidden;
+  body{
+    background: rgb(17,17,17);
+  }
   @keyframes scaleXRever {
     from {
       width: 100%;

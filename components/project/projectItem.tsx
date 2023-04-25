@@ -6,6 +6,7 @@ import { ProjectContainer } from "../../style/layout";
 import { StyledSlider } from "../../style/projectStyle/project_style";
 import useHandleProjectArrow from "../../hooks/useHandleProjectArrow";
 import { useAppContext } from "../appprovider";
+import ProjectCard from "./projectCard";
 
 export const MyProject = ["마이헬스", "트리플랜", "포트폴리오 웹"];
 
@@ -57,9 +58,9 @@ const ProjectCarousel = () => {
       <StyledSlider {...settings} ref={slideRef} muiTheme={muiTheme}>
         {/* {notionDataBase &&
           notionDataBase.map((val, idx) => (
-            <div className="project" key={val}>
-              <ProjectCard projectname={val} idx={idx} />
-            </div>
+            <div className="project" key={val}> */}
+        <ProjectCard projectname="마이헬스" idx="ㅁㄴㅇ" />
+        {/* </div>
           ))} */}
         {/* {MyProject} */}
       </StyledSlider>

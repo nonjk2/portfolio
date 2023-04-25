@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
+import { CssBaseline } from "@mui/material";
+import { GlobalStyles } from "../style/globalStyled";
 
 interface AppContextType {
   activeStep: number;
@@ -34,5 +36,12 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     };
   }, [activeStep, setActiveStep, themeLight, setThemeDark]);
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={value}>
+      <GlobalStyles />
+      <CssBaseline />
+
+      {children}
+    </AppContext.Provider>
+  );
 };

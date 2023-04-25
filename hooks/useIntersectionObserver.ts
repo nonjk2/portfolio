@@ -12,14 +12,15 @@ export const useIntersectionSetActiveStep = (
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = sectionRefs.findIndex((ref) => ref.current === entry.target);
+
             setActiveStep(index);
           }
         });
       },
       {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
+        rootMargin: "100px",
+        threshold: 0.4,
       },
     );
 
@@ -36,5 +37,5 @@ export const useIntersectionSetActiveStep = (
         }
       });
     };
-  }, [setActiveStep, sectionRefs]);
+  }, []);
 };

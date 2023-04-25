@@ -3,7 +3,6 @@ import { ThemeProvider as MuiThemeProvider, createTheme } from "@mui/material";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
 import { GetStaticProps } from "next";
-import { useRouter } from "next/router";
 import AppLayout from "../components/appLayout";
 import { useAppContext } from "../components/appprovider";
 import createMyTheme from "../style/theme";
@@ -21,7 +20,6 @@ import SkillsSection from "../sections/skillsSection";
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const { themeLight, activeStep, setActiveStep } = useAppContext();
-  const router = useRouter();
   const theme = useMemo(
     () => createTheme(createMyTheme({ themeLight, activeStep })),
     [themeLight, activeStep],
@@ -35,6 +33,7 @@ const Home = () => {
       // router.replace(Pages[activeStep], undefined, { shallow: true, scroll: true });
     }
   }, [activeStep]);
+  // useScrollOpacity(sectionRefs);
   return (
     <StyledThemeProvider theme={theme}>
       <MuiThemeProvider theme={theme}>

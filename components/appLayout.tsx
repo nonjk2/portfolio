@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useCallback, ReactNode } from "react";
-import { useRouter } from "next/router";
+import React, { useRef, ReactNode } from "react";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
@@ -16,22 +15,8 @@ interface AppLayoutProps {
 const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const { activeStep, setActiveStep, themeLight } = useAppContext();
   const outerDivRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const theme = createMyTheme({ themeLight, activeStep });
-  // useHandleKeyDown(setActiveStep, Pages);
-
-  // useSmoothScroll();
-
-  // const handleRouting = useCallback(() => {
-  //   if (Pages[activeStep]) {
-  //     router.push(`${Pages[activeStep]}`, undefined, { scroll: false });
-  //   }
-  // }, [activeStep]);
-
-  // useEffect(() => {
-  //   handleRouting();
-  // }, [activeStep]);
 
   return (
     <Outer ref={outerDivRef}>

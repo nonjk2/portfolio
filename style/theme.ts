@@ -20,11 +20,11 @@ const createMyTheme = ({ themeLight, activeStep }: MyThemeOptions): Theme => {
     typography: {
       h2: {
         fontFamily: "'Black Han Sans', sans-serif",
-        color: themeLight ? "#000" : "#fff",
+        color: "#000",
       },
       h3: {
         fontFamily: "'Montserrat', sans-serif",
-        color: themeLight ? "#000" : "#fff",
+        color: "#000",
       },
       h6: { fontFamily: "'Montserrat', sans-serif" },
     },

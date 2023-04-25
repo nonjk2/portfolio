@@ -1,21 +1,24 @@
+import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 
 /// / 전체영역 ////
-
+interface LayoutProps {
+  activeStep: number;
+}
 export const Outer = styled.div`
-  ${({ theme }) => `
+  /* ${({ theme }) => `
     background: ${theme.palette.background.default};
     transition: background 1.2s;
-  `}
+  `} */
   margin: 0;
 `;
 
-/// // 헤더영역 /////////// 헤더영역 /////////// 헤더영역 //////
 export const LogoLayout = styled.div`
   float: left;
 `;
+/// // 헤더영역 /////////// 헤더영역 /////////// 헤더영역 //////
 
-export const HeaderLayout = styled.header`
+export const HeaderLayout = styled.header<LayoutProps>`
   position: fixed;
   /* display: flex; */
   top: 0;
@@ -27,17 +30,95 @@ export const HeaderLayout = styled.header`
 
 /// //메인 이미지 영역 /////////메인 이미지 영역 /////////메인 이미지 영역 ////
 
-export const MainImageLayout = styled.div`
+export const MainImageLayout = styled.div<LayoutProps>`
+  /* position: ${({ activeStep }) => (activeStep === 0 ? "sticky" : "sticky")}; */
   position: relative;
+  margin-bottom: -100vh;
+  top: 0;
   width: 100%;
-  height: 100vh;
+  height: 300vh;
 `;
 
-export const InnerImageDiv = styled.div`
-  width: 100%;
-  margin: 0px 0px;
+/// //소개페이지 영역 /////////소개페이지 영역 /////////소개페이지 영역 ////
+
+export const AboutmeLayout = styled.div<LayoutProps>`
+  /* position: ${({ activeStep }) => (activeStep === 1 ? "sticky" : "sticky")}; */
+  position: relative;
+  top: 0;
+  margin-bottom: -100vh;
+  /* display: flex; */
+  height: 300vh;
+
+  /* justify-content: center; */
+`;
+/// //프로젝트페이지 영역 /////////프로젝트페이지 영역 /////////프로젝트페이지 영역 ////
+export const ProjectLayout = styled.div<LayoutProps>`
+  /* position: ${({ activeStep }) => (activeStep === 2 ? "sticky" : "sticky")}; */
+  position: relative;
+  margin-bottom: -100vh;
+  width: 100vw;
+  height: 300vh;
   text-align: center;
-  padding: calc(4.5rem + 4.5rem) 4rem 4rem;
+  display: flex;
+
+  justify-content: center;
+`;
+/// //스킬페이지 영역 /////////스킬페이지 영역 /////////스킬페이지 영역 ////
+export const SkillsLayout = styled.div<LayoutProps>`
+  /* position: ${({ activeStep }) => (activeStep === 3 ? "sticky" : "sticky")}; */
+  position: relative;
+  margin-bottom: -100vh;
+  height: 300vh;
+  text-align: center;
+`;
+export const InnerImageDiv = styled.div`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5rem;
+  margin: 0px 0px;
+  transition: all 0.2s;
+`;
+export const MainbackImageMe = styled(Image)`
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+  position: absolute;
+
+  right: -40%;
+  bottom: 0;
+`;
+export const MainbackImage = styled(Image)`
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0%;
+`;
+export const InnerImageDivContainer = styled.div`
+  will-change: filter, opacity, transform;
+  height: 95vh;
+  filter: blur(0px);
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  /////
+  border-radius: 1.5rem;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-end;
+  padding: 5rem;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  overflow: hidden;
 `;
 
 export const InnerTextDiv = styled.div`
@@ -52,32 +133,6 @@ export const MainImgdiv = styled.div`
   width: 100%;
   height: 3rem;
   padding: 0 4rem;
-`;
-/// //소개페이지 영역 /////////소개페이지 영역 /////////소개페이지 영역 ////
-
-export const AboutmeLayout = styled.div`
-  height: 200vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ProjectLayout = styled.div`
-  width: 100vw;
-  height: 200vh;
-  text-align: center;
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-  /* line-height: 100vh; */
-`;
-
-export const SkillsLayout = styled.div`
-  height: 200vh;
-  text-align: center;
-  /* line-height: 100vh; */
-  /* background: rgb(226, 242, 253); */
 `;
 export const move = keyframes`
 	//단계 별로 변화를 주는 코드

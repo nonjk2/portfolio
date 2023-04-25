@@ -58,3 +58,17 @@ export const StyledSlider = styled(Slider)`
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
   }
 `;
+
+export const ProjectPaper = styled.div`
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: rgba(255, 255, 255, 0.13);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
+  border-radius: 15; */
+  /* transition: "transform 0.2s"; */
+  /* transform: "rotateY(0deg)"; */
+  /* color: theme.palette.primary.main; */
+`;

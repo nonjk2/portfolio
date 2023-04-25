@@ -1,19 +1,35 @@
-import React, { MutableRefObject, forwardRef } from "react";
+import React, { MutableRefObject, forwardRef, useRef } from "react";
 import { Typography } from "@mui/material";
 
-import { InnerImageDiv, MainImageLayout } from "../style/layout";
+import { InnerImageDiv, InnerImageDivContainer, MainImageLayout, MainbackImage } from "../style/layout";
+import { useAppContext } from "../components/appprovider";
+import mainback from "../public/mainback.jpg";
+import useScrollOpacity from "../hooks/useScrollStyle";
+import useFadeInEffect from "../hooks/useFadeInEffect";
 
 const MainImageSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
+  const { activeStep } = useAppContext();
+  const innerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRefone = useRef<HTMLSpanElement>(null);
+  const textReftwo = useRef<HTMLSpanElement>(null);
+  useFadeInEffect(textRefone, textReftwo);
+  useScrollOpacity(ref, innerRef, containerRef, 0);
   return (
-    <MainImageLayout id="Main" ref={ref}>
-      <InnerImageDiv>
-        <div>
-          <Typography variant="h2">안녕하세요</Typography>
+    <MainImageLayout id="Main" ref={ref} activeStep={activeStep}>
+      <InnerImageDiv ref={innerRef}>
+        <InnerImageDivContainer ref={containerRef}>
+          <MainbackImage alt="main" src={mainback} quality={100} fill />
+          <Typography ref={textRefone} variant="h2">
+            안녕하세요
+          </Typography>
           <br />
           {/* <StyledTypist strings={sentences2} typeSpeed={40} backSpeed={50} loop themeLight={themeLight} /> */}
           <br />
-          <Typography variant="h3">최은석입니다</Typography>
-        </div>
+          <Typography ref={textReftwo} variant="h3">
+            최은석입니다
+          </Typography>
+        </InnerImageDivContainer>
       </InnerImageDiv>
     </MainImageLayout>
   );
