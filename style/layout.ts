@@ -18,7 +18,7 @@ export const LogoLayout = styled.div`
 `;
 /// // 헤더영역 /////////// 헤더영역 /////////// 헤더영역 //////
 
-export const HeaderLayout = styled.header<LayoutProps>`
+export const HeaderLayout = styled.header`
   position: fixed;
   /* display: flex; */
   top: 0;

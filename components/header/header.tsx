@@ -7,7 +7,7 @@ import { useAppContext } from "../appprovider";
 import { LinkTypography } from "../../style/headerStyle/header_style";
 
 const Header = () => {
-  const { activeStep, setActiveStep, themeLight, setThemeDark } = useAppContext();
+  const { activeStep, themeLight, setThemeDark } = useAppContext();
   const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
 
   const setOnclick = useCallback(() => {
@@ -29,23 +29,7 @@ const Header = () => {
           </LinkTypography>
         </Link>
       ))}
-      {/* <Steppler activeStep={activeStep} connector={<StepConnectorStyle />}>
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepLabel StepIconComponent={QontoStepIcon}>
-              <Link
-                style={{ textDecorationLine: "none", display: "flex", justifyContent: "center" }}
-                href={`${label}`}
-                onClick={() => StateHandle(index)}
-              >
-                <LinkTypography active={activeStep} index={index}>
-                  {label.match(/\w/g)}
-                </LinkTypography>
-              </Link>
-            </StepLabel>
-          </Step>
-        ))}
-      </Steppler> */}
+
       <div
         style={{
           position: "absolute",

@@ -6,11 +6,9 @@ const useFadeInEffect = (
 ) => {
   const handleScroll = () => {
     const scrollPosition = window.pageYOffset;
-    const elementPosition = firstref.current.offsetTop;
     const windowHeight = window.innerHeight;
     const opacity = (scrollPosition / windowHeight) * 2 < 1 ? (scrollPosition / windowHeight) * 2 : 0.99;
     const opacity2 = Math.min((scrollPosition / windowHeight) * 2, 1);
-    const fadeInStart = elementPosition - windowHeight;
 
     const firstCopyRef = { ...firstref };
     const secondCopyRef = { ...secondref };

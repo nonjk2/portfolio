@@ -33,7 +33,8 @@ const Home = () => {
       // router.replace(Pages[activeStep], undefined, { shallow: true, scroll: true });
     }
   }, [activeStep]);
-  // useScrollOpacity(sectionRefs);
+
+  // useSmoothScroll(500, "easeInOutCubic");
   return (
     <StyledThemeProvider theme={theme}>
       <MuiThemeProvider theme={theme}>
