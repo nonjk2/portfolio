@@ -21,6 +21,7 @@ export const LogoLayout = styled.div`
 export const HeaderLayout = styled.header`
   position: fixed;
   /* display: flex; */
+  padding: 1.5rem;
   top: 0;
   right: 0;
   left: 0;
