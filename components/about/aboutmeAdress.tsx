@@ -11,7 +11,7 @@ import {
   MyAboutSmallPaperContainer,
   Paper,
   SmallpaperContainer,
-} from "../../style/abotmeStyle/about_style";
+} from "../../styles/abotmeStyle/about_style";
 
 const AboutmeAdress: React.FC = () => {
   const { activeStep } = useAppContext();

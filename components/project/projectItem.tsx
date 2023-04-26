@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { KeyboardArrowRight, KeyboardArrowLeft } from "@mui/icons-material";
 import { useTheme } from "@mui/material";
-import { NextArrowbutton, PreArrowbutton } from "../../style/utilComponentStyle/button";
-import { ProjectContainer } from "../../style/layout";
-import { StyledSlider } from "../../style/projectStyle/project_style";
+import { NextArrowbutton, PreArrowbutton } from "../../styles/utilComponentStyle/button";
+import { ProjectContainer } from "../../styles/layout";
+import { StyledSlider } from "../../styles/projectStyle/project_style";
 import useHandleProjectArrow from "../../hooks/useHandleProjectArrow";
 import { useAppContext } from "../appprovider";
 import ProjectCard from "./projectCard";

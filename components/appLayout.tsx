@@ -4,11 +4,11 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
 
 import { ReactLenis } from "@studio-freight/react-lenis";
-import { Outer } from "../style/layout";
-import { Nextbutton } from "../style/utilComponentStyle/button";
+import { Outer } from "../styles/layout";
+import { Nextbutton } from "../styles/utilComponentStyle/button";
 import { useAppContext } from "./appprovider";
 
-import createMyTheme from "../style/theme";
+import createMyTheme from "../styles/theme";
 
 interface AppLayoutProps {
   children: ReactNode;

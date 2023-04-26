@@ -1,18 +1,10 @@
 import React, { MutableRefObject, forwardRef, useRef } from "react";
-import {
-  AboutmeLayout,
-  InnerImageDiv,
-  InnerImageDivContainer,
-  MainbackImage,
-  MainbackImageMe,
-} from "../style/layout";
-// import AboutmeMyImg from "../components/about/aboutmeMyImg";
-// import AboutmeMyInfo from "../components/about/aboutmeMyInfo";
-// import AboutmeAdress from "../components/about/aboutmeAdress";
+import { Typography } from "@mui/material";
+import { AboutmeLayout, InnerImageDiv, InnerImageDivContainer, MainbackImage } from "../styles/layout";
+import AboutmeMyInfo from "../components/about/aboutmeMyInfo";
 import { useAppContext } from "../components/appprovider";
-import aboutme from "../public/aboutmeback.jpg";
 import useScrollOpacity from "../hooks/useScrollStyle";
-import choieunseok from "../public/choieunseok.png";
+import simplepurple from "../public/simplepurple.jpg";
 
 const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
   const { activeStep } = useAppContext();
@@ -24,11 +16,11 @@ const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>
       {/* <Container activeStep={activeStep}> */}
       <InnerImageDiv ref={innerRef}>
         <InnerImageDivContainer ref={containerRef}>
-          <MainbackImage alt="main" src={aboutme} quality={100} fill />
-          <MainbackImageMe alt="eun" src={choieunseok} quality={100} />
-          {/* <AboutmeMyImg />
+          <MainbackImage alt="main" src={simplepurple} quality={100} fill />
+          <div style={{ flex: 1 }}>
+            <Typography variant="h2">안녕하세요 주니어 개발자 최은석입니다.</Typography>
+          </div>
           <AboutmeMyInfo />
-          <AboutmeAdress /> */}
         </InnerImageDivContainer>
       </InnerImageDiv>
       {/* </Container> */}

@@ -2,9 +2,9 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
-import "../style/global.css";
-import "../style/slickslide.css";
-import "../style/slick-theme.css";
+import "../styles/global.css";
+import "../styles/slickslide.css";
+import "../styles/slick-theme.css";
 
 import { AppProvider } from "../components/appprovider";
 

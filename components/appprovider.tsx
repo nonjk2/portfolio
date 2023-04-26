@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 import { CssBaseline } from "@mui/material";
-import { GlobalStyles } from "../style/globalStyled";
+import { GlobalStyles } from "../styles/globalStyled";
 
 interface AppContextType {
   activeStep: number;

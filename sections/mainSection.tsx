@@ -1,7 +1,7 @@
 import React, { MutableRefObject, forwardRef, useRef } from "react";
 import { Typography } from "@mui/material";
 
-import { InnerImageDiv, InnerImageDivContainer, MainImageLayout, MainbackImage } from "../style/layout";
+import { InnerImageDiv, InnerImageDivContainer, MainImageLayout, MainbackImage } from "../styles/layout";
 import { useAppContext } from "../components/appprovider";
 import mainback from "../public/mainback.jpg";
 import useScrollOpacity from "../hooks/useScrollStyle";

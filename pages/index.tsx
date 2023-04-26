@@ -5,7 +5,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { GetStaticProps } from "next";
 import AppLayout from "../components/appLayout";
 import { useAppContext } from "../components/appprovider";
-import createMyTheme from "../style/theme";
+
 import Header from "../components/header/header";
 import { getDataBase } from "./api/notion";
 
@@ -16,6 +16,7 @@ import MainImageSection from "../sections/mainSection";
 import AboutMeSections from "../sections/aboutmeSection";
 import ProjectSection from "../sections/projectSection";
 import SkillsSection from "../sections/skillsSection";
+import createMyTheme from "../styles/theme";
 
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];

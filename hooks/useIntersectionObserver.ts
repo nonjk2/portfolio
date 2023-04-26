@@ -12,22 +12,21 @@ export const useIntersectionSetActiveStep = (
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = sectionRefs.findIndex((ref) => ref.current === entry.target);
-
             setActiveStep(index);
           }
         });
       },
       {
         root: null,
-        rootMargin: "100px",
-        threshold: 0.4,
+        rootMargin: "0px",
+        threshold: [0.1, 0.9],
       },
     );
 
     sectionRefs.forEach((ref) => {
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
+      // if (ref.current) {
+      observer.observe(ref.current);
+      // }
     });
 
     return () => {

@@ -2,9 +2,9 @@ import React, { useCallback } from "react";
 import { Button } from "@mui/material";
 
 import { Link } from "react-scroll";
-import { HeaderLayout } from "../../style/layout";
+import { HeaderLayout } from "../../styles/layout";
 import { useAppContext } from "../appprovider";
-import { LinkTypography } from "../../style/headerStyle/header_style";
+import { LinkTypography } from "../../styles/headerStyle/header_style";
 
 const Header = () => {
   const { activeStep, themeLight, setThemeDark } = useAppContext();

@@ -7,7 +7,7 @@ import {
   MyAboutPaper,
   Paper,
   PaperContainer,
-} from "../../style/abotmeStyle/about_style";
+} from "../../styles/abotmeStyle/about_style";
 
 const AboutmeMyImg = () => {
   const imageURL = "https://eundolhealth.s3.ap-northeast-2.amazonaws.com/undongs/1663595285111_IMG_6645.JPG";

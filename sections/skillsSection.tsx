@@ -1,6 +1,6 @@
 import React, { MutableRefObject, forwardRef, useRef } from "react";
 
-import { InnerImageDiv, InnerImageDivContainer, MainbackImage, SkillsLayout } from "../style/layout";
+import { InnerImageDiv, InnerImageDivContainer, MainbackImage, SkillsLayout } from "../styles/layout";
 import { useAppContext } from "../components/appprovider";
 
 import useScrollOpacity from "../hooks/useScrollStyle";

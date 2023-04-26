@@ -11,7 +11,7 @@ import {
   MyAboutSmallPaperContainer,
   Paper,
   SmallpaperContainer,
-} from "../../style/abotmeStyle/about_style";
+} from "../../styles/abotmeStyle/about_style";
 
 const MyInfo = [
   { imoge: Face, tpye: "이름", value: "최은석" },
