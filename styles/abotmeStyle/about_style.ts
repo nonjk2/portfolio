@@ -30,6 +30,8 @@ export const Paper = styled("div")(({ theme }) => ({
   position: "relative",
   width: "100%",
   height: "100%",
+  display: "flex",
+  alignItems: "center",
   backgroundColor: "rgba(255, 255, 255, 0.13)",
   border: "2px solid rgba(255,255,255,0.1)",
   boxShadow: "0 0 40px rgba(8,7,16,0.1)",
@@ -60,7 +62,7 @@ export const FrontAboutMeOne = styled("div")({
   width: "100%",
   height: "100%",
   zIndex: "2",
-  overflow: "hidden",
+  // overflow: "hidden",
 });
 
 export const FrontAboutMeTwo = styled("div")({
@@ -88,11 +90,18 @@ export const MyAboutPaperContainer = styled("div")({
 });
 
 export const MyAboutAddContainer = styled("div")({
+  position: "absolute",
+  overflow: "hidden",
+  right: "15%",
+  // top: "auto",
+  maxWidth: "25vw",
   width: "30vw",
   height: "50vh",
+  bottom: "30%",
   display: "flex",
   flexDirection: "column",
   marginLeft: "10px",
+  transition: "all 0.3s",
 });
 
 export const MyAboutPaper = styled(Paper)({
@@ -114,6 +123,8 @@ export const MyAboutSmallPaperContainer = styled("div")({
 export const MyAboutSmallPaper = styled("div")({
   flex: "1",
   display: "flex",
+  width: "100%",
+  height: "100%",
   lineHeight: "50%",
   alignItems: "center",
   justifyContent: "center",

@@ -26,7 +26,18 @@ const createMyTheme = ({ themeLight, activeStep }: MyThemeOptions): Theme => {
         fontFamily: "'Montserrat', sans-serif",
         color: "#000",
       },
-      h6: { fontFamily: "'Montserrat', sans-serif" },
+      h4: {
+        fontFamily: "'Black Han Sans', sans-serif",
+        color: "#000",
+      },
+      h5: {
+        fontFamily: "'Montserrat', sans-serif",
+        color: "#000",
+      },
+      h6: {
+        fontFamily: "'Montserrat', sans-serif",
+        color: "#000",
+      },
     },
     components: {
       MuiCssBaseline: {

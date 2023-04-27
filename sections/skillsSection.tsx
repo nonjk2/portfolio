@@ -10,7 +10,7 @@ const SkillsSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) 
   const { activeStep } = useAppContext();
   const innerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  useScrollOpacity(ref, innerRef, containerRef, 3);
+  useScrollOpacity(ref, innerRef, containerRef);
 
   return (
     <SkillsLayout ref={ref} id="Skills" activeStep={activeStep}>

@@ -14,7 +14,7 @@ const MainImageSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement
   const textRefone = useRef<HTMLSpanElement>(null);
   const textReftwo = useRef<HTMLSpanElement>(null);
   useFadeInEffect(textRefone, textReftwo);
-  useScrollOpacity(ref, innerRef, containerRef, 0);
+  useScrollOpacity(ref, innerRef, containerRef);
   return (
     <MainImageLayout id="Main" ref={ref} activeStep={activeStep}>
       <InnerImageDiv ref={innerRef}>

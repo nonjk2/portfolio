@@ -10,7 +10,7 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
   const { activeStep } = useAppContext();
   const innerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  useScrollOpacity(ref, innerRef, containerRef, 2);
+  useScrollOpacity(ref, innerRef, containerRef);
 
   return (
     <ProjectLayout id="Project" ref={ref} activeStep={activeStep}>

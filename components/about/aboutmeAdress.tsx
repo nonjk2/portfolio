@@ -15,28 +15,6 @@ import {
 
 const AboutmeAdress: React.FC = () => {
   const { activeStep } = useAppContext();
-  const mapElement = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { naver } = window as any;
-    if (!mapElement.current || !naver) return;
-    const location = new naver.maps.LatLng(37.5162, 126.8968);
-    const mapOptions = {
-      center: location,
-      zoom: 13,
-      zoomControl: true,
-      zoomControlOptions: {
-        position: naver.maps.Position.TOP_RIGHT,
-      },
-    };
-    const map = new naver.maps.Map(mapElement.current, mapOptions);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const marker = new naver.maps.Marker({
-      position: location,
-      map,
-    });
-  }, [activeStep]);
 
   const myinfoCompo = (Imo: React.ElementType, up: string, down: string) => {
     return (
@@ -65,7 +43,8 @@ const AboutmeAdress: React.FC = () => {
       <MyAboutSmallPaperContainer>
         <SmallpaperContainer>
           <Paper className="paper">
-            <FrontAboutMeOne>
+            <FrontAboutMeOne />
+            <FrontAboutMeTwo>
               <MyAboutSmallPaper>
                 <div
                   style={{
@@ -90,9 +69,6 @@ const AboutmeAdress: React.FC = () => {
                   {myinfoCompo(Phone, "전화", "010 - 9637 - 8406")}
                 </div>
               </MyAboutSmallPaper>
-            </FrontAboutMeOne>
-            <FrontAboutMeTwo>
-              <div id="map" ref={mapElement} style={{ minHeight: "100%", borderRadius: 15 }} />
             </FrontAboutMeTwo>
           </Paper>
         </SmallpaperContainer>

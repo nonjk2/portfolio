@@ -48,7 +48,7 @@ export const AboutmeLayout = styled.div<LayoutProps>`
   top: 0;
   margin-bottom: -100vh;
   /* display: flex; */
-  height: 300vh;
+  height: 600vh;
 
   /* justify-content: center; */
 `;
@@ -78,15 +78,18 @@ export const InnerImageDiv = styled.div`
   transition: all 0.2s;
 `;
 export const MainbackImageMe = styled(Image)`
+  z-index: 2;
   width: 100%;
   height: 100%;
   max-width: none;
   object-fit: contain;
   display: block;
   position: absolute;
-
-  right: -40%;
-  bottom: 0;
+  /* opacity: 0.6; */
+  filter: blur(2px 10px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  right: 22rem;
+  bottom: 10rem;
 `;
 export const MainbackImage = styled(Image)`
   width: 100%;
@@ -97,6 +100,7 @@ export const MainbackImage = styled(Image)`
   position: absolute;
   top: 0;
   left: 0%;
+  z-index: -3;
 `;
 export const InnerImageDivContainer = styled.div`
   will-change: filter, opacity, transform;

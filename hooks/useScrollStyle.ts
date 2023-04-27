@@ -5,27 +5,18 @@ const useScrollOpacity = (
   ref: MutableRefObject<HTMLDivElement>,
   innerRef: MutableRefObject<HTMLDivElement>,
   containerRef: MutableRefObject<HTMLDivElement>,
-  step: number,
 ) => {
   const handleScroll = () => {
     const scrollPosition = window.pageYOffset;
     const windowHeight = window.innerHeight;
     const sectionScrollHeight = ref.current.scrollHeight;
-    const scrollcurrent = ref.current.offsetTop + sectionScrollHeight - windowHeight * 2;
-    const scrollYHeight = ref.current.scrollHeight * (step + 1) - windowHeight * (2 + step);
+    const scrollSectionTop = ref.current.offsetTop;
+    const scrollcurrent = scrollSectionTop + sectionScrollHeight - windowHeight * 2;
     // 높이 6000 윈도우가 2000 보여지는게 2000 시작은 4000 보여지는건 높이 - 윈도우
-    console.log(
-      "scrollYHeight :",
-      scrollYHeight,
-      "windowHeight : ",
-      windowHeight,
-      "scrollPosition : ",
-      scrollPosition,
-      "sectionScrollHeight : ",
-      sectionScrollHeight,
-      "scrollcurrent : ",
-      scrollcurrent,
-    );
+    // console.log(ref.current.children.item(1));
+    // Array(ref.current.children.length).forEach((e, i) => {
+
+    // });
 
     if (innerRef.current) {
       const innerRefCopy = { ...innerRef };

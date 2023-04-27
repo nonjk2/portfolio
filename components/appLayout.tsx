@@ -20,7 +20,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const theme = createMyTheme({ themeLight, activeStep });
 
   return (
-    <ReactLenis root options={{}}>
+    <ReactLenis root options={{ lerp: 0.2 }}>
       <Outer ref={outerDivRef}>
         {children}
         {activeStep !== 3 ? (
