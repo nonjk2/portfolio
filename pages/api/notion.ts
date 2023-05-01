@@ -61,7 +61,7 @@ export const getBlocks = async (
     start_cursor?: string;
     page_size: number;
   } = {
-    page_size: 100,
+    page_size: 40,
   },
 ) => {
   const response: ListBlockChildrenResponse = await notion.blocks.children.list({
