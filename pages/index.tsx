@@ -1,16 +1,12 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import { ThemeProvider as MuiThemeProvider, createTheme } from "@mui/material";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
-
 import { GetStaticProps } from "next";
 import AppLayout from "../components/appLayout";
-import { useAppContext } from "../components/appprovider";
-
+import { AppProvider, useAppContext } from "../components/appprovider";
 import Header from "../components/header/header";
-import { getDataBase } from "./api/notion";
-
+import { getDataBase, getPagesBlock } from "./api/notion";
 import useHandleKeyDown from "../hooks/useHandlekeyDown";
-
 import { useIntersectionSetActiveStep } from "../hooks/useIntersectionObserver";
 import MainImageSection from "../sections/mainSection";
 import AboutMeSections from "../sections/aboutmeSection";
@@ -31,11 +27,8 @@ const Home = () => {
   useEffect(() => {
     if (Pages[activeStep]) {
       window.history.pushState(null, null, Pages[activeStep]);
-      // router.replace(Pages[activeStep], undefined, { shallow: true, scroll: true });
     }
   }, [activeStep]);
-
-  // useSmoothScroll(500, "easeInOutCubic");
   return (
     <StyledThemeProvider theme={theme}>
       <MuiThemeProvider theme={theme}>
@@ -50,8 +43,17 @@ const Home = () => {
     </StyledThemeProvider>
   );
 };
+
+const MyApp = ({ otherProps, notionDataBase, blocks }) => (
+  <AppProvider notionDataBase={notionDataBase} blocks={blocks}>
+    <Home {...otherProps} />
+  </AppProvider>
+);
 export const getStaticProps: GetStaticProps = async () => {
   const { notionDataBase } = await getDataBase();
+  const { PageBlocks } = await getPagesBlock();
+  // const blocks = await getBlocks("d80aed9e-5301-4baa-a026-417035d114e6");
+  // const blocksWithChildren = await getBlocksWithChildren(blocks as Block[]);
   if (!notionDataBase) {
     return {
       notFound: true,
@@ -59,9 +61,11 @@ export const getStaticProps: GetStaticProps = async () => {
   }
   return {
     props: {
+      blocks: PageBlocks,
       notionDataBase,
     },
+    revalidate: 10,
   };
 };
 
-export default Home;
+export default MyApp;

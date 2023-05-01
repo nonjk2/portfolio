@@ -90,14 +90,14 @@ export const MyAboutPaperContainer = styled("div")({
 });
 
 export const MyAboutAddContainer = styled("div")({
-  position: "absolute",
+  position: "relative",
   overflow: "hidden",
-  right: "15%",
+  // right: "15%",
   // top: "auto",
   maxWidth: "25vw",
   width: "30vw",
   height: "50vh",
-  bottom: "30%",
+  // bottom: "30%",
   display: "flex",
   flexDirection: "column",
   marginLeft: "10px",

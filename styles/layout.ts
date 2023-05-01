@@ -58,7 +58,7 @@ export const ProjectLayout = styled.div<LayoutProps>`
   position: relative;
   margin-bottom: -100vh;
   width: 100vw;
-  height: 500vh;
+  /* height: 500vh; */
 `;
 /// //스킬페이지 영역 /////////스킬페이지 영역 /////////스킬페이지 영역 ////
 export const SkillsLayout = styled.div<LayoutProps>`
@@ -67,6 +67,15 @@ export const SkillsLayout = styled.div<LayoutProps>`
   margin-bottom: -100vh;
   height: 300vh;
   text-align: center;
+`;
+export const InnerImageDivProject = styled.div`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* padding: 1rem; */
+  margin: 0px 0px;
+  transition: all 0.2s;
 `;
 export const InnerImageDiv = styled.div`
   position: sticky;
@@ -102,7 +111,22 @@ export const MainbackImage = styled(Image)`
   left: 0%;
   z-index: -3;
 `;
+export const InnerImageDivProjectContainer = styled.div`
+  position: sticky;
+  /* display: flex; */
+  will-change: filter, opacity, transform;
+  filter: blur(0px);
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  /* flex-direction: column; */
+  flex: 1;
+  /* justify-content: flex-end; */
+  position: -webkit-sticky;
+`;
 export const InnerImageDivContainer = styled.div`
+  display: flex;
   will-change: filter, opacity, transform;
   height: 100vh;
   filter: blur(0px);
@@ -110,12 +134,10 @@ export const InnerImageDivContainer = styled.div`
   transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
     skew(0deg, 0deg);
   transform-style: preserve-3d;
-  /* border-radius: 1.5rem; */
-  flex-direction: column;
+  /* flex-direction: column; */
   flex: 1;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   padding: 5rem;
-  display: flex;
   position: -webkit-sticky;
   position: sticky;
   overflow: hidden;

@@ -25,7 +25,7 @@ const useScrollOpacity = (
       const opacityFixed = Math.max(1 - (scrollPosition - scrollcurrent) / windowHeight, 0);
       const transFormFixed = Math.max(1 - (scrollPosition - scrollcurrent) / windowHeight / 2, 0.5);
       const filterFixed =
-        (Math.max(scrollPosition - (scrollcurrent + windowHeight / 2.5), 0) / windowHeight) * 35;
+        (Math.max(scrollPosition - (scrollcurrent + windowHeight / 2.0), 0) / windowHeight) * 50;
       const opacity = scrollPosition > scrollcurrent ? opacityFixed : 1;
       const transform = scrollPosition > scrollcurrent ? transFormFixed : 1;
       const filter = scrollPosition > scrollcurrent + windowHeight / 2 ? filterFixed : 0;

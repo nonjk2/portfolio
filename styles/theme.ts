@@ -23,11 +23,11 @@ const createMyTheme = ({ themeLight, activeStep }: MyThemeOptions): Theme => {
         color: "#000",
       },
       h3: {
-        fontFamily: "'Montserrat', sans-serif",
+        fontFamily: "'Black Han Sans', sans-serif",
         color: "#000",
       },
       h4: {
-        fontFamily: "'Black Han Sans', sans-serif",
+        fontFamily: "'Noto Sans KR', sans-serif",
         color: "#000",
       },
       h5: {

@@ -2,11 +2,11 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
-import "../styles/global.css";
+// import "../styles/global.css";
 import "../styles/slickslide.css";
 import "../styles/slick-theme.css";
-
-import { AppProvider } from "../components/appprovider";
+import { CssBaseline } from "@mui/material";
+import { GlobalStyles } from "../styles/globalStyled";
 
 const Portpolio = ({ Component, pageProps }) => {
   return (
@@ -26,9 +26,9 @@ const Portpolio = ({ Component, pageProps }) => {
         strategy="beforeInteractive"
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}
       />
-      <AppProvider>
-        <Component {...pageProps} />
-      </AppProvider>
+      <GlobalStyles />
+      <CssBaseline />
+      <Component {...pageProps} />
     </>
   );
 };
