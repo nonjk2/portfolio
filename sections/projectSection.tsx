@@ -91,6 +91,11 @@ const ProjectCoverImage = styled(Image)`
 const CoverImagediv = styled.div`
   width: 100%;
   height: 300px;
+  .coverImg {
+    width: 100%;
+    height: 100%;
+    position: relative !important;
+  }
   position: relative;
   overflow: hidden;
   &:hover {
@@ -116,7 +121,6 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
   const stepperRef = useRef<HTMLDivElement>(null);
   useScrollOpacity(ref, innerRef, containerRef);
   useScrollStepper(ref, stepperRef);
-  console.log(notionDataBase);
   return (
     <ProjectLayout id="Project" ref={ref} activeStep={activeStep}>
       <InnerImageDivProject ref={innerRef}>
@@ -133,14 +137,7 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
                   <ProjectAbout>
                     <CoverImagediv>
                       {e.cover && (
-                        <ProjectCoverImage
-                          src={e.cover.file.url}
-                          // width={500}
-                          // height={100}
-                          alt=""
-                          layout="fill"
-                          className="coverImage"
-                        />
+                        <ProjectCoverImage fill src={e.cover.file.url} alt="" className="coverImage" />
                       )}
                     </CoverImagediv>
                     <NotionRenderer blocks={blocks[index]} />

@@ -71,7 +71,6 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties }) => {
 
   const personnel = properties["인원"].multi_select;
   const projectStatus = properties["프로젝트 상태"].status;
-  console.log(period);
   return (
     <div>
       {/* <h1>Project Front-end</h1> */}
@@ -82,7 +81,7 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties }) => {
       </ProjectName>
       <div style={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
         {languageAndFramework.map((e) => (
-          <LanguageDiv>
+          <LanguageDiv key={e.id}>
             <ValueTypography>{e.name}</ValueTypography>
             {/* <div style={{ backgroundColor: e.color, position: "absolute" }} /> */}
           </LanguageDiv>
@@ -91,7 +90,7 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties }) => {
       <p>속성</p>
 
       {personnel.map((e) => (
-        <LanguageDiv>
+        <LanguageDiv key={e.id}>
           <ValueTypography>{e.name}</ValueTypography>
           {/* <div style={{ backgroundColor: e.color, position: "absolute" }} /> */}
         </LanguageDiv>
