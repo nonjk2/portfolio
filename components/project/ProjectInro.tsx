@@ -60,7 +60,7 @@ const LanguageDiv = styled.div`
   margin-right: 0.5rem;
   overflow: hidden;
 `;
-const ValueTypography = styled(Typography)`
+const ValueTypography = styled.span`
   font-weight: 200;
   font-size: 14px;
 `;

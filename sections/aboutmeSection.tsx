@@ -43,7 +43,7 @@ const Stepper = styled.div`
 const Introduce = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   min-width: 400px;
   height: 100%;
   overflow: hidden;
@@ -52,17 +52,22 @@ const Introduce = styled.div`
   z-index: 1000;
 `;
 
-const TimeTypographyContainer = styled("div")`
+const TimeTypographyContainer = styled.div`
   transition: all 0.2s;
   line-height: 2rem;
   /* overflow: hidden; */
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
-const TimeTypography = styled(Typography)`
+const TimeTypography = styled.span`
   font-size: 1.2rem;
   font-weight: 200;
   position: absolute;
+  white-space: pre-line;
+`;
+const TypographyHye = styled.h3`
+  font-size: 2.3rem;
+  font-weight: 400;
   white-space: pre-line;
 `;
 const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
@@ -82,20 +87,20 @@ const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>
           {/* <MainbackImageMe alt="main" src={eunseok} quality={100} /> */}
           <Stepper ref={stepperRef} />
           <Introduce ref={introduceRef}>
-            <Typography style={{ whiteSpace: "pre-line" }} variant="h3">
+            <TypographyHye style={{ whiteSpace: "pre-line" }}>
               {`안녕하세요
               프론트엔드 개발자
               최은석입니다.`}
-            </Typography>
+            </TypographyHye>
             <br />
             <TimeTypographyContainer>
-              <TimeTypography className="aboutmeTypo" variant="h4">
+              <TimeTypography className="aboutmeTypo">
                 {`계속 발전해 나가는 개발의세계에서 새로운기술로부터 도태되지않고 오래된 기술로부터 중요한
                 필요성을 잊지않기위해 노력중입니다.`}
               </TimeTypography>
             </TimeTypographyContainer>
             <TimeTypographyContainer>
-              <TimeTypography variant="h4">
+              <TimeTypography>
                 {`최근 1인 웹개발을 하고싶어 항상 배움의 자세로 
               자료를 찾아보고 공부하며 하루하루 배우고 있습니다.
               아키텍쳐 구조에 관해 관심히 많고 공부할것이 
