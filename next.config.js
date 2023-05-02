@@ -1,14 +1,5 @@
 const nextConfig = {
   swcMinify: true,
-  module: {
-    rules: [
-      // ...
-      {
-        test: /\.tsx?$/,
-        loader: "ts-loader",
-      },
-    ],
-  },
   compiler: {
     styledComponents: true,
   },
