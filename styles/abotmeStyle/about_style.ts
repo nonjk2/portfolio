@@ -73,6 +73,7 @@ export const FrontAboutMeTwo = styled("div")({
   width: "100%",
   height: "100%",
   zIndex: "1",
+  overflow: "hidden",
   transform: "rotateY(180deg)",
 });
 
@@ -94,9 +95,10 @@ export const MyAboutAddContainer = styled("div")({
   overflow: "hidden",
   // right: "15%",
   // top: "auto",
-  maxWidth: "25vw",
-  width: "30vw",
+  maxWidth: "20vw",
+  width: "20vw",
   height: "50vh",
+  margin: " 1rem 0",
   // bottom: "30%",
   display: "flex",
   flexDirection: "column",

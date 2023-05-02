@@ -87,28 +87,28 @@ export const InnerImageDiv = styled.div`
   transition: all 0.2s;
 `;
 export const MainbackImageMe = styled(Image)`
-  z-index: 2;
-  width: 100%;
+  z-index: -2;
+  width: 80%;
   height: 100%;
   max-width: none;
-  object-fit: contain;
-  display: block;
+  object-fit: cover;
+  object-position: 50% 25%;
+  opacity: 0.5;
   position: absolute;
+  top: 20%;
   /* opacity: 0.6; */
   filter: blur(2px 10px);
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  right: 22rem;
-  bottom: 10rem;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.4));
 `;
 export const MainbackImage = styled(Image)`
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
+  opacity: 0.5;
   max-width: none;
   object-fit: cover;
   display: block;
   position: absolute;
   top: 0;
-  left: 0%;
   z-index: -3;
 `;
 export const InnerImageDivProjectContainer = styled.div`
@@ -129,15 +129,16 @@ export const InnerImageDivContainer = styled.div`
   display: flex;
   will-change: filter, opacity, transform;
   height: 100vh;
+
   filter: blur(0px);
   opacity: 1;
+  padding: 2rem;
   transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
     skew(0deg, 0deg);
   transform-style: preserve-3d;
   /* flex-direction: column; */
   flex: 1;
   /* justify-content: flex-end; */
-  padding: 5rem;
   position: -webkit-sticky;
   position: sticky;
   overflow: hidden;

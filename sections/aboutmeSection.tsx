@@ -1,35 +1,14 @@
 import React, { MutableRefObject, forwardRef, useRef } from "react";
 
 import styled from "styled-components";
-import { Typography } from "@mui/material";
-import { AboutmeLayout, InnerImageDiv, InnerImageDivContainer, MainbackImage } from "../styles/layout";
+import { AboutmeLayout, InnerImageDiv, InnerImageDivContainer, MainbackImageMe } from "../styles/layout";
 import AboutmeMyInfo from "../components/about/aboutmeMyInfo";
 import { useAppContext } from "../components/appprovider";
 import useScrollOpacity from "../hooks/useScrollStyle";
-import simplepurple from "../public/simplepurple.jpg";
+import esimgtwo from "../public/esimgtwo.png";
 import useScrollStepper from "../hooks/useScrollStepper";
 
 import AboutmeAdress from "../components/about/aboutmeAdress";
-
-const WhiteBackgroundTwo = styled.div`
-  position: absolute;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 60vw;
-  top: -30%;
-  background: radial-gradient(#fff 10%, rgb(207, 187, 240) 60%);
-  transition: all 0.2s;
-  right: 20%;
-  z-index: -2;
-`;
-const WhiteBackgroundTwoContainer = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -3;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-`;
 
 const Stepper = styled.div`
   position: absolute;
@@ -41,8 +20,9 @@ const Stepper = styled.div`
   transition: width 0.2s;
 `;
 const Introduce = styled.div`
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  top: 20%;
+  padding: 2rem 0;
   /* justify-content: center; */
   min-width: 400px;
   height: 100%;
@@ -58,6 +38,7 @@ const TimeTypographyContainer = styled.div`
   /* overflow: hidden; */
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: #fff;
 `;
 const TimeTypography = styled.span`
   font-size: 1.2rem;
@@ -69,6 +50,7 @@ const TypographyHye = styled.h3`
   font-size: 2.3rem;
   font-weight: 400;
   white-space: pre-line;
+  color: #fff;
 `;
 const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
   const { activeStep } = useAppContext();
@@ -83,8 +65,8 @@ const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>
     <AboutmeLayout id="Aboutme" ref={ref} activeStep={activeStep}>
       <InnerImageDiv ref={innerRef}>
         <InnerImageDivContainer ref={containerRef}>
-          <MainbackImage alt="main" src={simplepurple} quality={100} fill />
-          {/* <MainbackImageMe alt="main" src={eunseok} quality={100} /> */}
+          {/* <MainbackImage alt="main" src={eunseoktwo} quality={100} fill /> */}
+          <MainbackImageMe alt="main" src={esimgtwo} quality={100} fill />
           <Stepper ref={stepperRef} />
           <Introduce ref={introduceRef}>
             <TypographyHye style={{ whiteSpace: "pre-line" }}>
@@ -108,22 +90,29 @@ const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>
                `}
               </TimeTypography>
             </TimeTypographyContainer>
+            <TimeTypographyContainer>
+              <TimeTypography>
+                {`프로젝트를 통해 부족함을 느끼고 모르는 부분은
+                  항상 채워 넣기위해 프로젝트를 진행하고 있습니다.
+                  
+                  이전 프로젝트로부터 개선방향을 정해 전 프로젝트를
+                  리팩토링하거나 다음프로젝트에서 적용시키고 있습니다.
+               `}
+              </TimeTypography>
+            </TimeTypographyContainer>
           </Introduce>
           <div
             style={{
               display: "flex",
-              margin: "0 2rem",
               width: "70%",
-              alignItems: "center",
-              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "flex-end",
+              justifyContent: "flex-end",
             }}
           >
             <AboutmeMyInfo />
             <AboutmeAdress />
           </div>
-          <WhiteBackgroundTwoContainer className="WhiteBackgroundTwoContainer">
-            <WhiteBackgroundTwo className="backgroundSecondCircle" />
-          </WhiteBackgroundTwoContainer>
         </InnerImageDivContainer>
       </InnerImageDiv>
     </AboutmeLayout>

@@ -13,6 +13,7 @@ import AboutMeSections from "../sections/aboutmeSection";
 import ProjectSection from "../sections/projectSection";
 import SkillsSection from "../sections/skillsSection";
 import createMyTheme from "../styles/theme";
+import { fetchLanguages, getGitHubRepositories } from "./api/github";
 
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
@@ -44,16 +45,21 @@ const Home = () => {
   );
 };
 
-const MyApp = ({ otherProps, notionDataBase, blocks }) => (
-  <AppProvider notionDataBase={notionDataBase} blocks={blocks}>
+const MyApp = ({ otherProps, notionDataBase, blocks, repositories }) => (
+  <AppProvider notionDataBase={notionDataBase} blocks={blocks} repositories={repositories}>
     <Home {...otherProps} />
   </AppProvider>
 );
 export const getStaticProps: GetStaticProps = async () => {
   const { notionDataBase } = await getDataBase();
   const { PageBlocks } = await getPagesBlock();
-  // const blocks = await getBlocks("d80aed9e-5301-4baa-a026-417035d114e6");
-  // const blocksWithChildren = await getBlocksWithChildren(blocks as Block[]);
+  const repositories = await getGitHubRepositories();
+  const repositoriesWithLanguages = await Promise.all(
+    repositories.map(async (repo) => {
+      const languages = await fetchLanguages(repo.languages_url);
+      return { ...repo, languages };
+    }),
+  );
   if (!notionDataBase) {
     return {
       notFound: true,
@@ -63,8 +69,9 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       blocks: PageBlocks,
       notionDataBase,
+      repositories: repositoriesWithLanguages,
     },
-    revalidate: 10,
+    revalidate: 1000,
   };
 };
 

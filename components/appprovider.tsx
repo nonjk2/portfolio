@@ -8,6 +8,7 @@ interface AppContextType {
   setThemeDark: (dark: boolean) => void;
   notionDataBase: NotionPage[];
   blocks: any;
+  repositories: any;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -24,9 +25,15 @@ interface AppProviderProps {
   children: React.ReactNode;
   notionDataBase: NotionPage[];
   blocks: any;
+  repositories: any;
 }
 
-export const AppProvider: React.FC<AppProviderProps> = ({ children, notionDataBase, blocks }) => {
+export const AppProvider: React.FC<AppProviderProps> = ({
+  children,
+  notionDataBase,
+  blocks,
+  repositories,
+}) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [themeLight, setThemeDark] = useState<boolean>(false);
 
@@ -38,8 +45,9 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children, notionDataBa
       setThemeDark,
       notionDataBase,
       blocks,
+      repositories,
     };
-  }, [activeStep, setActiveStep, themeLight, setThemeDark, notionDataBase, blocks]);
+  }, [activeStep, setActiveStep, themeLight, setThemeDark, notionDataBase, blocks, repositories]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

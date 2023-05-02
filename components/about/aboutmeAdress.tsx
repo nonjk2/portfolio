@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Typography } from "@mui/material";
+import { AddLocation } from "@mui/icons-material";
 import {
   FrontAboutMeOne,
   FrontAboutMeTwo,
@@ -9,6 +10,7 @@ import {
   Paper,
   SmallpaperContainer,
 } from "../../styles/abotmeStyle/about_style";
+import { myinfoCompo } from "../../utils/utilfunction";
 
 const AboutmeAdress: React.FC = () => {
   const mapElement = useRef<HTMLDivElement>(null);
@@ -35,28 +37,6 @@ const AboutmeAdress: React.FC = () => {
     });
   }, []);
 
-  const myinfoCompo = (Imo: React.ElementType, up: string, down: string) => {
-    return (
-      <div
-        style={{
-          display: "flex",
-          flexFlow: "row nowrap",
-          width: "100%",
-          margin: "0 auto",
-          alignItems: "center",
-          marginBottom: "10px",
-        }}
-      >
-        <div style={{ paddingRight: "10px" }}>
-          <Imo />
-        </div>
-        <div style={{ lineHeight: "150%" }}>
-          <div style={{ fontWeight: "700" }}>{up}</div>
-          <div style={{ fontWeight: "200" }}>{down}</div>
-        </div>
-      </div>
-    );
-  };
   return (
     <MyAboutAddContainer>
       <MyAboutSmallPaperContainer>
@@ -67,21 +47,25 @@ const AboutmeAdress: React.FC = () => {
                 <div
                   style={{
                     lineHeight: "200%",
+                    flex: 1,
                   }}
                 >
-                  <Typography className="InfoName" variant="h2">
+                  <Typography className="InfoName" variant="h2" color="#fff">
                     Adress
                   </Typography>
                 </div>
                 <div
                   style={{
                     display: "flex",
+                    flex: 4,
                     flexDirection: "column",
                     margin: "0 auto",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
-                />
+                >
+                  {myinfoCompo(AddLocation, "주소", "서울시 영등포구 문래동")}
+                </div>
               </MyAboutSmallPaper>
             </FrontAboutMeOne>
             <FrontAboutMeTwo>

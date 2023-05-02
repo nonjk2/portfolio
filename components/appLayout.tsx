@@ -1,13 +1,10 @@
 import React, { useRef, ReactNode } from "react";
-
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
-
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Outer } from "../styles/layout";
 import { Nextbutton } from "../styles/utilComponentStyle/button";
 import { useAppContext } from "./appprovider";
-
 import createMyTheme from "../styles/theme";
 
 interface AppLayoutProps {

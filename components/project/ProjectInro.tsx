@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Typography } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 import { RichTextBaseInput } from "./notion";
 import RichTextRenderer from "./notion/RichTextRenderer";
 
@@ -16,7 +16,32 @@ interface MultiSelect {
   name: string;
   color: string;
 }
+interface BorderLinearProgressProps {
+  backcolor: string;
+}
+const BorderLinearProgress = styled(LinearProgress)<BorderLinearProgressProps>`
+  height: 10px;
+  border-radius: 5px;
 
+  &.MuiLinearProgress-colorPrimary {
+    background-color: ${({ theme }) => theme.palette.grey[theme.palette.mode === "light" ? 200 : 800]};
+  }
+
+  & .MuiLinearProgress-bar {
+    border-radius: 5px;
+    background-color: ${({ backcolor }) => backcolor};
+    opacity: 0.5;
+    transition: all 0.5s;
+  }
+`;
+interface LanguageCounts {
+  [key: string]: number;
+}
+
+interface ProjectLang {
+  languages: LanguageCounts;
+  name: string;
+}
 export interface RichTitleInput extends RichTextBaseInput {
   type: "title";
   text: {
@@ -41,6 +66,7 @@ interface Property {
 }
 interface ProjectFrontEndProps {
   properties: { [key: string]: Property };
+  githubLang: ProjectLang;
 }
 const ProjectName = styled.div`
   margin-top: 20px;
@@ -60,17 +86,27 @@ const LanguageDiv = styled.div`
   margin-right: 0.5rem;
   overflow: hidden;
 `;
+const ProgressDiv = styled.div`
+  align-items: flex-start;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  /* height: 2rem; */
+
+  margin-right: 2rem;
+  overflow: hidden;
+`;
 const ValueTypography = styled.span`
   font-weight: 200;
   font-size: 14px;
 `;
 // Create the ProjectFrontEnd component
-const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties }) => {
+const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLang }) => {
   const period = properties["\b기간"];
   const languageAndFramework = properties["언어 및 프레임워크"].multi_select;
-
   const personnel = properties["인원"].multi_select;
   const projectStatus = properties["프로젝트 상태"].status;
+  const totalCount = Object.values(githubLang.languages).reduce((sum, count) => sum + count, 0);
+
   return (
     <div>
       {/* <h1>Project Front-end</h1> */}
@@ -87,7 +123,6 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties }) => {
           </LanguageDiv>
         ))}
       </div>
-      <p>속성</p>
 
       {personnel.map((e) => (
         <LanguageDiv key={e.id}>
@@ -108,6 +143,24 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties }) => {
         <ValueTypography>{projectStatus.name}</ValueTypography>
         {/* <div style={{ backgroundColor: e.color, position: "absolute" }} /> */}
       </LanguageDiv>
+      {languageAndFramework.map((language) => {
+        if (Object.prototype.hasOwnProperty.call(githubLang.languages, language.name)) {
+          // Calculate the value for the progress bar
+          const progressValue = (githubLang.languages[language.name] / totalCount) * 100;
+
+          return (
+            <ProgressDiv key={language.id}>
+              {language.name}
+              <BorderLinearProgress
+                backcolor={`${language.color}`}
+                variant="determinate"
+                value={progressValue}
+              />
+            </ProgressDiv>
+          );
+        }
+        return null;
+      })}
     </div>
   );
 };

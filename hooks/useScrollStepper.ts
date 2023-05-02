@@ -6,15 +6,6 @@ const useScrollStepper = (
   stepperRef: MutableRefObject<HTMLDivElement>,
   extraRef?: MutableRefObject<HTMLDivElement>,
 ) => {
-  const handleMouse = (e: MouseEvent) => {
-    const { clientX, clientY } = e;
-    const WhiteBackgroundTwoContainer = document
-      .getElementsByClassName("WhiteBackgroundTwoContainer")
-      .item(0) as HTMLDivElement;
-    WhiteBackgroundTwoContainer.style.transform = `translateY(${(clientY / 100).toFixed(1)}ch) translateX(${(
-      clientX / 100
-    ).toFixed(1)}ch)`;
-  };
   const handleScroll = () => {
     const scrollPosition = window.pageYOffset;
     const windowHeight = window.innerHeight;
@@ -25,26 +16,37 @@ const useScrollStepper = (
     const percentage = Math.min(Math.max(percent, 0), 100);
     const infoHeadings = document.getElementsByClassName("aboutInfoPage");
 
-    const backgroundSecondCircle = document
-      .getElementsByClassName("backgroundSecondCircle")
-      .item(0) as HTMLDivElement;
     if (extraRefChildren) {
+      const childElementFour = extraRefChildren.item(4) as HTMLSpanElement;
       const childElementThree = extraRefChildren.item(3) as HTMLSpanElement;
       const childElementtwo = extraRefChildren.item(2) as HTMLSpanElement;
       const asdasd = infoHeadings.item(0) as HTMLDivElement;
-      backgroundSecondCircle.style.transform = `translateY(${(percentage / 5).toFixed(1)}ch)`;
-      if (percentage > 30) {
+      // backgroundSecondCircle.style.transform = `translateY(${(percentage / 5).toFixed(1)}ch)`;
+      if (percentage > 30 && percentage <= 60) {
+        // 30에서 60사이
+        childElementFour.style.opacity = `${0}`;
         childElementThree.style.opacity = `${1}`;
         childElementtwo.style.opacity = `${0}`;
+        childElementFour.style.transform = `translateY(-2rem)`;
         childElementThree.style.transform = `translateY(0rem)`;
         childElementtwo.style.transform = `translateY(-2rem)`;
       } else if (percentage <= 30) {
+        // 30 이하
         asdasd.style.width = `${30}vw`;
         asdasd.style.opacity = `${1}`;
         childElementThree.style.opacity = `${0}`;
         childElementtwo.style.opacity = `${1}`;
+        childElementFour.style.opacity = `${0}`;
         childElementThree.style.transform = `translateY(-2rem)`;
         childElementtwo.style.transform = `translateY(0rem)`;
+        childElementFour.style.transform = `translateY(-2rem)`;
+      } else if (percentage > 60) {
+        // 60 이상
+        childElementFour.style.opacity = `${1}`;
+        childElementThree.style.opacity = `${0}`;
+        childElementtwo.style.transform = `translateY(-2rem)`;
+        childElementThree.style.transform = `translateY(-2rem)`;
+        childElementFour.style.transform = `translateY(0rem)`;
       }
     }
 
@@ -54,11 +56,11 @@ const useScrollStepper = (
     }
   };
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouse);
+    // window.addEventListener("mousemove", handleMouse);
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.addEventListener("mousemove", handleMouse);
+      // window.addEventListener("mousemove", handleMouse);
     };
   }, [ref]);
 };

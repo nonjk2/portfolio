@@ -115,12 +115,21 @@ const ProjectLastDiv = styled.div`
   flex: 1;
 `;
 const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
-  const { activeStep, notionDataBase, blocks } = useAppContext();
+  const { activeStep, notionDataBase, blocks, repositories } = useAppContext();
   const innerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const stepperRef = useRef<HTMLDivElement>(null);
   useScrollOpacity(ref, innerRef, containerRef);
   useScrollStepper(ref, stepperRef);
+  const projectName = notionDataBase.map((e) => e.properties["이름"].title[0].plain_text.toLowerCase());
+  const gitLang = repositories.filter((e) => projectName.includes(e.name.toLowerCase()));
+  const NameOrLangRepositories = projectName
+    .map((name) => {
+      return gitLang.find((repo) => repo.name.toLowerCase() === name);
+    })
+    .filter((repo) => repo !== undefined)
+    .map((e) => ({ name: e.name, languages: e.languages }));
+
   return (
     <ProjectLayout id="Project" ref={ref} activeStep={activeStep}>
       <InnerImageDivProject ref={innerRef}>
@@ -132,7 +141,7 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
               <ProjectSectionDiv>
                 <ProjectContainer>
                   <ProjectNameContainer>
-                    <ProjectFrontEnd properties={e.properties} />
+                    <ProjectFrontEnd properties={e.properties} githubLang={NameOrLangRepositories[index]} />
                   </ProjectNameContainer>
                   <ProjectAbout>
                     <CoverImagediv>
