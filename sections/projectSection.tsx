@@ -29,7 +29,7 @@ const ProjectContainer = styled.div`
 `;
 const ProjectNameContainer = styled.div`
   position: sticky;
-  top: 120px;
+  top: 160px;
   bottom: 120px;
   flex: 1;
   min-width: 100px;

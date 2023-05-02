@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { LinearProgress } from "@mui/material";
 import { RichTextBaseInput } from "./notion";
 import RichTextRenderer from "./notion/RichTextRenderer";
 
@@ -18,22 +17,22 @@ interface MultiSelect {
 }
 interface BorderLinearProgressProps {
   backcolor: string;
+  progress: number;
 }
-const BorderLinearProgress = styled(LinearProgress)<BorderLinearProgressProps>`
-  height: 10px;
+
+const ProgressBarContainer = styled.div`
+  width: 100%;
+  background-color: #f3f3f3;
   border-radius: 5px;
-
-  &.MuiLinearProgress-colorPrimary {
-    background-color: ${({ theme }) => theme.palette.grey[theme.palette.mode === "light" ? 200 : 800]};
-  }
-
-  & .MuiLinearProgress-bar {
-    border-radius: 5px;
-    background-color: ${({ backcolor }) => backcolor};
-    opacity: 0.5;
-    transition: all 0.5s;
-  }
 `;
+
+const ProgressBarFiller = styled.div<BorderLinearProgressProps>`
+  height: 20px;
+  background-color: ${({ backcolor }) => backcolor};
+  border-radius: inherit;
+  width: ${({ progress }) => progress}%;
+`;
+
 interface LanguageCounts {
   [key: string]: number;
 }
@@ -106,7 +105,6 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLan
   const personnel = properties["인원"].multi_select;
   const projectStatus = properties["프로젝트 상태"].status;
   const totalCount = Object.values(githubLang.languages).reduce((sum, count) => sum + count, 0);
-
   return (
     <div>
       {/* <h1>Project Front-end</h1> */}
@@ -151,11 +149,9 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLan
           return (
             <ProgressDiv key={language.id}>
               {language.name}
-              <BorderLinearProgress
-                backcolor={`${language.color}`}
-                variant="determinate"
-                value={progressValue}
-              />
+              <ProgressBarContainer>
+                <ProgressBarFiller backcolor={`${language.color}`} progress={progressValue} />
+              </ProgressBarContainer>
             </ProgressDiv>
           );
         }
