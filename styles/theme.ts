@@ -5,15 +5,14 @@ interface MyThemeOptions {
   activeStep: number;
 }
 
-const createMyTheme = ({ themeLight, activeStep }: MyThemeOptions): Theme => {
-  const backgrounds = ["rgb(36, 39, 63)", "rgb(100, 100, 100)", "rgb(176, 170, 170)", "rgb(226, 242, 253)"];
+const createMyTheme = ({ themeLight }: MyThemeOptions): Theme => {
   const theme = createTheme({
     palette: {
       primary: {
         main: themeLight ? "#000" : "#fff",
       },
       background: {
-        default: backgrounds[activeStep],
+        default: "#000",
       },
     },
 

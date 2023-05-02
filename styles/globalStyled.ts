@@ -4,7 +4,8 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 overflow-x: hidden;
   body{
-    background: rgb(17,17,17);
+    background-color: rgb(17,17,17);
+    /* background-color: rgb(255,255,255); */
   }
   @keyframes scaleXRever {
     from {

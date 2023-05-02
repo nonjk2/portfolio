@@ -6,10 +6,6 @@ interface LayoutProps {
   activeStep: number;
 }
 export const Outer = styled.div`
-  /* ${({ theme }) => `
-    background: ${theme.palette.background.default};
-    transition: background 1.2s;
-  `} */
   margin: 0;
 `;
 
@@ -103,7 +99,6 @@ export const MainbackImageMe = styled(Image)`
 export const MainbackImage = styled(Image)`
   /* width: 100%;
   height: 100%; */
-  opacity: 0.5;
   max-width: none;
   object-fit: cover;
   display: block;
