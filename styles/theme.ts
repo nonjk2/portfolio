@@ -1,15 +1,10 @@
 import { createTheme, Theme } from "@mui/material";
 
-interface MyThemeOptions {
-  themeLight: boolean;
-  activeStep: number;
-}
-
-const createMyTheme = ({ themeLight }: MyThemeOptions): Theme => {
+const createMyTheme = (): Theme => {
   const theme = createTheme({
     palette: {
       primary: {
-        main: themeLight ? "#000" : "#fff",
+        main: "#000",
       },
       background: {
         default: "#000",

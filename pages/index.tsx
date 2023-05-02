@@ -18,10 +18,7 @@ import { fetchLanguages, getGitHubRepositories } from "./api/github";
 const Home = () => {
   const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
   const { themeLight, activeStep, setActiveStep } = useAppContext();
-  const theme = useMemo(
-    () => createTheme(createMyTheme({ themeLight, activeStep })),
-    [themeLight, activeStep],
-  );
+  const theme = useMemo(() => createTheme(createMyTheme()), [themeLight, activeStep]);
   useHandleKeyDown(setActiveStep, Pages);
   const sectionRefs = Pages.map(() => useRef<HTMLDivElement | null>(null));
   useIntersectionSetActiveStep(setActiveStep, sectionRefs);
