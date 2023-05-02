@@ -2,6 +2,7 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
+import "../styles/global.css";
 import { CssBaseline } from "@mui/material";
 import { GlobalStyles } from "../styles/globalStyled";
 
