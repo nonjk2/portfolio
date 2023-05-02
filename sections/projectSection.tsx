@@ -13,7 +13,6 @@ import ProjectFrontEnd from "../components/project/ProjectInro";
 
 const ProjectContainer = styled.div`
   position: relative;
-  display: -ms-grid;
   display: flex;
   width: 100%;
   max-width: 1400px;
@@ -21,12 +20,12 @@ const ProjectContainer = styled.div`
   margin-left: auto;
   grid-auto-flow: row;
   grid-auto-columns: 1fr;
-  /* grid-column-gap: 36px; */
-  /* grid-row-gap: 36px; */
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: auto;
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const ProjectNameContainer = styled.div`
   position: sticky;
@@ -39,6 +38,9 @@ const ProjectNameContainer = styled.div`
 
   -ms-grid-row-align: start;
   align-self: start;
+  @media (max-width: 768px) {
+    position: relative;
+  }
 `;
 
 const ProjectAbout = styled.div`
