@@ -61,7 +61,7 @@ export const getBlocks = async (
     start_cursor?: string;
     page_size: number;
   } = {
-    page_size: 40,
+    page_size: 30,
   },
 ) => {
   const response: ListBlockChildrenResponse = await notion.blocks.children.list({
@@ -149,7 +149,7 @@ export const getPagesBlock = async () => {
   const PageBlocks = await Promise.all(
     notionDataBase.map(async (e) => {
       const blockArray = await getBlocks(e.id);
-      const pageBlocksWithChildren = await getBlocksWithChildren(blockArray as Block[]);
+      const pageBlocksWithChildren = await getBlocksWithChildren(blockArray);
       return pageBlocksWithChildren;
     }),
   );
