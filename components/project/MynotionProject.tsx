@@ -30,11 +30,11 @@ const MynotionProject: React.FC<notionProjectProps> = ({ e, index }) => {
       return gitLang.find((repo) => repo.name.toLowerCase() === name);
     })
     .filter((repo) => repo !== undefined)
-    .map((v) => ({ name: v.name, languages: v.languages }));
+    .map((v) => ({ name: v.name, languages: v.languages, url: v.html_url }));
   const createRefs = (length: number): React.RefObject<HTMLDivElement>[] => {
     return Array.from({ length }, () => useRef<HTMLDivElement>(null));
   };
-
+  console.log(repositories);
   const projectAboutRefs = createRefs(notionDataBase.length);
   useScrollProgress(projectAboutRefs[index], setOpacity);
   const sliceBlocks = blocks.map((val: Block[]) => {
@@ -50,6 +50,7 @@ const MynotionProject: React.FC<notionProjectProps> = ({ e, index }) => {
         <ProjectContainer>
           <ProjectNameContainer>
             <ProjectFrontEnd
+              url={e.url}
               properties={e.properties}
               githubLang={NameOrLangRepositories[index]}
               opacity={opacity}
