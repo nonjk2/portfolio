@@ -4,7 +4,7 @@ import { InnerImageDiv, InnerImageDivContainer, MainbackImage, SkillsLayout } fr
 import { useAppContext } from "../components/appprovider";
 
 import useScrollOpacity from "../hooks/useScrollStyle";
-import sillback from "../public/skillback.jpg";
+import simplepurple from "../public/simplepurple.jpg";
 
 const SkillsSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
   const { activeStep } = useAppContext();
@@ -17,7 +17,7 @@ const SkillsSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) 
       {/* <ProjectPaper> */}
       <InnerImageDiv ref={innerRef}>
         <InnerImageDivContainer ref={containerRef}>
-          <MainbackImage alt="main" src={sillback} quality={100} fill />
+          <MainbackImage alt="main" src={simplepurple} quality={100} fill />
         </InnerImageDivContainer>
       </InnerImageDiv>
       {/* </ProjectPaper> */}

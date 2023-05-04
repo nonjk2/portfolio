@@ -6,35 +6,24 @@ export const useIntersectionSetActiveStep = (
   setActiveStep: (step: number) => void,
   sectionRefs: SectionRefs,
 ): void => {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = sectionRefs.findIndex((ref) => ref.current === entry.target);
-            setActiveStep(index);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: [0.1, 0.9],
-      },
-    );
-
-    sectionRefs.forEach((ref) => {
-      // if (ref.current) {
-      observer.observe(ref.current);
-      // }
+  const handleScroll = () => {
+    sectionRefs.forEach((e, i) => {
+      const scroll = e.current.getBoundingClientRect();
+      const scrollTop = scroll.top;
+      const scrollBot = scroll.bottom;
+      const veiwPortHeight = window.innerHeight;
+      const upScroll = scrollBot - veiwPortHeight * 2;
+      if (scrollTop > 0 && scrollTop < 100) {
+        setActiveStep(i);
+      } else if (upScroll > 0 && upScroll < 200) {
+        setActiveStep(i);
+      }
     });
-
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      sectionRefs.forEach((ref) => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-      });
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [sectionRefs]);
 };

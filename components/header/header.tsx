@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useCallback } from "react";
 
-import { Link } from "react-scroll";
 import { HeaderLayout } from "../../styles/layout";
 import { useAppContext } from "../appprovider";
 import { LinkTypography } from "../../styles/headerStyle/header_style";
 
 const Header = () => {
-  const { activeStep } = useAppContext();
+  const { activeStep, setActiveStep } = useAppContext();
   const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
 
+  const onRouteChange = useCallback((index) => {
+    setActiveStep(index);
+  }, []);
+
+  // const handleScroll = useCallback(() => {}, []);
   return (
     <HeaderLayout>
       {steps.map((e, index) => (
-        <Link
-          // style={{ textDecorationLine: "none" }}
-          to={`${e}`}
-          smooth
-          offset={50}
-          duration={500}
-          key={e}
-        >
-          <LinkTypography active={activeStep} index={index}>
+        <div style={{ height: "40px", display: "flex", alignItems: "center" }}>
+          <LinkTypography
+            active={activeStep}
+            index={index}
+            href={`${e}`}
+            onClick={() => onRouteChange(index)}
+          >
             {e}
           </LinkTypography>
-        </Link>
+        </div>
       ))}
     </HeaderLayout>
   );

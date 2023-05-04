@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef } from "react";
 import { ThemeProvider as MuiThemeProvider, createTheme } from "@mui/material";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { GetStaticProps } from "next";
+import { ReactLenis } from "@studio-freight/react-lenis";
 import AppLayout from "../components/appLayout";
 import { AppProvider, useAppContext } from "../components/appprovider";
 import Header from "../components/header/header";
@@ -29,15 +30,17 @@ const Home = () => {
   }, [activeStep]);
   return (
     <StyledThemeProvider theme={theme}>
-      <MuiThemeProvider theme={theme}>
-        <Header />
-        <AppLayout>
-          <MainImageSection ref={sectionRefs[0]} />
-          <AboutMeSections ref={sectionRefs[1]} />
-          <ProjectSection ref={sectionRefs[2]} />
-          <SkillsSection ref={sectionRefs[3]} />
-        </AppLayout>
-      </MuiThemeProvider>
+      <ReactLenis root options={{ lerp: 0.1, duration: 1 }}>
+        <MuiThemeProvider theme={theme}>
+          <Header />
+          <AppLayout>
+            <MainImageSection ref={sectionRefs[0]} />
+            <AboutMeSections ref={sectionRefs[1]} />
+            <ProjectSection ref={sectionRefs[2]} />
+            <SkillsSection ref={sectionRefs[3]} />
+          </AppLayout>
+        </MuiThemeProvider>
+      </ReactLenis>
     </StyledThemeProvider>
   );
 };
@@ -68,7 +71,6 @@ export const getStaticProps: GetStaticProps = async () => {
       notionDataBase,
       repositories: repositoriesWithLanguages,
     },
-    revalidate: 36000,
   };
 };
 

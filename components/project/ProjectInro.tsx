@@ -27,10 +27,11 @@ const ProgressBarContainer = styled.div`
 `;
 
 const ProgressBarFiller = styled.div<BorderLinearProgressProps>`
-  height: 20px;
+  height: 0.5rem;
   background-color: ${({ backcolor }) => backcolor};
   border-radius: inherit;
   width: ${({ progress }) => progress}%;
+  transition: width 1s;
 `;
 
 interface LanguageCounts {
@@ -66,6 +67,7 @@ interface Property {
 interface ProjectFrontEndProps {
   properties: { [key: string]: Property };
   githubLang: ProjectLang;
+  opacity: number;
 }
 const ProjectName = styled.div`
   margin-top: 20px;
@@ -99,7 +101,7 @@ const ValueTypography = styled.span`
   font-size: 14px;
 `;
 // Create the ProjectFrontEnd component
-const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLang }) => {
+const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLang, opacity }) => {
   const period = properties["\b기간"];
   const languageAndFramework = properties["언어 및 프레임워크"].multi_select;
   const personnel = properties["인원"].multi_select;
@@ -145,12 +147,12 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLan
         if (Object.prototype.hasOwnProperty.call(githubLang.languages, language.name)) {
           // Calculate the value for the progress bar
           const progressValue = (githubLang.languages[language.name] / totalCount) * 100;
-
+          const progressWidthValue = opacity === 1 ? progressValue : 0;
           return (
             <ProgressDiv key={language.id}>
               {language.name}
               <ProgressBarContainer>
-                <ProgressBarFiller backcolor={`${language.color}`} progress={progressValue} />
+                <ProgressBarFiller backcolor={`${language.color}`} progress={progressWidthValue} />
               </ProgressBarContainer>
             </ProgressDiv>
           );

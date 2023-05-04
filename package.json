@@ -53,6 +53,7 @@
     "@notionhq/client": "^2.2.4",
     "@octokit/rest": "^19.0.7",
     "@octokit/types": "^9.2.0",
+    "@studio-freight/compono": "^0.0.13",
     "@studio-freight/react-lenis": "^0.0.17",
     "@types/lodash": "^4.14.194",
     "@types/react-scroll": "^1.8.6",

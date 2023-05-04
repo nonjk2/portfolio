@@ -1,74 +1,102 @@
-import Slider from "react-slick";
+import Image from "next/image";
 import styled from "styled-components";
 
 /// 캐러셀 ///
-export const StyledSlider = styled(Slider)`
-  padding: 0;
-  a {
-    color: ${({ muiTheme }) => muiTheme.palette.primary.main};
-  }
-  .slick-prev::before,
-  .slick-next::before {
-    opacity: 0;
-    display: none;
-  }
-  .slick-center .project {
-    opacity: 1;
-    height: 80vh;
-    /* width: 100%; */
-  }
-  .project {
-    opacity: 0.5;
-  }
-  .projectBox {
-    display: flex;
-    padding: 20px;
-  }
-  .projectimgBox {
-    position: relative;
-    flex: 1;
-    margin: 50px;
-    height: 70vh;
-    width: auto;
-    padding: 5px;
-    margin-right: 20px;
-    background-color: rgba(255, 255, 255, 0.13);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
-    img {
-      width: 100%;
-      height: 100%;
-      position: relative !important;
-      object-fit: contain;
-    }
-  }
-  .projectinfoBox {
-    flex: 2;
-    margin: 50px;
-    height: 70vh;
-    padding: 5px;
-    overflow: hidden;
-    display: flex;
+
+export const ProjectContainer = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+  grid-auto-flow: row;
+  grid-auto-columns: 1fr;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+
+  @media (max-width: 768px) {
     flex-direction: column;
-    margin-left: 0px;
-    background-color: rgba(255, 255, 255, 0.13);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-    box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
+  }
+`;
+export const ProjectNameContainer = styled.div`
+  position: sticky;
+  top: 160px;
+  bottom: 120px;
+  flex: 1;
+  min-width: 100px;
+  /* width: 15vw;
+  min-width: 15vw; */
+
+  -ms-grid-row-align: start;
+  align-self: start;
+  @media (max-width: 768px) {
+    position: relative;
   }
 `;
 
-export const ProjectPaper = styled.div`
+export const ProjectAbout = styled.div`
+  position: relative;
+  background-color: white;
+  flex: 3;
+  /* min-width: 600px; */
+  /* padding: 3rem; */
+  opacity: 0;
+  transition: opacity 0.2s;
+`;
+export const ProjectWarpper = styled.div`
+  width: 100%;
+  background-color: white;
+  padding-top: 0px;
+  padding-bottom: 100px;
+`;
+export const ProjectSectionDiv = styled.div`
+  display: flex;
+  /* -webkit-box-direction: normal; */
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+`;
+export const Stepper = styled.div`
   position: sticky;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  /* background-color: rgba(255, 255, 255, 0.13);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
-  border-radius: 15; */
-  /* transition: "transform 0.2s"; */
-  /* transform: "rotateY(0deg)"; */
-  /* color: theme.palette.primary.main; */
+  left: 0;
+  width: 0%;
+  background-color: blue;
+  height: 5px;
+  transition: width 0.2s;
+  z-index: 10000;
+`;
+export const ProjectCoverImage = styled(Image)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  object-fit: cover;
+  transition: transform 0.2s;
+`;
+export const CoverImagediv = styled.div`
+  width: 100%;
+  height: 300px;
+  .coverImg {
+    width: 100%;
+    height: 100%;
+    position: relative !important;
+  }
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    .coverImage {
+      transform: scale(1.3);
+    }
+  }
 `;

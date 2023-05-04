@@ -1,26 +1,27 @@
 // hooks/useScrollOpacity.ts
-import { MutableRefObject, useEffect, useState } from "react";
+import { MutableRefObject, useEffect } from "react";
 
-const useScrollProgress = (ref: MutableRefObject<HTMLDivElement>) => {
-  const [active, setActive] = useState<boolean>(false);
+const useScrollProgress = (ref: MutableRefObject<HTMLDivElement>, setOpacity) => {
   const handleScroll = () => {
-    const scrollPosition = window.pageYOffset;
-    const scrollSectionTop = ref.current.offsetTop;
-    const scrollSectionBottom = ref.current.offsetTop + ref.current.offsetHeight;
-    if (ref.current && scrollPosition > scrollSectionTop) {
-      setActive(true);
-    } else if (ref.current && scrollPosition > scrollSectionBottom) {
-      setActive(false);
+    const rect = ref.current.getBoundingClientRect();
+    const scrollSectionTop = rect.top;
+    const viewportHeight = window.innerHeight / 2;
+    // const scrollSectionBottom = ref.current.offsetTop + ref.current.offsetHeight;
+    const copyref = { ...ref };
+    if (scrollSectionTop - viewportHeight < 0) {
+      copyref.current.style.opacity = `1`;
+      setOpacity(1);
+    } else {
+      copyref.current.style.opacity = `0`;
+      setOpacity(0);
     }
   };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [ref]);
-  return { active };
 };
 
 export default useScrollProgress;

@@ -3,6 +3,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  transpilePackages: ["@studio-freight/compono"],
   images: {
     domains: ["www.notion.so", "images.unsplash.com", "s3.us-west-2.amazonaws.com"],
     remotePatterns: [
