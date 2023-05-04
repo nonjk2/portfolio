@@ -68,6 +68,7 @@
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "react-syntax-highlighter": "^15.5.0",
+    "sass": "^1.62.1",
     "sharp": "^0.32.0",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.9",
