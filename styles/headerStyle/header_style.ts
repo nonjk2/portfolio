@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import { Stepper, StepConnector } from "@mui/material";
 import styled from "styled-components";
-import { Link } from "@studio-freight/compono";
+import Link from "next/link";
 
 interface LinkTypographyProps {
   active: number;
