@@ -23,11 +23,13 @@ const Home = () => {
   useHandleKeyDown(setActiveStep, Pages);
   const sectionRefs = Pages.map(() => useRef<HTMLDivElement | null>(null));
   useIntersectionSetActiveStep(setActiveStep, sectionRefs);
+
   useEffect(() => {
     if (Pages[activeStep]) {
       window.history.pushState(null, null, Pages[activeStep]);
     }
   }, [activeStep]);
+
   return (
     <StyledThemeProvider theme={theme}>
       <ReactLenis root options={{ lerp: 0.1, duration: 1 }}>

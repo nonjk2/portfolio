@@ -19,6 +19,8 @@ interface ImageProps {
 }
 
 const ImageRender: React.FC<ImageProps> = ({ block }) => {
+  // const date = new Date(block.image.file.expiry_time);
+  // const dateKr = `${date.getHours()} 시 + ${date.getMinutes()} 분 + ${date.getDay()};`;
   return (
     <ImageWrapper>
       <StyledImage src={`${block.image.file.url}`} alt="asdf" width={100} height={100} />

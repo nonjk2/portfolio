@@ -1,4 +1,4 @@
-import { Client } from "@notionhq/client";
+import { APIErrorCode, Client, ClientErrorCode, isNotionClientError } from "@notionhq/client";
 import { ListBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
 import { Block, Property } from "../../components/project/notion";
 
@@ -64,13 +64,33 @@ export const getBlocks = async (
     page_size: 30,
   },
 ) => {
-  const response: ListBlockChildrenResponse = await notion.blocks.children.list({
-    block_id: blockId,
-    page_size,
-    start_cursor,
-  });
-  const imageResponse = response.results;
-  return imageResponse;
+  try {
+    const response: ListBlockChildrenResponse = await notion.blocks.children.list({
+      block_id: blockId,
+      page_size,
+      start_cursor,
+    });
+    const imageResponse = response.results;
+    return imageResponse;
+  } catch (error: unknown) {
+    if (isNotionClientError(error)) {
+      // error is now strongly typed to NotionClientError
+      switch (error.code) {
+        case ClientErrorCode.RequestTimeout:
+          // ...
+          break;
+        case APIErrorCode.ObjectNotFound:
+          // ...
+          break;
+        case APIErrorCode.Unauthorized:
+          // ...
+          break;
+        // ...
+        default:
+      }
+    }
+  }
+  return [];
 };
 export const getBlocksWithChildren = async (blocks: Block[]) => {
   return Promise.all(

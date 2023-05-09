@@ -3,7 +3,6 @@ import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 import "../styles/global.css";
-
 import { GlobalStyles } from "../styles/globalStyled";
 
 const Portpolio = ({ Component, pageProps }) => {
@@ -18,6 +17,7 @@ const Portpolio = ({ Component, pageProps }) => {
         {/* <link rel="icon" href="/favicon.ico" /> */}
         <title>최은석's 포트폴리오</title>
       </Head>
+
       <Script
         strategy="beforeInteractive"
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_MAP_KEY}`}

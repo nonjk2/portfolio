@@ -53,7 +53,7 @@ export const ProjectLayout = styled.div<LayoutProps>`
   /* position: ${({ activeStep }) => (activeStep === 2 ? "sticky" : "sticky")}; */
   position: relative;
   margin-bottom: -100vh;
-  width: 100vw;
+  /* width: 100vw; */
   /* height: 500vh; */
 `;
 /// //스킬페이지 영역 /////////스킬페이지 영역 /////////스킬페이지 영역 ////

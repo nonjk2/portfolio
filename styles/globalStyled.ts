@@ -3,6 +3,9 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
 overflow-x: hidden;
+::-webkit-scrollbar-horizontal {
+  display: none;
+}
   body{
     background-color: rgb(17,17,17);
   }
