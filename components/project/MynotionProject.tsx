@@ -43,7 +43,6 @@ const MynotionProject: React.FC<notionProjectProps> = ({ e, index }) => {
     );
     return newBlock;
   });
-  console.log(notionDataBase);
   return (
     <ProjectWarpper key={e.id}>
       <ProjectSectionDiv>
