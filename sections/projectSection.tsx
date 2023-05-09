@@ -17,7 +17,6 @@ const ProjectLastDiv = styled.div`
   transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
     skew(0deg, 0deg);
   transform-style: preserve-3d;
-  /* flex-direction: column; */
   flex: 1;
 `;
 const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
@@ -35,17 +34,15 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
           {/* <MainbackImage alt="main" src={projectback} quality={100} fill /> */}
           <Stepper ref={stepperRef} />
           {notionDataBase.map((e: NotionPage, index: number) => (
-            <MynotionProject e={e} index={index} />
+            <MynotionProject e={e} key={e.id} index={index} />
           ))}
           <ProjectLastDiv
             ref={containerRef}
             style={{ height: "100vh", position: "sticky", backgroundColor: "#fff", top: 0 }}
           />
-          프로젝트 모아보기
           <div style={{ height: "100vh" }} />
           <div style={{ height: "100vh" }} />
           <div style={{ height: "100vh" }} />
-          공백구간 비뀌는구간
         </InnerImageDivProjectContainer>
       </InnerImageDivProject>
     </ProjectLayout>

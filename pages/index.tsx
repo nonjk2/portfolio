@@ -71,6 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
       notionDataBase,
       repositories: repositoriesWithLanguages,
     },
+    revalidate: 3600,
   };
 };
 

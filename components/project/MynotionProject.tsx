@@ -34,7 +34,6 @@ const MynotionProject: React.FC<notionProjectProps> = ({ e, index }) => {
   const createRefs = (length: number): React.RefObject<HTMLDivElement>[] => {
     return Array.from({ length }, () => useRef<HTMLDivElement>(null));
   };
-  console.log(repositories);
   const projectAboutRefs = createRefs(notionDataBase.length);
   useScrollProgress(projectAboutRefs[index], setOpacity);
   const sliceBlocks = blocks.map((val: Block[]) => {
@@ -44,6 +43,7 @@ const MynotionProject: React.FC<notionProjectProps> = ({ e, index }) => {
     );
     return newBlock;
   });
+  console.log(notionDataBase);
   return (
     <ProjectWarpper key={e.id}>
       <ProjectSectionDiv>

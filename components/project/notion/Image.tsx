@@ -11,7 +11,6 @@ const ImageWrapper = styled.div`
 
 const StyledImage = styled(Image)`
   max-width: 100%;
-
   width: 200px;
   height: auto;
 `;

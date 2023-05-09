@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <HeaderLayout>
       {steps.map((e, index) => (
-        <div style={{ height: "40px", display: "flex", alignItems: "center" }}>
+        <div key={e} style={{ height: "40px", display: "flex", alignItems: "center" }}>
           <LinkTypography
             active={activeStep}
             index={index}
