@@ -6,7 +6,7 @@ import { LinkTypography } from "../../styles/headerStyle/header_style";
 
 const Header = () => {
   const { activeStep, setActiveStep } = useAppContext();
-  const steps = ["#Main", "#Aboutme", "#Project", "#Skills"];
+  const steps = ["#Main", "#Aboutme", "#Project", "#Study&Skill"];
 
   const onRouteChange = useCallback((index) => {
     setActiveStep(index);
@@ -22,6 +22,7 @@ const Header = () => {
             index={index}
             href={`${e}`}
             onClick={() => onRouteChange(index)}
+            scroll={false}
           >
             {e}
           </LinkTypography>

@@ -9,6 +9,7 @@ interface AppContextType {
   notionDataBase: NotionPage[];
   blocks: any;
   repositories: any;
+  notionStudyDataBase: any;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -26,6 +27,7 @@ interface AppProviderProps {
   notionDataBase: NotionPage[];
   blocks: any;
   repositories: any;
+  notionStudyDataBase: any;
 }
 
 export const AppProvider: React.FC<AppProviderProps> = ({
@@ -33,6 +35,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({
   notionDataBase,
   blocks,
   repositories,
+  notionStudyDataBase,
 }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [themeLight, setThemeDark] = useState<boolean>(false);
@@ -46,8 +49,18 @@ export const AppProvider: React.FC<AppProviderProps> = ({
       notionDataBase,
       blocks,
       repositories,
+      notionStudyDataBase,
     };
-  }, [activeStep, setActiveStep, themeLight, setThemeDark, notionDataBase, blocks, repositories]);
+  }, [
+    activeStep,
+    setActiveStep,
+    themeLight,
+    setThemeDark,
+    notionDataBase,
+    blocks,
+    repositories,
+    notionStudyDataBase,
+  ]);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

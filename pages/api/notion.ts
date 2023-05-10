@@ -158,11 +158,19 @@ export const getBlockWithChildren = async (block: Block) => {
 
 export const getDataBase = async () => {
   const response = await notion.databases.query({
-    database_id: "464b609c5c9e44ab868f511bfaac782c",
+    database_id: `${process.env.NOTION_DATABASE_ID}`,
   });
   const notionDataBase = response.results;
   // const ProjectId = response.results
   return { notionDataBase };
+};
+export const getStudyDataBase = async () => {
+  const response = await notion.databases.query({
+    database_id: `${process.env.NOTION_STUDYDATABASE_ID}`,
+  });
+  const notionStudyDataBase = response.results;
+  // const ProjectId = response.results
+  return { notionStudyDataBase };
 };
 export const getPagesBlock = async () => {
   const { notionDataBase } = await getDataBase();

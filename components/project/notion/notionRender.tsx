@@ -30,7 +30,7 @@ import CodeComponent from "./CodeComponent";
 import Table from "./Table";
 import Quote from "./Quote";
 
-const Gubunsun = styled.hr`
+export const Gubunsun = styled.hr`
   background-color: #fff;
   padding: -1px;
   opacity: 0.7;

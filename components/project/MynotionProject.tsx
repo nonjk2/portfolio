@@ -7,6 +7,7 @@ import {
   CoverImagediv,
   ProjectCoverImage,
   ProjectContainer,
+  ProjectIntroContainer,
 } from "../../styles/projectStyle/project_style";
 import ProjectFrontEnd from "./ProjectInro";
 import NotionRenderer from "./notion/notionRender";
@@ -47,14 +48,16 @@ const MynotionProject: React.FC<notionProjectProps> = ({ e, index }) => {
     <ProjectWarpper key={e.id}>
       <ProjectSectionDiv>
         <ProjectContainer>
-          <ProjectNameContainer>
-            <ProjectFrontEnd
-              url={e.url}
-              properties={e.properties}
-              githubLang={NameOrLangRepositories[index]}
-              opacity={opacity}
-            />
-          </ProjectNameContainer>
+          <ProjectIntroContainer>
+            <ProjectNameContainer>
+              <ProjectFrontEnd
+                url={e.url}
+                properties={e.properties}
+                githubLang={NameOrLangRepositories[index]}
+                opacity={opacity}
+              />
+            </ProjectNameContainer>
+          </ProjectIntroContainer>
           <ProjectAbout ref={projectAboutRefs[index]}>
             <CoverImagediv>
               {e.cover && <ProjectCoverImage fill src={e.cover.file.url} alt="" className="coverImage" />}

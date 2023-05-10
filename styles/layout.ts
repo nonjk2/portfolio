@@ -43,22 +43,17 @@ export const AboutmeLayout = styled.div<LayoutProps>`
   position: relative;
   top: 0;
   margin-bottom: -100vh;
-  /* display: flex; */
-  height: 600vh;
+  height: 300vh;
 
   /* justify-content: center; */
 `;
 /// //프로젝트페이지 영역 /////////프로젝트페이지 영역 /////////프로젝트페이지 영역 ////
 export const ProjectLayout = styled.div<LayoutProps>`
-  /* position: ${({ activeStep }) => (activeStep === 2 ? "sticky" : "sticky")}; */
   position: relative;
   margin-bottom: -100vh;
-  /* width: 100vw; */
-  /* height: 500vh; */
 `;
 /// //스킬페이지 영역 /////////스킬페이지 영역 /////////스킬페이지 영역 ////
 export const SkillsLayout = styled.div<LayoutProps>`
-  /* position: ${({ activeStep }) => (activeStep === 3 ? "sticky" : "sticky")}; */
   position: relative;
   margin-bottom: -100vh;
   height: 300vh;
@@ -124,16 +119,12 @@ export const InnerImageDivContainer = styled.div`
   display: flex;
   will-change: filter, opacity, transform;
   height: 100vh;
-
   filter: blur(0px);
   opacity: 1;
-  padding: 2rem;
   transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
     skew(0deg, 0deg);
   transform-style: preserve-3d;
-  /* flex-direction: column; */
   flex: 1;
-  /* justify-content: flex-end; */
   position: -webkit-sticky;
   position: sticky;
   overflow: hidden;

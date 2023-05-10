@@ -1,263 +1,194 @@
-import { styled } from "@mui/material";
-import Image from "next/image";
+import { Typography } from "@mui/material";
+import styled from "styled-components";
 
-interface ContainerProps {
-  activeStep: number;
-}
-export const Container = styled("div")(({ activeStep }: ContainerProps) => ({
-  position: activeStep === 1 ? "sticky" : "sticky",
-  top: "0",
-  height: "100vh",
-  width: "80vw",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  "@media (max-width: 768px)": {
-    display: "none",
-  },
-}));
+export const Container = styled.div`
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
-export const SmallpaperContainer = styled("div")(() => ({
-  perspective: "1000px",
-  flex: "1",
-  "&:hover , &:focus": {
-    "& .paper": { transform: "rotateY(180deg)" },
-  },
-}));
+export const Stepper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  background-color: blue;
+  height: 5px;
+  transition: width 0.2s;
+  z-index: 10000;
+`;
+export const Introduce = styled.div`
+  background-color: rgba(200, 200, 200, 0.7);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  min-width: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  z-index: 1000;
+  width: 30%;
+`;
 
-export const Paper = styled("div")(({ theme }) => ({
-  flex: 1,
-  position: "relative",
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  alignItems: "center",
-  backgroundColor: "rgba(255, 255, 255, 0.13)",
-  border: "2px solid rgba(255,255,255,0.1)",
-  boxShadow: "0 0 40px rgba(8,7,16,0.1)",
-  borderRadius: 15,
-  transition: "transform 0.2s",
-  transformStyle: "preserve-3d",
-  transform: "rotateY(0deg)",
-  color: theme.palette.primary.main,
-}));
+export const TimeTypographyContainer = styled.div`
+  line-height: 2rem;
+  width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+`;
+export const TimeTypography = styled.span`
+  font-size: 1.2rem;
+  font-weight: 200;
+  white-space: nowrap;
+  white-space: pre-line;
+`;
+export const TypographyHye = styled(Typography)`
+  font-size: 2.3rem;
+  font-weight: 400;
+  white-space: pre-line;
+  /* color: #fff; */
+`;
+export const AboutmeCardContainer = styled.div`
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+export const SmallpaperContainer = styled.div`
+  perspective: 1000px;
+  flex: 1;
+  &:hover,
+  &:focus {
+    & .paper {
+      transform: rotateY(180deg);
+    }
+  }
+`;
 
-export const PaperContainer = styled("div")(() => ({
-  position: "sticky",
-  perspective: "1000px",
-  width: "40vw",
-  height: "60vh",
-  "&:hover , &:focus": {
-    "& .paper": { transform: "rotateY(180deg)" },
-  },
-}));
+export const Paper = styled.div`
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.13);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
+  border-radius: 15px;
+  transition: transform 0.2s;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  color: ${({ theme }) => theme.palette.primary.main};
+`;
 
-export const FrontAboutMeOne = styled("div")({
-  display: "flex",
-  alignContent: "center",
-  justifyContent: "center",
-  backfaceVisibility: "hidden",
-  MozBackfaceVisibility: "hidden",
-  position: "absolute",
-  width: "100%",
-  height: "100%",
-  zIndex: "2",
-  // overflow: "hidden",
-});
+export const PaperContainer = styled.div`
+  position: sticky;
+  perspective: 1000px;
+  width: 40vw;
+  height: 60vh;
+  &:hover,
+  &:focus {
+    & .paper {
+      transform: rotateY(180deg);
+    }
+  }
+`;
 
-export const FrontAboutMeTwo = styled("div")({
-  backfaceVisibility: "hidden",
-  MozBackfaceVisibility: "hidden",
-  borderRadius: 15,
-  position: "absolute",
-  width: "100%",
-  height: "100%",
-  zIndex: "1",
-  overflow: "hidden",
-  transform: "rotateY(180deg)",
-});
+export const FrontAboutMeOne = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+`;
 
-export const EunImg = styled(Image)({
-  objectFit: "cover",
-  borderRadius: 15,
-});
+export const FrontAboutMeTwo = styled.div`
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  border-radius: 15px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  transform: rotateY(180deg);
+`;
 
-export const MyAboutPaperContainer = styled("div")({
-  width: "20vw",
-  height: "50vh",
-  display: "flex",
-  flexDirection: "column",
-  marginLeft: "10px",
-});
+export const MyAboutPaperContainer = styled.div`
+  width: 20vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+`;
 
-export const MyAboutAddContainer = styled("div")({
-  position: "relative",
-  overflow: "hidden",
-  // right: "15%",
-  // top: "auto",
-  maxWidth: "20vw",
-  width: "20vw",
-  height: "50vh",
-  margin: " 1rem 0",
-  // bottom: "30%",
-  display: "flex",
-  flexDirection: "column",
-  marginLeft: "10px",
-  transition: "all 0.3s",
-});
+export const MyAboutAddContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  max-width: 20vw;
+  min-width: 200px;
+  width: 20vw;
+  height: 50vh;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  transition: all 0.3s;
+`;
 
-export const MyAboutPaper = styled(Paper)({
-  borderRadius: 15,
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-});
+export const MyAboutPaper = styled(Paper)`
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-export const MyAboutSmallPaperContainer = styled("div")({
-  flex: "1",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-});
+export const MyAboutSmallPaperContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
-export const MyAboutSmallPaper = styled("div")({
-  flex: "1",
-  display: "flex",
-  width: "100%",
-  height: "100%",
-  lineHeight: "50%",
-  alignItems: "center",
-  justifyContent: "center",
-  flexDirection: "column",
-});
+export const MyAboutSmallPaper = styled.div`
+  flex: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  line-height: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
-export const Bottompaper = styled("div")({
-  flex: "0.15",
-  borderRadius: "30",
-  marginTop: "5px",
-  backgroundColor: "rgba(255, 255, 255, 0.13)",
-  border: "2px solid rgba(255,255,255,0.1)",
-  boxShadow: "0 0 40px rgba(8,7,16,0.1)",
-  display: "flex",
-  justifyContent: "center",
-});
-
-// ... 나머지 스타일드 컴포넌트들
-
-// export const useStyles = styled((theme) => ({
-//   Container: {
-//     height: "100vh",
-//     width: "100vw",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   SmallpaperContainer: {
-//     perspective: "1000px",
-//     flex: "1",
-//     "&:hover , &:focus": {
-//       "& $paper": { transform: "rotateY(180deg)" },
-//     },
-//     // margin: "5px",
-//   },
-//   paper: {
-//     position: "relative",
-//     width: "100%",
-//     height: "100%",
-//     backgroundColor: "rgba(255, 255, 255, 0.13)",
-//     // backdropFilter: "blur(2px)",
-//     border: "2px solid rgba(255,255,255,0.1)",
-//     boxShadow: "0 0 40px rgba(8,7,16,0.1)",
-//     borderRadius: 15,
-//     transition: "transform 0.2s",
-//     transformStyle: "preserve-3d",
-//     transform: "rotateY(0deg)",
-
-//     // zIndex: "3",
-//   },
-//   paperContainer: {
-//     perspective: "1000px",
-//     width: "40vw",
-//     height: "60vh",
-//     "&:hover , &:focus": {
-//       "& $paper": { transform: "rotateY(180deg)" },
-//     },
-//     // margin: "5px",
-//   },
-//   /** 카드 플립효과 */
-//   frontAboutMeOne: {
-//     backfaceVisibility: "hidden",
-//     MozBackfaceVisibility: "hidden",
-//     position: "absolute",
-//     width: "100%",
-//     height: "100%",
-//     zIndex: "2",
-//   },
-//   /** 카드 플립효과 뒷면 */
-//   frontAboutMeTwo: {
-//     backfaceVisibility: "hidden",
-//     MozBackfaceVisibility: "hidden",
-//     borderRadius: 15,
-//     position: "absolute",
-//     width: "100%",
-//     height: "100%",
-//     zIndex: "1",
-//     transform: "rotateY(180deg)",
-//   },
-//   eunImg: {
-//     objectFit: "cover",
-//     borderRadius: 15,
-//   },
-//   myAboutPaperContainer: {
-//     width: "20vw",
-//     height: "50vh",
-//     display: "flex",
-//     flexDirection: "column",
-//     marginLeft: "10px",
-//   },
-//   myAboutAddContainer: {
-//     width: "30vw",
-//     height: "50vh",
-//     display: "flex",
-//     flexDirection: "column",
-//     marginLeft: "10px",
-//   },
-//   myAboutPaper: {
-//     borderRadius: 15,
-//     width: "100%",
-//     height: "100%",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   myAboutSmallPaperContainer: {
-//     flex: "1",
-//     display: "flex",
-//     flexDirection: "column",
-//     justifyContent: "center",
-//   },
-//   myAboutSmallPaper: {
-//     // height: "25%",
-//     flex: "1",
-//     // margin: "5px",
-//     display: "flex",
-//     lineHeight: "50%",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     flexDirection: "column",
-//   },
-
-//   bottompaper: {
-//     flex: "0.15",
-//     borderRadius: "30",
-//     marginTop: "5px",
-//     backgroundColor: "rgba(255, 255, 255, 0.13)",
-//     // backdropFilter: "blur(2px)",
-//     border: "2px solid rgba(255,255,255,0.1)",
-//     boxShadow: "0 0 40px rgba(8,7,16,0.1)",
-//     display: "flex",
-//     justifyContent: "center",
-//   },
-// }));
+export const Bottompaper = styled.div`
+  flex: 0.15;
+  border-radius: 30px;
+  margin-top: 5px;
+  background-color: rgba(255, 255, 255, 0.13);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.1);
+  display: flex;
+  justify-content: center;
+`;

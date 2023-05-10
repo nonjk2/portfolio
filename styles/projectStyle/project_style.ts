@@ -19,19 +19,22 @@ export const ProjectContainer = styled.div`
     flex-direction: column;
   }
 `;
+export const ProjectIntroContainer = styled.div`
+  /* background-color: rgba(220, 230, 240, 0.3); */
+  flex: 1;
+  padding: 1rem;
+`;
 export const ProjectNameContainer = styled.div`
   position: sticky;
-  top: 160px;
+  top: 200px;
   bottom: 120px;
-  flex: 1;
   min-width: 100px;
-  /* width: 15vw;
-  min-width: 15vw; */
-
   -ms-grid-row-align: start;
   align-self: start;
   @media (max-width: 768px) {
     position: relative;
+    top: 0px;
+    bottom: 0px;
   }
 `;
 

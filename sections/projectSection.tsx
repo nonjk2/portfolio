@@ -41,8 +41,6 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
             style={{ height: "100vh", position: "sticky", backgroundColor: "#fff", top: 0 }}
           />
           <div style={{ height: "100vh" }} />
-          <div style={{ height: "100vh" }} />
-          <div style={{ height: "100vh" }} />
         </InnerImageDivProjectContainer>
       </InnerImageDivProject>
     </ProjectLayout>

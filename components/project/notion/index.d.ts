@@ -168,81 +168,13 @@ export interface Property {
   date?: DateRange;
   multi_select?: MultiSelect[];
   title?: Title[];
+  rich_text?: RichTextTextInput[];
   status?: {
     id: string;
     name: string;
     color: string;
   };
 }
-// export interface ProjectData {
-//   id: string;
-//   url: string;
-//   이름?: {
-//     id: string;
-//     title: {
-//       text: {
-//         content: string;
-//         link: null;
-//       };
-//       annotations: {
-//         bold: boolean;
-//         italic: boolean;
-//         strikethrough: boolean;
-//         underline: boolean;
-//         code: boolean;
-//         color: Color | BackgroundColor;
-//       };
-//       plain_text: string;
-//       href: null;
-//     }[];
-//     type: "title";
-//   };
-//   인원?: {
-//     id: string;
-//     multi_select: {
-//       id: string;
-//       name: string;
-//       color: Color | BackgroundColor;
-//     }[];
-//     type: "multi_select";
-//   };
-//   프로젝트?: {
-//     id: string;
-//     multi_select: {
-//       id: string;
-//       name: string;
-//       color: Color | BackgroundColor;
-//     }[];
-//     type: "multi_select";
-//   };
-//   "언어 및 프레임워크"?: {
-//     id: string;
-//     multi_select: {
-//       id: string;
-//       name: string;
-//       color: Color | BackgroundColor;
-//     }[];
-//     type: "multi_select";
-//   };
-//   "프로젝트 상태"?: {
-//     id: string;
-//     status: {
-//       id: string;
-//       name: string;
-//       color: Color | BackgroundColor;
-//     };
-//     type: "status";
-//   };
-//   기간?: {
-//     id: string;
-//     date: {
-//       start: string;
-//       end: string | null;
-//       timezone: string | null;
-//     };
-//     type: "date";
-//   };
-// }
 
 export interface QuoteBlock extends BlockBase {
   type: "quote";

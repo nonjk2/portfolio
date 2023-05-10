@@ -6,7 +6,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import AppLayout from "../components/appLayout";
 import { AppProvider, useAppContext } from "../components/appprovider";
 import Header from "../components/header/header";
-import { getDataBase, getPagesBlock } from "./api/notion";
+import { getDataBase, getPagesBlock, getStudyDataBase } from "./api/notion";
 import useHandleKeyDown from "../hooks/useHandlekeyDown";
 import { useIntersectionSetActiveStep } from "../hooks/useIntersectionObserver";
 import MainImageSection from "../sections/mainSection";
@@ -17,7 +17,7 @@ import createMyTheme from "../styles/theme";
 import { fetchLanguages, getGitHubRepositories } from "./api/github";
 
 const Home = () => {
-  const Pages = ["#Main", "#Aboutme", "#Project", "#Skills"];
+  const Pages = ["#Main", "#Aboutme", "#Project", "#Study&Skills"];
   const { themeLight, activeStep, setActiveStep } = useAppContext();
   const theme = useMemo(() => createTheme(createMyTheme()), [themeLight, activeStep]);
   useHandleKeyDown(setActiveStep, Pages);
@@ -40,6 +40,7 @@ const Home = () => {
             <AboutMeSections ref={sectionRefs[1]} />
             <ProjectSection ref={sectionRefs[2]} />
             <SkillsSection ref={sectionRefs[3]} />
+            <div style={{ height: "100vh", backgroundColor: "#fff", zIndex: 3 }} />
           </AppLayout>
         </MuiThemeProvider>
       </ReactLenis>
@@ -47,8 +48,13 @@ const Home = () => {
   );
 };
 
-const MyApp = ({ otherProps, notionDataBase, blocks, repositories }) => (
-  <AppProvider notionDataBase={notionDataBase} blocks={blocks} repositories={repositories}>
+const MyApp = ({ otherProps, notionDataBase, blocks, repositories, notionStudyDataBase }) => (
+  <AppProvider
+    notionDataBase={notionDataBase}
+    blocks={blocks}
+    repositories={repositories}
+    notionStudyDataBase={notionStudyDataBase}
+  >
     <Home {...otherProps} />
   </AppProvider>
 );
@@ -56,6 +62,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { notionDataBase } = await getDataBase();
   const { PageBlocks } = await getPagesBlock();
   const repositories = await getGitHubRepositories();
+  const { notionStudyDataBase } = await getStudyDataBase();
   const repositoriesWithLanguages = await Promise.all(
     repositories.map(async (repo) => {
       const languages = await fetchLanguages(repo.languages_url);
@@ -72,6 +79,7 @@ export const getStaticProps: GetStaticProps = async () => {
       blocks: PageBlocks,
       notionDataBase,
       repositories: repositoriesWithLanguages,
+      notionStudyDataBase,
     },
     revalidate: 3600,
   };
