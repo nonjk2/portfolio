@@ -10,6 +10,10 @@ export const StudyCardListContainer = styled.div`
 export const CardContainer = styled.div`
   width: 25%;
   padding: 1rem;
+  @media only screen and (max-width: 600px) {
+    /* Apply mobile styles */
+    width: 100%;
+  }
 `;
 export const SearchCardContainer: any = styled.div`
   box-sizing: border-box;

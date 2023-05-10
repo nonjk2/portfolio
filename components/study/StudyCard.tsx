@@ -17,7 +17,7 @@ const StudyCard: React.FC<StudyCardProps> = ({ study }) => {
             <Image src={study.cover?.file.url} alt="myback" fill />
           </div>
           <ul className="details">
-            <li className="author">
+            {/* <li className="author">
               <a href="#">John Doe</a>
             </li>
             <li className="date">Aug. 24, 2015</li>
@@ -36,7 +36,7 @@ const StudyCard: React.FC<StudyCardProps> = ({ study }) => {
                   <a href="#">CSS</a>
                 </li>
               </ul>
-            </li>
+            </li> */}
           </ul>
         </div>
 
