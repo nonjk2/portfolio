@@ -124,7 +124,9 @@ const ProjectFrontEnd: React.FC<ProjectFrontEndProps> = ({ properties, githubLan
   const languageAndFramework = properties["언어 및 프레임워크"].multi_select;
   const personnel = properties["인원"].multi_select;
   const projectStatus = properties["프로젝트 상태"].status;
-  const totalCount = Object.values(githubLang.languages).reduce((sum, count) => sum + count, 0);
+  const totalCount = githubLang?.languages
+    ? Object.values(githubLang.languages).reduce((sum, count) => sum + count, 0) ?? 50
+    : 50;
 
   return (
     <div>

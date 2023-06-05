@@ -27,13 +27,17 @@ const ProjectSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>)
   useScrollOpacity(ref, innerRef, containerRef);
   useScrollStepper(ref, stepperRef);
 
+  const notionProject = notionDataBase.filter(
+    (item) => item.properties["프로젝트 상태"].status.name === "프로젝트마감",
+  );
+
   return (
     <ProjectLayout id="Project" ref={ref} activeStep={activeStep}>
       <InnerImageDivProject ref={innerRef}>
         <InnerImageDivProjectContainer>
           {/* <MainbackImage alt="main" src={projectback} quality={100} fill /> */}
           <Stepper ref={stepperRef} />
-          {notionDataBase.map((e: NotionPage, index: number) => (
+          {notionProject.map((e: NotionPage, index: number) => (
             <MynotionProject e={e} key={e.id} index={index} />
           ))}
           <ProjectLastDiv

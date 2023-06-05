@@ -15,27 +15,27 @@ import { myinfoCompo } from "../../utils/utilfunction";
 const AboutmeAdress: React.FC = () => {
   const mapElement = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { naver } = window;
-    if (!mapElement.current || !naver) return;
-    const location = new naver.maps.LatLng(37.5162, 126.8968);
-    const mapOptions = {
-      center: location,
-      zoom: 13,
-      zoomControl: false,
-      scrollWheel: false,
-      zoomControlOptions: {
-        position: naver.maps.Position.TOP_RIGHT,
-      },
-    };
-    const map = new naver.maps.Map(mapElement.current, mapOptions);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const marker = new naver.maps.Marker({
-      position: location,
-      map,
-    });
-  }, []);
+  // useEffect(() => {
+  //   const { naver } = window;
+  //   if (!mapElement.current || !naver) return;
+  //   // const location = new naver.maps.LatLng(37.5162, 126.8968);
+  //   const mapOptions = {
+  //     center: new naver.maps.LatLng(37.5162, 126.8968),
+  //     zoom: 13,
+  //     zoomControl: false,
+  //     scrollWheel: false,
+  //     zoomControlOptions: {
+  //       position: naver.maps.Position.TOP_RIGHT,
+  //     },
+  //   };
+  //   const map = new naver.maps.Map(mapElement.current, mapOptions);
+
+  //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //   const marker = new naver.maps.Marker({
+  //     position: location,
+  //     map,
+  //   });
+  // }, []);
 
   return (
     <MyAboutAddContainer>

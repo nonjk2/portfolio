@@ -59,6 +59,7 @@ export const TypographyHye = styled(Typography)`
 `;
 export const AboutmeCardContainer = styled.div`
   display: flex;
+  position: relative;
   width: 70%;
   flex-direction: column;
   align-items: flex-end;

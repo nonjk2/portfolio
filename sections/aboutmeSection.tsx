@@ -29,7 +29,6 @@ const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>
     <AboutmeLayout id="Aboutme" ref={ref} activeStep={activeStep}>
       <InnerImageDiv ref={innerRef}>
         <InnerImageDivContainer ref={containerRef}>
-          <MainbackImageMe alt="main" src={esimgtwo} quality={100} fill />
           <Stepper ref={stepperRef} />
           <Introduce ref={introduceRef}>
             <TypographyHye style={{ whiteSpace: "pre-line" }} variant="h3">
@@ -47,6 +46,7 @@ const AboutMeSections = forwardRef((props, ref: MutableRefObject<HTMLDivElement>
             </TimeTypographyContainer>
           </Introduce>
           <AboutmeCardContainer>
+            <MainbackImageMe alt="main" src={esimgtwo} quality={100} fill />
             <AboutmeMyInfo />
             <AboutmeAdress />
           </AboutmeCardContainer>
