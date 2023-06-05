@@ -10,6 +10,20 @@ import StudyCard from "../components/study/StudyCard";
 import { NotionPage } from "../pages/api/notion";
 import { CardContainer, StudyCardListContainer } from "../styles/skillStyle/Skill_style";
 
+interface Eundol<T> {
+  name: string;
+  age: number;
+  skill: T;
+}
+
+interface Developer {
+  skill: string;
+}
+const createEundol = (skill: Developer): Eundol<Developer> => {
+  return { name: "ㅁㅇㄴㄹ", age: 12, skill };
+};
+
+createEundol({ skill: "ts" });
 const SkillsSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement>) => {
   const { activeStep, notionStudyDataBase } = useAppContext();
   const innerRef = useRef<HTMLDivElement>(null);

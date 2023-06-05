@@ -10,6 +10,7 @@ const MainImageSection = forwardRef((props, ref: MutableRefObject<HTMLDivElement
   const containerRef = useRef<HTMLDivElement>(null);
   const textRefone = useRef<HTMLSpanElement>(null);
   const textReftwo = useRef<HTMLSpanElement>(null);
+
   useScrollOpacity(ref, innerRef, containerRef);
   return (
     <MainImageLayout id="Main" ref={ref} activeStep={activeStep}>

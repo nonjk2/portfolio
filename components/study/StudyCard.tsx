@@ -9,6 +9,7 @@ interface StudyCardProps {
   study: NotionPage;
 }
 const StudyCard: React.FC<StudyCardProps> = ({ study }) => {
+  // console.log(study);
   return (
     <SearchCardContainer>
       <div className="blog-card">

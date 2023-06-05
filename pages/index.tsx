@@ -81,7 +81,7 @@ export const getStaticProps: GetStaticProps = async () => {
       repositories: repositoriesWithLanguages,
       notionStudyDataBase,
     },
-    revalidate: 3600,
+    revalidate: 3500,
   };
 };
 
